@@ -1,0 +1,16 @@
+%h2= t('.title', :forum => forum)
+%h3= t('posts_count', :count => @posts.count, :scope => 'forem.general')
+= form_tag forem.forum_moderate_posts_url(forum), :method => :put do
+  #posts
+    - @posts.limit(25).group_by(&:topic).each do |topic, posts|
+      %h4
+        = forem_emojify(topic.forum.title)
+        \&raquo; #{forem_emojify(topic.subject)}
+      = render posts, :mass_moderation => true
+%h3= t('topics_count', :count => @topics.count, :scope => 'forem.forum')
+#topics
+  - @topics.limit(25).each_with_index do |topic, topic_counter|
+    %div{:class => "topic #{cycle('odd', 'even', name: 'topics')}", :id => "topic_#{topic_counter + 1}"}
+      .moderation.alert
+        = link_to forem_emojify(topic.subject), |
+          forem.forum_topic_path(forum, topic)  |

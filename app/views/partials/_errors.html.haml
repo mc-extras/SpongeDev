@@ -1,0 +1,5 @@
+- if object.errors.any?
+	%ul
+		- object.errors.full_messages.each do |msg|
+			%li{style: 'color: red;'}
+				= msg

@@ -1,0 +1,22 @@
+%head
+  %title
+    - if content_for? :title
+      Sponge - #{yield :title}
+    - else
+      Sponge
+  %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
+  %meta{:charset => "UTF-8"}
+  -if content_for? :head
+    = yield(:head)
+  - else
+  = favicon_link_tag
+  = stylesheet_link_tag 'application', media: 'all'
+  = stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
+  = javascript_include_tag 'application'
+  = csrf_meta_tags
+%body
+  = render 'partials/navbar'
+  .header-alert
+    = render 'partials/alerts'
+  = yield
+  = render 'partials/footer'

@@ -1,0 +1,12 @@
+- if notice
+  .alert.alert-success.alert-dismissible{role: "alert"}
+    %button.close{"data-dismiss" => "alert", type: "button"}
+      %span{"aria-hidden" => "true"} ×
+      %span.sr-only Close
+    = notice
+- if alert
+  .alert.alert-danger.alert-dismissible{role: "alert"}
+    %button.close{"data-dismiss" => "alert", type: "button"}
+      %span{"aria-hidden" => "true"} ×
+      %span.sr-only Close
+    = alert

@@ -1,0 +1,11 @@
+%h1= t('forem.admin.area')
+%p
+  = t('forem.admin.welcome')
+%ul
+  %li
+    = link_to t('forem.admin.forum.index'), forem.admin_forums_path
+  %li= link_to t('forem.admin.category.index'), forem.admin_categories_path
+  %li= link_to t('forem.admin.group.index'), forem.admin_groups_path
+%br/
+%footer#admin_link
+  = link_to t(:back_to_forums, :scope => 'forem.admin'), forem.root_path

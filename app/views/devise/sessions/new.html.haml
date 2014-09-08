@@ -1,0 +1,21 @@
+.page-header
+  %h1 Login
+.row
+  .col-md-9
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-inputs
+        %p
+          = f.input :email, required: false, autofocus: true, :input_html => { :class => "form-control", style: "width: 35%" }
+        %p
+          = f.input :password, required: false, :input_html => { :class => "form-control" , style: "width: 20%"}
+        %p
+          = f.input :remember_me, as: :boolean, :wrapper_html => { :class => 'form-inline' } if devise_mapping.rememberable?
+      .form-actions
+        %p
+          = f.button :submit, "Login", class: 'btn btn-primary'
+  .col-md-3
+    %ul.nav.nav-list
+      %li
+        %a{href: main_app.root_path} Home
+      %li
+        %a{href: main_app.new_user_registration_path} Register

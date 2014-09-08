@@ -1,0 +1,8 @@
+.page-header
+  %h1 Forums
+
+.row
+  .col-md-10
+    = render Forem::Category.all
+  .col-md-2
+    = render 'forem/forums/sidebar'

@@ -1,0 +1,22 @@
+.page-header
+  %h1 Register
+.row
+  .col-md-9
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      .form-inputs
+        %p
+          = f.input :email, required: true, autofocus: true, :input_html => { :class => "form-control", style: "width: 35%"}
+        %p
+          = f.input :password, required: true, :input_html => { :class => "form-control", style: "width: 20%" }
+        %p
+          = f.input :password_confirmation, required: true, :input_html => { :class => "form-control", style: "width: 20%" }
+      .form-actions
+        %p
+          = f.button :submit, "Register", class: 'btn btn-primary'
+  .col-md-3
+    %ul.nav.nav-list
+      %li
+        %a{href: main_app.root_path} Home
+      %li
+        %a{href: main_app.new_user_session_path} Login
