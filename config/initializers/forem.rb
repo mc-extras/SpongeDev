@@ -1,8 +1,8 @@
 Forem.user_class = "User"
-Forem.email_from_address = "please-change-me@example.com"
+Forem.email_from_address = "info@jake0oo0.me"
 # If you do not want to use gravatar for avatars then specify the method to use here:
 # Forem.avatar_user_method = :custom_avatar_url
-Forem.per_page = 20
+Forem.per_page = 15
 Forem.layout = 'application'
 
 # Rails.application.config.to_prepare do
