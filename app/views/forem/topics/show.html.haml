@@ -12,7 +12,7 @@
   %li
     %a{href: forem.root_path} Forums
   %li
-    %a{href: @forum}= @forum.title
+    = link_to forem_emojify(@forum.title), forem.forum_path(@forum)
   %li
     = link_to forem_emojify(@topic.subject), forem.forum_topic_path(@forum, @topic)
 
