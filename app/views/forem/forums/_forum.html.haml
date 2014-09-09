@@ -1,14 +1,26 @@
 - if can?(:read, forum)
   %tr
     %td
-      %b
-        = link_to forem_emojify(forum.title), forem.forum_path(forum), :class => "title forum"
-      %span.last_post.pull-right
-        Latest:
-        - if last_post = forum.last_post_for(forem_user)
-          = link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic))
-          = t('by')
-          = last_post.user.forem_name
-          %time{:datetime => last_post.created_at.to_s(:db)}= "#{time_ago_in_words(last_post.created_at)} #{t("ago")}"
-        - else
-          N/A
+      .row
+        .col-md-1
+          %i.fa.fa-quote-left.fa-3x{style: "color: gray;"}
+        .col-md-3
+          %b
+            = link_to forem_emojify(forum.title), forem.forum_path(forum), :class => "forum"
+            %br/
+            %i.fa.fa-comment
+            = topics_count(forum)
+            Topics
+            %i.fa.fa-comments{style: "padding-left: 10px;"}
+            = posts_count(forum)
+            Posts
+        .col-md-8
+          %span.last_post.pull-right
+            Latest:
+            - if last_post = forum.last_post_for(forem_user)
+              = link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic))
+              = t('by')
+              = last_post.user.forem_name
+              %time{:datetime => last_post.created_at.to_s(:db)}= "#{time_ago_in_words(last_post.created_at)} #{t("ago")}"
+            - else
+              N/A
