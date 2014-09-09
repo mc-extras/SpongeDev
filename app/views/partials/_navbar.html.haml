@@ -60,7 +60,7 @@
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             - if current_user
-              = current_user.email
+              = current_user.username
               &nbsp  
             %i.fa.fa-user
           %ul.dropdown-menu{role: "menu"}
