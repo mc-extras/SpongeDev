@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def forem_name
-    email
+    username
   end
 
   def forem_email
