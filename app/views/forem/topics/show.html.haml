@@ -14,7 +14,7 @@
   %li
     %a{href: @forum}= @forum.title
   %li
-    = link_to forem_emojify(@topic.subject), @topic
+    = link_to forem_emojify(@topic.subject), forem.forum_topic_path(@forum, @topic)
 
 
 .container
