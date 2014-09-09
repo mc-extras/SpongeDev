@@ -9,22 +9,22 @@
       %a.navbar-brand{href: main_app.root_path, style: "margin-left: 30px;"} Sponge
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav{style: "margin-left: 20px;"}
-        %li.active
+        %li{class: "#{active("home")}"}
           %a{href: main_app.root_path} 
             %i.fa.fa-home
             &nbsp;
             Home
-        %li
+        %li{class: "#{active("forums")}"}
           %a{href: forem.root_path} 
             %i.fa.fa-list
             &nbsp;
             Forums
-        %li
+        %li{class: "#{active("downloads")}"}
           %a{href: main_app.root_path} 
             %i.fa.fa-download
             &nbsp;
             Downloads
-        %li.dropdown
+        %li.dropdown{class: "#{active("resources")}"}
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             %i.fa.fa-file-o
             &nbsp;
@@ -51,7 +51,7 @@
                 %i.fa.fa-github
                 &nbsp;
                 Github
-        %li
+        %li{class: "#{active("plugins")}"}
           %a{href: main_app.root_path} 
             %i.fa.fa-search
             &nbsp;
