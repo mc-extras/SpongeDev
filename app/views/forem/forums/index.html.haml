@@ -1,6 +1,12 @@
 .page-header
   %h1 Forums
 
+%ol.breadcrumb
+  %li
+    %a{href: main_app.root_path} Home
+  %li
+    %a{href: forem.root_path} Forums
+
 .row
   .col-md-9
     = render Forem::Category.all

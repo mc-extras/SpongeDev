@@ -1,5 +1,10 @@
-= simple_form_for [forem, @forum, @topic] do |f|
-  = f.input :subject
-  = f.simple_fields_for :posts do |post|
-    = render :partial => "forem/posts/form", :locals => { :f => post }
-  = f.submit :class => "btn btn-primary"
+.row
+  .col-md-12.col-md-offset-2
+    = simple_form_for [forem, @forum, @topic] do |f|
+      %p
+        = f.input :subject, :input_html => { :class => "form-control", style: "width: 65%"}, placeholder: 'Topic...', label: false
+      %p
+        = f.simple_fields_for :posts do |post|
+          = render :partial => "forem/posts/form", :locals => { :f => post }
+      %p
+        = f.submit :class => "btn btn-primary"

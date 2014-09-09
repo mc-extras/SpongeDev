@@ -13,6 +13,7 @@
  *= require_tree .
  *= require 'forem/base'
  *= require bootstrap.min
+ *= require bootstrap-wysihtml5
  *= require_self
  */
 
