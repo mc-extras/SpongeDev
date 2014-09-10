@@ -38,3 +38,8 @@ a:link.forum { color: black; text-decoration: none; }
 a:visited.forum { color: black; text-decoration: none; } 
 a:hover.forum { color: black; text-decoration: none; } 
 a:active.forum { color: black; text-decoration: none; } 
+
+#left-dropdown {
+	right: 0; 
+	left: auto;
+}

@@ -17,12 +17,12 @@
   %p{style: "margin-bottom: 0px; margin-left: 10px; padding-bottom: 5px;"}= @forum.description
 - if can?(:read, @forum)
   = forem_pages_widget(@topics)
-  %table.table.table-striped{style: "margin-top: 0px; box-shadow: 0 0 2px rgba(0,0,0,.30);"}
+  %table.table{style: "margin-top: 0px; box-shadow: 0 0 2px rgba(0,0,0,.30);"}
     %thead
       %tr
-        %th.icon
-        %th.byline= t('forem.topic.headings.topic')
-        %th.latest-post.text-center= t('forem.topic.headings.latest')
+        %th{style: "width: 60px"}
+        %th.byline{style: "width: 60%"}= t('forem.topic.headings.topic')
+        %th.latest-post= t('forem.topic.headings.latest')
         %th.posts-count.text-center= t('forem.topic.headings.posts')
         %th.views-count.text-center= t('forem.topic.headings.views')
     %tbody
