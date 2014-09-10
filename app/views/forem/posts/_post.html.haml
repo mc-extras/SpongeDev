@@ -6,7 +6,7 @@
 				- if post.user.is_a?(Forem::NilUser)
 					[deleted]
 				- else
-					= post.user.username
+					= link_to post.user.username, main_app.profile_path(post.user.username)
 	.col-md-11
 		.content{style: "min-height: 100px;"}
 			- if post.reply_to
