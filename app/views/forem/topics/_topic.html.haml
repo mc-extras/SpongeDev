@@ -1,8 +1,15 @@
 %tr{:class => "topic #{cycle('odd', 'even')} #{topic.locked? ? 'locked' : 'unlocked'}"}
   %td{style: "display: inline-block; width: 80px", align: 'center'}= forem_avatar(topic.user, :size => 48)
   %td.byline
-    = new_since_last_view_text(topic)
-    .subject= link_to forem_emojify(topic.subject), forem.forum_topic_path(@forum, topic)
+    %subject
+      = link_to forem_emojify(topic.subject), forem.forum_topic_path(@forum, topic)
+      .label.label-warning= new_since_last_view_text(topic)
+      - if topic.locked?
+        %i.fa.fa-lock
+      - if topic.pinned?
+        %i.fa.fa-flag
+      - if topic.hidden?
+        %i.fa.fa-eye-slash
     .started-by{style: "font-size: 14px;"}
       - started = relevant_posts(topic).first
       = started.user.forem_name
@@ -14,13 +21,3 @@
   %td.views-count.text-center= topic.views_count
 
 
-  / %td.icon
-  /   - if topic.locked?
-  /     %span.lock.icon
-  /   - if topic.pinned?
-  /     %span.pin.icon
-  /   - if topic.hidden?
-  /     %span.hidden.icon
-  /   - if forem_user && view = topic.view_for(forem_user)
-  /     - if topic.posts.exists?(["created_at > ?", view.updated_at])
-  /       %span.new_posts.icon new
