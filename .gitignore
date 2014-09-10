@@ -1,4 +1,4 @@
 tmp/
 *.log
 secrets.rb
-*.sqlite
+*.sqlite3
