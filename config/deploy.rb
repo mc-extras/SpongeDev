@@ -25,11 +25,10 @@ end
 namespace :gemfile do
   desc "Normalize Gemfile"
   task :copy do
-    run "cp #{current_path}/Gemfile.lock.server #{current_path}/Gemfile.lock"
-    puts "RANNNNNNNNNNNNNNNNNNNNN"
+    run "cp Gemfile.lock.server Gemfile.lock"
   end
 end
 
 
-after "deploy:update_code", "gemfile:copy"
+before "deploy:finalize_update", "gemfile:copy"
 after :deploy, "passenger:restart"
