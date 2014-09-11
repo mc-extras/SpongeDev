@@ -1,0 +1,23 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sponge
+  pool: 5
+  username: sponge
+  password:
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: sponge
+  pool: 5
+  username: sponge
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: sponge
+  pool: 5
+  username: sponge
+  password:
