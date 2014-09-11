@@ -22,4 +22,14 @@ namespace :passenger do
   end
 end
 
+namespace :gemfile do
+  desc "Normalize Gemfile"
+  task :copy do
+    run "cp Gemfile.lock.server Gemfile.lock"
+    puts "RANNNNNNNNNNNNNNNNNNNNN"
+  end
+end
+
+
+before "bundle:install", "gemfile:copy"
 after :deploy, "passenger:restart"
