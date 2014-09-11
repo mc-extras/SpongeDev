@@ -14,5 +14,5 @@ production:
   encoding: unicode
   database: sponge
   pool: 5
-  username: sponge
-  password: sponge_dev
+  username: jake
+  password: sponge
