@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909204643) do
+ActiveRecord::Schema.define(version: 20140911022015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,28 @@ ActiveRecord::Schema.define(version: 20140909204643) do
   add_index "forem_views", ["updated_at"], name: "index_forem_views_on_updated_at", using: :btree
   add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
   add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
+
+  create_table "infractions", force: true do |t|
+    t.string   "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.string   "type"
+    t.string   "string"
+    t.string   "url"
+    t.string   "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",         null: false

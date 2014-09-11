@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def profile
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:user])
   end
 end
