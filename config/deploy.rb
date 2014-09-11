@@ -9,6 +9,7 @@ set :deploy_to, "/home/deployer/Sponge"
 set :user, "deployer"
 set :use_sudo, false
 set :rails_env, :production
+set :bundle_gemfile, "#{current_path}/Gemfile.lock.server"
 
 ssh_options[:forward_agent] = true
 default_run_options[:shell] = '/bin/bash --login'
@@ -22,14 +23,4 @@ namespace :passenger do
   end
 end
 
-namespace :gemfile do
-  desc "Normalize Gemfile"
-  task :copy do
-    run "cp Gemfile.lock.server Gemfile.lock"
-    puts "RANNNNNNNNNNNNNNNNNNNNN"
-  end
-end
-
-
-before "bundle:install", "gemfile:copy"
 after :deploy, "passenger:restart"
