@@ -31,5 +31,5 @@ namespace :gemfile do
 end
 
 
-before "bundle:install", "gemfile:copy"
+after "deploy:update_code", "gemfile:copy"
 after :deploy, "passenger:restart"
