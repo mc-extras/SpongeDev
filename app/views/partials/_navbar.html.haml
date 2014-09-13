@@ -61,9 +61,9 @@
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             - if current_user
               = forem_avatar(current_user, :size => 16)
+              = current_user.username
             - else
               %i.fa.fa-user
-            = current_user.username
           %ul.dropdown-menu{role: "menu"}
             - if current_user
               %li= link_to 'Logout', main_app.destroy_user_session_path, method: :delete
