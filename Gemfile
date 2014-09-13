@@ -18,3 +18,4 @@ gem 'nokogiri', '1.6.3.1'
 gem 'github_api'
 gem 'simple_form'
 gem 'bootstrap-wysihtml5-rails'
+gem "httparty"

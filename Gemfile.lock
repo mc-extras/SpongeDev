@@ -87,6 +87,9 @@ GEM
       tilt
     hashie (3.3.1)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
@@ -188,6 +191,7 @@ DEPENDENCIES
   forem!
   github_api
   haml
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   kaminari

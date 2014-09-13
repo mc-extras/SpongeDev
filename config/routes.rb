@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/resources/rules' => 'resources#rules', as: 'rules'
   resources :revisions
   get '/user/:user' => 'application#profile', as: 'profile'
+  resources :downloads
 end
