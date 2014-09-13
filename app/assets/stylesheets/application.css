@@ -43,3 +43,11 @@ a:active.forum { color: black; text-decoration: none !important; }
 	right: 0; 
 	left: auto;
 }
+
+#reply {
+  color: darkgray;
+}
+
+.action {
+	margin-right: 5px;
+}
