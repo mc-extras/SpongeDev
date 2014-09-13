@@ -57,20 +57,13 @@
             &nbsp;
             Plugins
       %ul.nav.navbar-nav.navbar-right
-        - if current_user
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-              %i.fa.fa-mail
-            %ul.dropdown-menu{role: "menu"}
-              - current_user.messages.each do |message|
-                %li
-                  %a{href: message}= message.subject 
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             - if current_user
-              = current_user.username
-              &nbsp  
-            %i.fa.fa-user
+              = forem_avatar(current_user, :size => 16)
+            - else
+              %i.fa.fa-user
+            = current_user.username
           %ul.dropdown-menu{role: "menu"}
             - if current_user
               %li= link_to 'Logout', main_app.destroy_user_session_path, method: :delete
