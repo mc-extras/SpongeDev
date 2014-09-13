@@ -1,5 +1,5 @@
 .row{style: "background-color: rgb(250,250,250); padding: 5px; border-radius: 3px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-bottom: 25px;"}
-	.col-md-1
+	.col-xs-1
 		.content{style: "display: inline-block;background-color: rgb(250,250,250); border-radius: 4px; box-shadow: 0 0 3px rgba(0,0,0,.30);"}
 			.icon{style: "padding: 10px; background-color: white; display: inline-block;"}= forem_avatar(post.user, :size => 60)
 			.username{align: "center"}
@@ -7,7 +7,7 @@
 					[deleted]
 				- else
 					= link_to post.user.username, main_app.profile_path(post.user.username)
-	.col-md-11
+	.col-xs-11
 		.content{style: "min-height: 100px;"}
 			- if post.reply_to
 				.in-reply-to
