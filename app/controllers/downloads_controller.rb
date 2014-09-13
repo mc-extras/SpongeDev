@@ -17,8 +17,8 @@ class DownloadsController < ApplicationController
 
     response = HTTParty.get("http://ci.md-5.net/job/#{job}/api/json?pretty=true")
     json = JSON.parse(response.body)
-    builds = json['builds']
-    builds.each do |b|
+    ci_builds = json['builds']
+    ci_builds.each do |b|
       builds << {:id => b['number'], :url => b['url']}
     end
     builds 
