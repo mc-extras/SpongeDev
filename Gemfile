@@ -19,3 +19,4 @@ gem 'github_api'
 gem 'simple_form'
 gem 'bootstrap-wysihtml5-rails'
 gem "httparty"
+gem 'acts-as-taggable-on'

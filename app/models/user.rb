@@ -16,4 +16,7 @@ class User < ActiveRecord::Base
   has_many :infractions
   has_many :sent_messages, class_name: 'Message', inverse_of: 'creator'
   belongs_to :recieved_messages, class_name: 'Message', inverse_of: 'recipients'
+  has_many :authors
+  has_many :plugins
+
 end

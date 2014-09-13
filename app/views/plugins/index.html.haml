@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-3
+      %ul.nav.nav-pills.nav-stacked
+        - @tags.each do |tag|
+          = tag.name
+    .col-md-9
+      %table.table.table-striped

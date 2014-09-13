@@ -43,6 +43,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.4.1)
+      activerecord (>= 3.2, < 5)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7-x64-mingw32)
@@ -184,11 +186,13 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  acts-as-taggable-on
   bcrypt-ruby (~> 3.0.0)
   bootstrap-wysihtml5-rails
   coffee-rails
   devise
   forem!
+  friendly_id
   github_api
   haml
   httparty
