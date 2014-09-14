@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
-gem 'sqlite3'
+gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'sass'
@@ -18,3 +18,5 @@ gem 'nokogiri', '1.6.3.1'
 gem 'github_api'
 gem 'simple_form'
 gem 'bootstrap-wysihtml5-rails'
+gem "httparty"
+gem 'acts-as-taggable-on'

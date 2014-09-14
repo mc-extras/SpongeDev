@@ -1,0 +1,33 @@
+.page-header
+  %h1 Downloads
+
+%ul.nav.nav-tabs{role: "tablist"}
+  - JOBS.each do |job|
+    %li{class: "#{'active' if job == params[:id]}"}
+      %a{href: download_path(job)} #{job}
+.container
+  .row
+    .col-md-9
+      = paginate @builds
+      %table.table.table-striped{align: "center"}
+        %tr
+          %th.text-center ID
+          %th.text-center Version
+          %th.text-center Type
+          %th.text-center Download
+        - @builds.each do |build|
+          %tr
+            %td.text-center
+              \#
+              %a{href: build[:url], target: "_blank"}= build[:id]
+            %td.text-center
+            %td.text-center
+            %td.text-center
+      = paginate @builds
+    .col-md-3
+      %div{style: "margin-top: 30px; background: #ed8106 linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: white; border-radius: 6px 6px 0px 0px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-bottom: 0px;"}
+        %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+          %i.fa.fa-download
+          Downloads
+        %div{style: "background-color: white; color: black; text-align: center; padding: 10px;"}
+          This page is for Sponge and SpongeAPI downloads, which are available to the public, and this paeg provides a nice itnerface for downloading things so that you dont have to deal with the Jenkins CI over on the ci page which I know you don't want to deal with.
