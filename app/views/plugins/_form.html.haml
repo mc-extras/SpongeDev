@@ -5,6 +5,15 @@
       = f.text_field :name, class: 'form-control', style: "width: 23em;"
       .help-block The name that you would like to give your plugin, which can not be changed.
     %p
+      = f.label :license
+      = f.select(:license, ['MIT', 'GPL', 'Custom'].map { |value| [ value, value ] }, {}, {class: 'form-control', style: "width: 20em;"})
+    %p
+      = f.label :custom_license
+      = f.text_field :custom_license, class: 'form-control', style: "width: 30em;"
+    %p
+      = f.label :custom_text
+      = f.text_area :custom_text, class: 'form-control', rows: 6, style: "width: 40em;"
+    %p
       = f.label :summary
       = f.text_field :summary, class: 'form-control', style: "width: 30em;"
       .help-block This is a quick one line summary of your plugin.

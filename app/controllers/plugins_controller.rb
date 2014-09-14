@@ -34,6 +34,6 @@ class PluginsController < ApplicationController
 
   private
   def plugins_params
-    params.require(:plugin).permit(:name, { tag_list: [] }, :body, :summary)
+    params.require(:plugin).permit(:name, { tag_list: [] }, :body, :summary, :license, :custom_license, :custom_text)
   end
 end

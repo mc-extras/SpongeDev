@@ -33,10 +33,20 @@
                   ago
                 %b Categories
                 %p.plugin-indent= @plugin.tag_list.join(', ')
+                %b License
+                %p.plugin-indent
+                  - if @plugin.license == "Custom"
+                    = @plugin.custom_license
+                  - else
+                    = @plugin.license
                 %b Statistics
                 %ul
-                  %li Downloads: 15215
-                  %li Views: 15151215
+                  %li 
+                    Downloads:
+                    = @plugin.downloads
+                  %li
+                    Views:
+                    = @plugin.views
                 %b Last Update
                 %p.plugin-indent
                   = time_ago_in_words(@plugin.updated_at)
