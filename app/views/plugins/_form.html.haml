@@ -13,11 +13,21 @@
       = f.text_area :body, class: 'form-control', style: "width: 75em;", rows: 8
       .help-block This is the content that will go into the front page of your plugin. You can use markdown to populate this text area.
     %p
-      = f.label :tag_list
+      = f.label :tag_list, 'Categories'
+      %br/
+      Admin
       = f.check_box :tag_list, { :multiple => true }, 'Admin', nil
+      %br/
+      Roleplay
       = f.check_box :tag_list, { :multiple => true }, 'Roleplay', nil
+      %br/
+      Fun
       = f.check_box :tag_list, { :multiple => true }, 'Fun', nil
+      %br/
+      Economy
       = f.check_box :tag_list, { :multiple => true }, 'Economy', nil
+      %br/
+      Mechanics
       = f.check_box :tag_list, { :multiple => true }, 'Mechanics', nil
     %p
       = f.submit 'Submit', class: 'btn btn-primary'

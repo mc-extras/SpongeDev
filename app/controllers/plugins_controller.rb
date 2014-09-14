@@ -1,8 +1,13 @@
 class PluginsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   def index
-    @plugins = Plugin.all
-    @tags = Array.new
+    @tags = Plugin.tag_counts_on("tags")
+
+    @plugins = if params[:category]
+      Plugin.tagged_with(params[:category])
+    else
+      Plugin.all
+    end
   end
 
   def show
@@ -29,6 +34,6 @@ class PluginsController < ApplicationController
 
   private
   def plugins_params
-    params.require(:plugin).permit(:name, :tags_list, :body)
+    params.require(:plugin).permit(:name, { tag_list: [] }, :body, :summary)
   end
 end

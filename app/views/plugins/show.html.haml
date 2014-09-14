@@ -32,7 +32,7 @@
                   = time_ago_in_words(@plugin.created_at)
                   ago
                 %b Categories
-                %p.plugin-indent Admin, RP
+                %p.plugin-indent= @plugin.tag_list.join(', ')
                 %b Statistics
                 %ul
                   %li Downloads: 15215

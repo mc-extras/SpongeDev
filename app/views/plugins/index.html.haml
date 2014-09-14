@@ -1,24 +1,36 @@
-.container
-  .row
-    .col-md-2
-      %ul.nav.nav-pills.nav-stacked
-        - @tags.each do |tag|
-          = tag.name
-    .col-md-10
-      %table.table.table-striped
-        %thead
-          %th Name
-          %th Authors
-          %th Categories
-          %th Last Update
-        %tbody
-          - @plugins.each do |plugin|
-            %tr
-              %td
-                = plugin.name
-                = plugin.summary
-              %td= plugin.user.username
-              %td
-              %td
-                = time_ago_in_words(plugin.updated_at)
-                ago 
+.row
+	.col-md-2
+		%ul.nav.nav-pills.nav-stacked
+			%li{class: "#{'active' if not params[:category]}", style: 'border: 1px solid #dddddd; border-radius: 4px;'}
+				%a{href: plugins_path} All
+			- @tags.each_with_index do |tag, i|
+				%li{class: "#{'active' if params[:category] == tag.name}", style: 'border: 1px solid #dddddd; border-radius: 4px;'}
+					%a{href: ""}= tag.name
+	.col-md-10
+		%table.table.table-striped.table-bordered
+			%thead
+				%th Plugin
+				%th Authors
+				%th Categories
+				%th Last Update
+			%tbody
+				- if @plugins.any?
+					- @plugins.each do |plugin|
+						%tr
+							%td
+								= link_to plugin.name, plugin, class: 'no-deco'
+								= plugin.summary
+							%td= link_to plugin.user.username, profile_path(plugin.user.username), class: 'no-deco'
+							%td
+								- sb = ''
+								- plugin.tags.each_with_index do |tag, index|
+									- sb += link_to tag.name, plugins_path(:category => tag.name), class: 'no-deco'
+									- if index != plugin.tags.size - 1
+										- sb += ', '
+								= sb.html_safe
+							%td
+								= time_ago_in_words(plugin.updated_at)
+								ago
+				- else
+					%tr
+						%td{:align => "center", :colspan => "5", style: "background-color: white; color: darkgray;"} No plugins were found for these parameters.
