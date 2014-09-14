@@ -1,13 +1,12 @@
 %footer
-  %hr/
-  %ul.nav.nav-pills.footer
-    %li.pull-left
-      %a © #{Time.now.year} Sponge
-    %li.pull-right
-      %a{href: "#Top"}
-        %i.fa.fa-chevron-up
-        Back to top
-    %li.pull-right
-      %a{href: main_app.revisions_path}
-        %i.fa.fa-code
-        Revisions
+	.container
+		%ul.list-inline.social
+			%li
+				%a{:href => "https://twitter.com/spongepowered", :target => "_BLANK"}	
+					%i.fa.fa-2x.fa-twitter
+			%li
+				%a{:href => "https://github.com/SpongePowered", :target => "_BLANK"}
+					%i.fa.fa-2x.fa-github
+			%li
+				%a{:href => "", :target => "_BLANK"}
+					%i.fa.fa-2x.fa-rss

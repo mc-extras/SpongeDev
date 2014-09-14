@@ -1,33 +1,78 @@
-.jumbotron
-  %h1 Sponge
-  %p A New Minecraft Server Implementation
-
-.container
-  .row
-    .col-md-4
-      .text-center
-        %i.fa.fa-rocket{style: "font-size: 128px"}
-        %br/
-        %h2 Speed
-        %p.front-icon
-          Sponge is speedy fast! Make the best of Minecraft with the amazing optimizations that sponge provides!
-        %br/
-        %a.btn.btn-primary{href: ""} Download &#187;
-    .col-md-4
-      .text-center
-        %i.fa.fa-code{style: "font-size: 128px"}
-        %br/
-        %h2 OSS
-        %p.front-icon
-          Sponge is Open Source Sotware, meaning that anyone can contribute! Come contribute to the code today!
-        %br/
-        %a.btn.btn-primary{href: "http://github.com/SpongePowered"} Github &#187;
-    .col-md-4
-      .text-center
-        %i.fa.fa-heart{style: "font-size: 128px"}
-        %br/
-        %h2 Community
-        %p.front-icon
-          Sponge is a community driven project, and you can join the discussion on how Sponge should be run right now!
-        %br/
-        %a.btn.btn-primary{href: forem.root_path} Forums &#187;
+!!!
+%html
+  %body
+    .main.post-page
+      .container
+        .row
+          .col-md-9.col-sm-8
+            .post
+              .content
+                %h3 Sponge 1.42.3
+                %ul.list-inline.details
+                  %ul.list-inline.details
+                    %li
+                      %a{:href => ""}
+                        %i.fa.fa-user>
+                        Deep Thought
+                    %li
+                      %a{:href => ""}
+                        %i.fa.fa-calendar>
+                        7 Sep 2014
+                    %li
+                      %a{:href => ""}
+                        %i.fa.fa-comments-o>
+                        240 Comments
+                    %li
+                      %a{:href => ""}
+                        %i.fa.fa-heart-o>
+                        377 Likes
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, id iusto possimus dolore omnis earum doloribus itaque ducimus voluptates laudantium. Minus porro delectus similique dolore! Quasi deserunt pariatur asperiores voluptates!
+                %p
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam optio quam sequi modi harum? Ratione, eius, repellendus sed accusantium aspernatur quibusdam aliquam optio nam at dolorum iusto debitis sint aut! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, obcaecati, quisquam ab magnam facilis totam vel numquam co...
+                  %a{:href => ""} Read along
+            .post
+              .content
+                %h3 Just to say hi!
+                %ul.list-inline.details
+                  %li
+                    %a{:href => ""}
+                      %i.fa.fa-user>
+                      AtlasDev
+                  %li
+                    %a{:href => ""}
+                      %i.fa.fa-calendar>
+                      7 Sep 2014
+                  %li
+                    %a{:href => ""}
+                      %i.fa.fa-comment-o>
+                      240 Comments
+                  %li
+                    %a{:href => ""}
+                      %i.fa.fa-heart-o>
+                      377 Likes
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, id iusto possimus dolore omnis earum doloribus itaque ducimus voluptates laudantium. Minus porro delectus similique dolore! Quasi deserunt pariatur asperiores voluptates!
+                %p
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam optio quam sequi modi harum? Ratione, eius, repellendus sed accusantium aspernatur quibusdam aliquam optio nam at dolorum iusto debitis sint aut! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, obcaecati, quisquam ab magnam facilis totam vel numquam co...
+                  %a{:href => ""} Read along
+          .col-md-3.col-sm-4
+            %aside
+              .download
+                %a{:href => "#", :title => "Download Sponge"}
+                  %button.btn.btn-info.btn-block{:type => "button"} Download Sponge
+              %h6 Categories
+              %ul.categories
+                %li
+                  %a{:href => ""} Update News
+                %li
+                  %a{:href => ""} Modules
+                %li
+                  %a{:href => ""} Server Issues
+                %li
+                  %a{:href => ""} Major Changes
+              %h6
+                Twitter
+                %a{:href => "http://twitter.com/SpongePowered", :target => "_blank"} @SpongePowered
+              .twitter
+                %a.twitter-timeline{"data-chrome" => "noheader nofooter transparent noscrollbar noborders", "data-dnt" => "true", "data-tweet-limit" => "1", "data-widget-id" => "509594237025783809", :href => "https://twitter.com/SpongePowered", :width => "180"} Tweets by @SpongePowered
+                :javascript
+                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");

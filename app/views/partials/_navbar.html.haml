@@ -1,71 +1,20 @@
-%nav.navbar.navbar-fixed-top.navbar-default{role: "navigation"}
-  .container-fluid
-    .navbar-header
-      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.navbar-brand{href: main_app.root_path, style: "margin-left: 30px;"} Sponge
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav{style: "margin-left: 20px;"}
-        %li{class: "#{active("home")}"}
-          %a{href: main_app.root_path} 
-            %i.fa.fa-home
-            &nbsp;
-            Home
-        %li{class: "#{active("forums")}"}
-          %a{href: forem.root_path} 
-            %i.fa.fa-list
-            &nbsp;
-            Forums
-        %li{class: "#{active("downloads")}"}
-          %a{href: main_app.root_path} 
-            %i.fa.fa-download
-            &nbsp;
-            Downloads
-        %li.dropdown{class: "#{active("resources")}"}
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            %i.fa.fa-file-o
-            &nbsp;
-            Resources
-            %i.fa.fa-caret-down
-          %ul.dropdown-menu{role: "menu"}
-            %li
-              %a{href: main_app.root_path} 
-                %i.fa.fa-file
-                &nbsp;
-                Wiki
-            %li
-              %a{href: main_app.rules_path} 
-                %i.fa.fa-book
-                &nbsp;
-                Rules
-            %li
-              %a{href: main_app.terms_path} 
-                %i.fa.fa-eye
-                &nbsp;
-                Terms
-            %li
-              %a{href: "https://github.com/SpongePowered"} 
-                %i.fa.fa-github
-                &nbsp;
-                Github
-        %li{class: "#{active("plugins")}"}
-          %a{href: main_app.root_path} 
-            %i.fa.fa-search
-            &nbsp;
-            Plugins
-      %ul.nav.navbar-nav.navbar-right
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            - if current_user
-              = current_user.username
-              &nbsp  
-            %i.fa.fa-user
-          %ul.dropdown-menu{role: "menu"}
-            - if current_user
-              %li= link_to 'Logout', main_app.destroy_user_session_path, method: :delete
-            - else
-              %li= link_to 'Sign up', main_app.new_user_registration_path
-              %li= link_to 'Login', main_app.new_user_session_path
+%header
+	.container
+		%a{href: ""}
+			%img{:alt => "logo", :src => "http://riksolo.tk/SpongeSiteDev/img/logo.png"}/
+		%a#responsive-menu-button{:href => ""}
+			%i.fa.fa-bars
+		%nav.menu
+			%ul.list-inline
+				%li
+					%a{:href => "#"} Home
+				%li
+					%a{:href => "#"} Download
+				%li
+					%a{:href => "#"} Modules
+				%li
+					%a{:href => "#"} Docs
+				%li
+					%a{:href => forem.root_path} Forums
+				%li
+					%a{:href => "#"} Bugs
