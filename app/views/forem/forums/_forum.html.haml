@@ -21,7 +21,7 @@
               = link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic))
               %br/
               = t('by')
-              = last_post.user.forem_name
+              = link_to last_post.user.username, main_app.profile_path(last_post.user.username)
               %time{:datetime => last_post.created_at.to_s(:db)}= "#{time_ago_in_words(last_post.created_at)} #{t("ago")}"
             - else
               N/A
