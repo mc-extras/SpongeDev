@@ -6,7 +6,7 @@
         .row
           .col-md-8
             %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 10px; background-color: white;"}
-              = simple_format(@plugin.body)
+              = GitHub::Markdown.render(@plugin.body).html_safe
           .col-md-4
             .download.text-center{style: "font-size: 150%; margin-bottom: 5px;"}
               %i.fa.fa-download

@@ -9,7 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data'
 gem 'devise'
-gem 'forem', :github => "Jake0oo0/forem", :branch => "rails4"
+gem 'forem', :github => 'Jake0oo0/forem', :branch => 'rails4'
 gem 'kaminari'
 gem 'haml'
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -18,5 +18,6 @@ gem 'nokogiri', '1.6.3.1'
 gem 'github_api'
 gem 'simple_form'
 gem 'bootstrap-wysihtml5-rails'
-gem "httparty"
+gem 'httparty'
 gem 'acts-as-taggable-on'
+gem 'github-markdown', :require => 'github/markdown'
