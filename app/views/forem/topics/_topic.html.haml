@@ -12,7 +12,7 @@
         %i.fa.fa-eye-slash
     .started-by{style: "font-size: 14px;"}
       - started = relevant_posts(topic).first
-      = link_to started.user.username, main_app.profile_path(started.user.username)
+      = started.user.forem_name
       = time_ago_in_words(started.created_at)
       ago
   %td.latest-post

@@ -1,40 +1,11 @@
 .row{style: "background-color: rgb(250,250,250); padding: 5px; border-radius: 3px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-bottom: 25px;"}
-	.col-xs-1
-		.content{style: "display: inline-block;background-color: rgb(250,250,250); border-radius: 4px; box-shadow: 0 0 3px rgba(0,0,0,.30);"}
-			.icon{style: "padding: 10px; background-color: white; display: inline-block;"}= forem_avatar(post.user, :size => 60)
-			.username{align: "center"}
-				- if post.user.is_a?(Forem::NilUser)
-					[deleted]
-				- else
-					= link_to post.user.username, main_app.profile_path(post.user.username)
-	.col-xs-11
-		.content{style: "min-height: 100px; word-wrap: break-word"}
-			- if post.reply_to
-				.in-reply-to
-					%blockquote{style: "margin: 5px;"}
-						%div.collapse{id: "reply-#{post.id}"}= post.reply_to.text
-						%a{href: "", "data-toggle" => "collapse", "data-target" => "#reply-#{post.id}", style: "line-height: 16px;"}
-							%small
-								#{post.reply_to.user.forem_name}, #{time_ago_in_words(post.created_at)} ago
-			= forem_format(post.text)
-		%div{style: "vertical-align: bottom;"}
-			.pull-right
-				- if forem_user
-					.btn-group
-						- if can?(:reply, post.topic)
-							- if post.topic.can_be_replied_to?
-								%a.action.button{href: forem.new_forum_topic_post_path(post.forum, post.topic, :reply_to_id => post.id), "data-toggle" => "tooltip", title: "Reply", "data-placement" => "top"}
-									%i.fa.fa-comment
-								%a.action.button{href: forem.new_forum_topic_post_path(post.forum, post.topic, :reply_to_id => post.id, :quote => true), "data-toggle" => "tooltip", title: "Quote", "data-placement" => "top"}
-									%i.fa.fa-reply
-						- if post.owner_or_admin?(forem_user)
-							- if can?(:edit_post, post.topic.forum)
-								%a.action.button{href: forem.edit_forum_topic_post_path(post.forum, post.topic, post), "data-toggle" => "tooltip", title: "Edit", "data-placement" => "top"}
-									%i.fa.fa-pencil
-							%a.button{href: forem.forum_topic_post_path(post.forum, post.topic, post), "data-toggle" => "tooltip", title: "Delete", "data-placement" => "top"}
-								%i.fa.fa-trash-o
-						:javascript
-							$(".button").tooltip();
-
-			%a{:href => "#post-#{post.id}"}
-				= post_time_tag(post)
+  .col-md-1
+    .content{style: "display: inline-block;background-color: rgb(250,250,250); border-radius: 4px; box-shadow: 0 0 3px rgba(0,0,0,.30);"}
+      .icon{style: "padding: 10px; background-color: white; display: inline-block;"}= forem_avatar(post.user, :size => 60)
+      .username{align: "center"}
+        - if post.user.is_a?(Forem::NilUser)
+          [deleted]
+        - else
+          = post.user.username
+  .col-md-11{style: "padding: 10px;"}
+    = forem_format(post.text)
