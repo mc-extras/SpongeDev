@@ -1,8 +1,24 @@
 .container
   .row
-    .col-md-3
+    .col-md-2
       %ul.nav.nav-pills.nav-stacked
         - @tags.each do |tag|
           = tag.name
-    .col-md-9
+    .col-md-10
       %table.table.table-striped
+        %thead
+          %th Name
+          %th Authors
+          %th Categories
+          %th Last Update
+        %tbody
+          - @plugins.each do |plugin|
+            %tr
+              %td
+                = plugin.name
+                = plugin.summary
+              %td= plugin.user.username
+              %td
+              %td
+                = time_ago_in_words(plugin.updated_at)
+                ago 

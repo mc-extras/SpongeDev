@@ -192,7 +192,6 @@ DEPENDENCIES
   coffee-rails
   devise
   forem!
-  friendly_id
   github_api
   haml
   httparty

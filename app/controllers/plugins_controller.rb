@@ -1,7 +1,7 @@
 class PluginsController < ApplicationController
   def index
     @plugins = Plugin.all
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = Array.new
   end
 
   def show
@@ -28,6 +28,6 @@ class PluginsController < ApplicationController
 
   private
   def plugins_params
-    params.require(:plugin).permit(:name, :categories_list, :body)
+    params.require(:plugin).permit(:name, :tags_list, :body)
   end
 end
