@@ -94,6 +94,7 @@ footer .container{
 .main{
  	background-color: #E6C200;
  	padding-top: 30px;
+	width: 95%;
 }
 
 .post, aside{
@@ -368,6 +369,11 @@ aside .download{
  
 body {
 	padding: 0px 0px;
+	margin: auto, 0;
+	background-color: #E6C200;
+}
+
+html {
 	background-color: #E6C200;
 }
 

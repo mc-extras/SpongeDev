@@ -4,17 +4,33 @@
 			%img{:alt => "logo", :src => "http://riksolo.tk/SpongeSiteDev/img/logo.png"}/
 		%a#responsive-menu-button{:href => ""}
 			%i.fa.fa-bars
-		%nav.menu
-			%ul.list-inline
-				%li
-					%a{:href => "#"} Home
-				%li
-					%a{:href => "#"} Download
-				%li
-					%a{:href => "#"} Modules
-				%li
-					%a{:href => "#"} Docs
-				%li
-					%a{:href => forem.root_path} Forums
-				%li
-					%a{:href => "#"} Bugs
+			%nav.menu
+				%ul.list-inline
+					%li
+						%a{:href => main_app.root_path} Home
+					%li
+						%a{:href => "#"} Download
+					%li
+						%a{:href => "#"} Modules
+					%li
+						%a{:href => "#"} Docs
+					%li
+						%a{:href => forem.root_path} Forums
+					%li
+						%a{:href => "#"} Bugs
+					%li
+						%ul.list-inline
+							%li.dropdown
+								%a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+									- if current_user
+										= forem_avatar(current_user, :size => 16)
+										= current_user.username
+									- else
+										%i.fa.fa-user
+								%ul.dropdown-menu{role: "menu"}
+									- if current_user
+										%li= link_to 'Logout', main_app.destroy_user_session_path, method: :delete
+										%li= link_to 'Profile', main_app.profile_path(current_user.username)
+									- else
+										%li= link_to 'Sign up', main_app.new_user_registration_path
+										%li= link_to 'Login', main_app.new_user_session_path
