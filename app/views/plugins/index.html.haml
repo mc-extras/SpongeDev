@@ -4,9 +4,10 @@
 			%li{class: "#{'active' if not params[:category]}", style: 'border: 1px solid #dddddd; border-radius: 4px;'}
 				%a{href: plugins_path} All
 			- @tags.each_with_index do |tag, i|
-				%li{class: "#{'active' if params[:category] == tag.name}", style: 'border: 1px solid #dddddd; border-radius: 4px;'}
-					%a{href: ""}= tag.name
+				%li{class: "#{'active' if params[:category] == tag}", style: 'border: 1px solid #dddddd; border-radius: 4px;'}
+					= link_to tag, plugins_path(:category => tag)
 	.col-md-10
+		= paginate @plugins
 		%table.table.table-striped.table-bordered
 			%thead
 				%th Plugin
@@ -19,12 +20,13 @@
 						%tr
 							%td
 								= link_to plugin.name, plugin, class: 'no-deco'
+								%br/
 								= plugin.summary
 							%td= link_to plugin.user.username, profile_path(plugin.user.username), class: 'no-deco'
 							%td
 								- sb = ''
 								- plugin.tags.each_with_index do |tag, index|
-									- sb += link_to tag.name, plugins_path(:category => tag.name), class: 'no-deco'
+									- sb += link_to tag, plugins_path(:category => tag), class: 'no-deco'
 									- if index != plugin.tags.size - 1
 										- sb += ', '
 								= sb.html_safe
@@ -34,3 +36,4 @@
 				- else
 					%tr
 						%td{:align => "center", :colspan => "5", style: "background-color: white; color: darkgray;"} No plugins were found for these parameters.
+		= paginate @plugins

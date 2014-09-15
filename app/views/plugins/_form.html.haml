@@ -1,18 +1,21 @@
 = form_for @plugin do |f|
   .container
+    = render 'partials/errors', object: @plugin
     %p
       = f.label :name
       = f.text_field :name, class: 'form-control', style: "width: 23em;"
       .help-block The name that you would like to give your plugin, which can not be changed.
     %p
       = f.label :license
-      = f.select(:license, ['MIT', 'GPL', 'Custom'].map { |value| [ value, value ] }, {}, {class: 'form-control', style: "width: 20em;"})
+      = f.select(:license, LICENSES.map { |value| [ value, value ] }, {}, {class: 'form-control', style: "width: 20em;"})
     %p
       = f.label :custom_license
       = f.text_field :custom_license, class: 'form-control', style: "width: 30em;"
+      .help-block Select the custom option above, and enter a name for your custom license.
     %p
       = f.label :custom_text
       = f.text_area :custom_text, class: 'form-control', rows: 6, style: "width: 40em;"
+      .help-block The text display when a user views your plugin's license.
     %p
       = f.label :summary
       = f.text_field :summary, class: 'form-control', style: "width: 30em;"
@@ -22,21 +25,15 @@
       = f.text_area :body, class: 'form-control', style: "width: 75em;", rows: 8
       .help-block This is the content that will go into the front page of your plugin. You can use markdown to populate this text area.
     %p
+      = f.label :primary_category
+      = f.select(:primary_category, CATEGORIES.map { |value| [ value, value ] }, {}, {class: 'form-control', style: "width: 20em;"})
+      .help-block Select the category that your plugin primarily fits into.
+    %p
       = f.label :tag_list, 'Categories'
-      %br/
-      Admin
-      = f.check_box :tag_list, { :multiple => true }, 'Admin', nil
-      %br/
-      Roleplay
-      = f.check_box :tag_list, { :multiple => true }, 'Roleplay', nil
-      %br/
-      Fun
-      = f.check_box :tag_list, { :multiple => true }, 'Fun', nil
-      %br/
-      Economy
-      = f.check_box :tag_list, { :multiple => true }, 'Economy', nil
-      %br/
-      Mechanics
-      = f.check_box :tag_list, { :multiple => true }, 'Mechanics', nil
+      - CATEGORIES.each do |c|
+        %br/
+        = f.check_box :tag_list, { :multiple => true }, "#{c}", nil
+        = c
+      .help-block Select up to four categories for your plugin.
     %p
       = f.submit 'Submit', class: 'btn btn-primary'
