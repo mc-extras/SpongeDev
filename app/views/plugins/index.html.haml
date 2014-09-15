@@ -1,3 +1,9 @@
+%ol.breadcrumb
+	%li
+		%a{href: root_path} Home
+	%li
+		%a{href: plugins_path} Plugins
+
 .row
 	.col-md-2
 		%ul.nav.nav-pills.nav-stacked
@@ -10,10 +16,10 @@
 		= paginate @plugins
 		%table.table.table-striped.table-bordered
 			%thead
-				%th Plugin
-				%th Authors
-				%th Categories
-				%th Last Update
+				%th{style: "width: 25%"} Plugin
+				%th{style: "width: 15%"} Authors
+				%th{style: "width: 25%"} Categories
+				%th{style: "width: 15%"} Last Update
 			%tbody
 				- if @plugins.any?
 					- @plugins.each do |plugin|

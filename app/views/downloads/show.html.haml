@@ -1,5 +1,8 @@
-.page-header
-  %h1 Downloads
+%ol.breadcrumb
+  %li
+    %a{href: root_path} Home
+  %li
+    %a{href: downloads_path} Downloads
 
 %ul.nav.nav-tabs{role: "tablist"}
   - JOBS.each do |job|
@@ -18,8 +21,7 @@
         - @builds.each do |build|
           %tr
             %td.text-center
-              \#
-              %a{href: build[:url], target: "_blank"}= build[:id]
+              %a{href: build[:url], target: "_blank"}= '#' + build[:id].to_s
             %td.text-center
             %td.text-center
             %td.text-center

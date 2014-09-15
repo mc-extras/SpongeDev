@@ -6,13 +6,13 @@
       = f.error_notification
       .form-inputs
         %p
-          = f.input :email, required: true, autofocus: true, :input_html => { :class => "form-control", style: "width: 35%"}
+          = f.input :email, required: true, autofocus: true, :input_html => { :class => "form-control", style: "width: 25em"}
         %p
-          = f.input :username, required: true, :input_html => { :class => "form-control", style: "width: 20%"}
+          = f.input :username, required: true, :input_html => { :class => "form-control", style: "width: 15em"}
         %p
-          = f.input :password, required: true, :input_html => { :class => "form-control", style: "width: 20%" }
+          = f.input :password, required: true, :input_html => { :class => "form-control", style: "width: 15em" }
         %p
-          = f.input :password_confirmation, required: true, :input_html => { :class => "form-control", style: "width: 20%" }
+          = f.input :password_confirmation, required: true, :input_html => { :class => "form-control", style: "width: 15em" }
       .form-actions
         %p
           = f.button :submit, "Register", class: 'btn btn-primary'

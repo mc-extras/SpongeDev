@@ -5,7 +5,7 @@ class Plugin < ActiveRecord::Base
 
   validates :summary, presence: true
   validates :body, presence: true
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :license, presence: true
   validate :category_count
   validate :require_custom
@@ -13,10 +13,6 @@ class Plugin < ActiveRecord::Base
 
   def to_param
     "#{id}-#{name}"
-  end
-
-  def all_categories
-    
   end
 
   private
