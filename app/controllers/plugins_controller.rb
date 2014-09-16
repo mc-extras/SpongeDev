@@ -9,10 +9,18 @@ class PluginsController < ApplicationController
       Plugin.all
     end
     @plugins = @plugins.page(params[:page])
+    respond_to do |format|
+      format.html
+      format.json { render json: @plugins }
+    end
   end
 
   def show
     @plugin = Plugin.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @plugin }
+    end
   end
 
   def new

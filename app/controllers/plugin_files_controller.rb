@@ -3,11 +3,20 @@ class PluginFilesController < ApplicationController
   def index
     @plugin = Plugin.find(params[:plugin_id])
     @downloads = @plugin.plugin_files
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @downloads }
+    end
   end
 
   def show
     @plugin = Plugin.find(params[:plugin_id])
     @download = PluginFile.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @download }
+    end
   end
 
   def new

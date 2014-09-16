@@ -15,5 +15,9 @@ class ApplicationController < ActionController::Base
 
   def profile
     @user = User.find_by(username: params[:user])
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
   end
 end
