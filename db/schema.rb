@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915015256) do
+ActiveRecord::Schema.define(version: 20140915213854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "authors", force: true do |t|
     t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "downloads", force: true do |t|
+    t.string   "name"
+    t.string   "mc_version"
+    t.text     "changelog"
+    t.text     "notes"
+    t.integer  "plugin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -137,6 +147,19 @@ ActiveRecord::Schema.define(version: 20140915015256) do
     t.string   "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "plugin_files", force: true do |t|
+    t.string   "name"
+    t.string   "mc_version"
+    t.text     "changelog"
+    t.text     "notes"
+    t.integer  "plugin_id"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "downloads",    default: 0
+    t.string   "release_type"
   end
 
   create_table "plugins", force: true do |t|

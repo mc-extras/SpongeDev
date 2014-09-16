@@ -51,11 +51,23 @@
                 %i.fa.fa-github
                 &nbsp;
                 Github
-        %li{class: "#{active("plugins")}"}
-          %a{href: main_app.plugins_path} 
+        %li.dropdown{class: "#{active("plugins")}"}
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             %i.fa.fa-search
             &nbsp;
             Plugins
+            %i.fa.fa-caret-down
+          %ul.dropdown-menu{role: "menu"}
+            %li
+              %a{href: main_app.plugins_path}
+                %i.fa.fa-search
+                &nbsp;
+                Plugins
+            %li
+              %a{href: main_app.new_plugin_path}
+                %i.fa.fa-plus
+                &nbsp;
+                Submit Plugin
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :revisions
   get '/user/:user' => 'application#profile', as: 'profile'
   resources :downloads
-  resources :plugins
+  resources :plugins do
+    resources :plugin_files, :path => "files"
+  end
 end

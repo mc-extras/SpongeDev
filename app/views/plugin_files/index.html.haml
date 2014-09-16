@@ -1,0 +1,31 @@
+%ol.breadcrumb
+  %li
+    = link_to 'Home', root_path
+  %li
+    = link_to 'Plugins', plugins_path
+  %li
+    = link_to @plugin.name, @plugin
+  %li
+    = link_to 'Downloads', plugin_plugin_files_path(@plugin)
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th MC Version(s)
+      %th Type
+      %th Date
+      %th Downloads
+      %th Filename
+  %tbody
+    - @downloads.each do |download|
+      %tr
+        %td
+          = link_to download.name, [@plugin, download], class: 'no-deco'
+        %td= download.mc_version
+        %td= download.release_type
+        %td
+          = time_ago_in_words(download.created_at)
+          ago
+        %td= download.downloads
+        %td= link_to download.file.file.filename, download.file.url, class: 'no-deco'

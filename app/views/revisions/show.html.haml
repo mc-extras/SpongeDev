@@ -3,8 +3,13 @@
 	%meta{:content => "Sponge, Revisions, Github, API, Web", :name => "keywords"}
 - current_repo = @repos.find {|repo| repo[:name] == params[:id]}
 - content_for :title do "Revisions: #{current_repo[:friendly]}" end
-.page-header
-	%h1 Revisions
+%ol.breadcrumb
+	%li
+		= link_to 'Home', root_path
+	%li
+		= link_to 'Revisions', revisions_path
+	%li
+		= link_to current_repo[:friendly], revision_path(current_repo[:friendly])
 .row
 	.col-md-2
 		%ul.nav.nav-pills.nav-stacked

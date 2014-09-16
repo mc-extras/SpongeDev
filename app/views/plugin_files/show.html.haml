@@ -1,0 +1,52 @@
+%ol.breadcrumb
+  %li
+    = link_to 'Home', root_path
+  %li
+    = link_to 'Plugins', plugins_path
+  %li
+    = link_to 'Downloads', plugin_plugin_files_path(@plugin)
+  %li
+    = link_to @download.name, [@plugin, @download]
+
+.row
+  .col-md-12
+    %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 5px; background-color: white;"}
+      .container{style: "padding: 10px 0px;"}
+        .row
+          .col-md-8
+            %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 0px 10px; background-color: white;"}
+              %h2 Changelog:
+              -if not @download.changelog.empty?
+                = GitHub::Markdown.render(@download.changelog).html_safe
+              - else
+                %i#none A changelog was not supplied for this download.
+              %h2 Notes:
+              - if not @download.notes.empty?
+                = GitHub::Markdown.render(@download.notes).html_safe
+              - else
+                %i#none No notes have been added to this download.
+          .col-md-4
+            .download.text-center{style: "font-size: 150%; margin-bottom: 5px;"}
+              %i.fa.fa-download
+              = link_to 'Download', @download.file.url, class: 'no-deco'
+            - if current_user and (current_user == @plugin.user or current_user.admin?)
+              %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
+                %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+                  %i.fa.fa-database
+                  Manage
+                %div{style: "background-color: white; color: black; padding: 10px;"}
+                  %b= link_to 'Delete', plugin_plugin_file_path(@plugin, @download), class: 'no-deco', method: :delete, data: {confirm: 'Are you sure you want to delete this file? This can not be undone.'}
+            %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
+              %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+                %i.fa.fa-info
+                Information
+              %div{style: "background-color: white; color: black; padding: 10px;"}
+                %b Date Uploaded
+                %p.plugin-indent
+                  = time_ago_in_words(@download.created_at)
+                  ago
+                %b Statistics
+                %ul
+                  %li 
+                    Downloads:
+                    = @plugin.downloads

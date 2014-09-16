@@ -1,4 +1,10 @@
-%h2= @plugin.name
+%ol.breadcrumb
+  %li
+    = link_to 'Home', root_path
+  %li
+    = link_to 'Plugins', plugins_path
+  %li
+    = link_to @plugin.name, @plugin
 .row
   .col-md-12
     %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 5px; background-color: white;"}
@@ -10,18 +16,18 @@
           .col-md-4
             .download.text-center{style: "font-size: 150%; margin-bottom: 5px;"}
               %i.fa.fa-download
-              Download
+              = link_to 'Download', plugin_plugin_files_path(@plugin), class: 'no-deco'
             - if current_user and (current_user == @plugin.user or current_user.admin?)
               %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
                 %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
                   %i.fa.fa-database
                   Manage
                 %div{style: "background-color: white; color: black; padding: 10px;"}
-                  %b Edit
+                  %b= link_to 'Edit Plugin', edit_plugin_path(@plugin), class: 'no-deco'
                   %br
-                  %b Upload File
+                  %b= link_to 'Upload File', new_plugin_plugin_file_path(@plugin), class: 'no-deco'
                   %br
-                  %b Delete
+                  %b= link_to 'Delete', plugin_path(@plugin), class: 'no-deco', method: :delete, data: {confirm: 'Are you sure you want to delete this plugin? This can not be undone.'}
             %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
               %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
                 %i.fa.fa-info
@@ -53,10 +59,8 @@
                   ago
                 %b Downloads
                 %ul
-                  %li Download v1.0
-                  %li Download v0.9
-                  %li Download v0.8.8
-                  %li More Downloads
+                  - @plugin.plugin_files.each do |download|
+                    %li= link_to download.file.file.filename, download.file.url
             %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
               %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
                 %i.fa.fa-pencil

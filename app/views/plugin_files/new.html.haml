@@ -4,8 +4,8 @@
   %li
     = link_to 'Plugins', plugins_path
   %li
-    = link_to @plugin.name, @plugin
+    = link_to 'Downloads', plugin_plugin_files_path(@plugin)
   %li
-    = link_to 'Edit', edit_plugin_path(@plugin)
+    = link_to 'New', new_plugin_plugin_file_path(@plugin)
 
 = render 'form'

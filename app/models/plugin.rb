@@ -2,6 +2,7 @@ class Plugin < ActiveRecord::Base
   acts_as_taggable
   has_many :authors
   belongs_to :user
+  has_many :plugin_files
 
   validates :summary, presence: true
   validates :body, presence: true

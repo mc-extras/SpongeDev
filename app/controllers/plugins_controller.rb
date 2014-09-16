@@ -33,6 +33,12 @@ class PluginsController < ApplicationController
     @plugin = Plugin.find(params[:id])
   end
 
+  def destroy
+    @plugin = Plugin.find(params[:id])
+    @plugin.destroy
+    redirect_to plugins_path
+  end
+
   private
   def plugins_params
     params.require(:plugin).permit(:name, { tag_list: [] }, :body, :summary, :license, :custom_license, :custom_text, :primary_category)
