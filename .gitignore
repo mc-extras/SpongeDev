@@ -3,3 +3,4 @@ tmp/
 secrets.rb
 *.sqlite3
 database.yml
+public/uploads/
