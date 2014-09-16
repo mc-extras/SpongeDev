@@ -7,10 +7,7 @@ GITHUB = Github.new(oauth_token: '[GITHUB OAUTH TOKEN - GENERATE YOURSELF]')
 
 ### TODO
 
-* Fully implement forums, clean up views, add more features.
 * Notifications, emails, desktop alerts
-* Plugins
-* Downloads
 * Social Media
 * Wiki
 * Profiles
