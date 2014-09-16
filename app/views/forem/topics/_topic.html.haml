@@ -12,10 +12,10 @@
         %i.fa.fa-eye-slash
     .started-by{style: "font-size: 14px;"}
       - started = relevant_posts(topic).first
-      = link_to started.user.username, main_app.profile_path(started.user.username)
+      = link_to started.user.username, main_app.profile_path(started.user.username), class: 'no-deco'
       = time_ago_in_words(started.created_at)
       ago
-  %td.latest-post
+  %td.latest-post.no-deco
     = link_to_latest_post(topic)
   %td.posts-count.text-center= relevant_posts(topic).count
   %td.views-count.text-center= topic.views_count

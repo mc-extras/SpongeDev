@@ -2,17 +2,18 @@
   %h1 Login
 .row
   .col-md-9
-    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .form-inputs
-        %p
-          = f.input :email, required: true, autofocus: true, :input_html => { :class => "form-control", style: "width: 25em" }
-        %p
-          = f.input :password, required: true, :input_html => { :class => "form-control" , style: "width: 15em"}
-        %p
-          = f.input :remember_me, as: :boolean, :wrapper_html => { :class => 'form-inline' } if devise_mapping.rememberable?
-      .form-actions
-        %p
-          = f.button :submit, "Login", class: 'btn btn-primary'
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      %p
+        = f.label :email
+        = f.email_field :email, autofocus: true, :class => "form-control", style: "width: 25em" 
+      %p
+        = f.label :password
+        = f.password_field :password, :class => "form-control" , style: "width: 15em"
+      %div
+        = f.check_box :remember_me 
+        = f.label :remember_me
+      %p
+        = f.submit "Login", class: 'btn btn-primary'
   .col-md-3
     %ul.nav.nav-list
       %li

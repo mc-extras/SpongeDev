@@ -18,10 +18,10 @@
           %span.last_post.pull-right
             Latest:
             - if last_post = forum.last_post_for(forem_user)
-              = link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic))
+              = link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic), class: 'no-deco')
               %br/
               = t('by')
-              = link_to last_post.user.username, main_app.profile_path(last_post.user.username)
+              = link_to last_post.user.username, main_app.profile_path(last_post.user.username), class: 'no-deco'
               %time{:datetime => last_post.created_at.to_s(:db)}= "#{time_ago_in_words(last_post.created_at)} #{t("ago")}"
             - else
               N/A
