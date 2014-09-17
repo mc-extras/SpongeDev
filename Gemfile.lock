@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Jake0oo0/forem.git
-  revision: 791e51f1bd42907227674de6cee613ca8074adbf
+  revision: a94a75517383433103cbbbfcc0e37da5ca671729
   branch: rails4
   specs:
     forem (1.0.0.beta1)
@@ -47,6 +47,7 @@ GEM
       activerecord (>= 3.2, < 5)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.7)
     bcrypt (3.1.7-x64-mingw32)
     bcrypt-ruby (3.0.1)
     bootstrap-wysihtml5-rails (0.3.2.100)
@@ -128,6 +129,7 @@ GEM
       multi_xml (~> 0.5)
       rack (~> 1.2)
     orm_adapter (0.5.0)
+    pg (0.17.1)
     pg (0.17.1-x64-mingw32)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -206,7 +208,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  nokogiri (= 1.6.3.1)
   pg
   rails (= 4.1.4)
   sass
