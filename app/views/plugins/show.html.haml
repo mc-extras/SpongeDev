@@ -38,13 +38,21 @@
                   = time_ago_in_words(@plugin.created_at)
                   ago
                 %b Categories
-                %p.plugin-indent= @plugin.tag_list.join(', ')
+                %p.plugin-indent
+                  - sb = ''
+                  - @plugin.tags.each_with_index do |tag, index|
+                    - sb += link_to tag, plugins_path(:category => tag.name), class: 'no-deco'
+                    - if index != @plugin.tags.size - 1
+                      - sb += ', '
+                  = sb.html_safe
                 %b License
                 %p.plugin-indent
                   - if @plugin.license == "Custom"
-                    = @plugin.custom_license
+                    %a.no-deco#license{title: "#{@plugin.custom_license}", "data-content" => "#{@plugin.custom_text}", "data-toggle" => "popover"}= @plugin.custom_license
+                    :javascript
+                      $('#license').popover();
                   - else
-                    = @plugin.license
+                    %a{href: "https://tldrlegal.com/"} @plugin.license
                 %b Statistics
                 %ul
                   %li 
@@ -59,8 +67,13 @@
                   ago
                 %b Downloads
                 %ul
-                  - @plugin.plugin_files.each do |download|
-                    %li= link_to download.file.file.filename, download.file.url
+                  - if @plugin.plugin_files.any?
+                    - @plugin.plugin_files.each do |download|
+                      %li= link_to download.file.file.filename, download.file.url
+                    %li
+                      %a{href: plugin_plugin_files_path(@plugin)} More Downloads
+                  - else
+                    %li No downloads.
             %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
               %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
                 %i.fa.fa-pencil
