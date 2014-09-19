@@ -1,6 +1,6 @@
 announcements = Forem::Category.create(:name => "Meta")
-Forem::Forum.create(:category => announcements, :name => "News and Announcements", :description => "Project announcements from Sponge staff.")
-Forem::Forum.create(:category => announcements, :name => "Feedback", :description => "A place for the community to give feedback on the Sponge project.")
+Forem::Forum.create(:order => 0, :category => announcements, :name => "News and Announcements", :description => "Project announcements from Sponge staff.")
+Forem::Forum.create(:order => 1, :category => announcements, :name => "Feedback", :description => "A place for the community to give feedback on the Sponge project.")
 
 general = Forem::Category.create(:name => "General")
 Forem::Forum.create(:category => general, :name => "General Discussion", :description => "Discussion about anything related to Sponge.")

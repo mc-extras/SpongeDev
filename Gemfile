@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
-gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'sass'
@@ -20,3 +19,11 @@ gem 'httparty'
 gem 'acts-as-taggable-on'
 gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
+
+group :development do 
+  gem 'sqlite'
+end
+
+group :production do 
+  gem 'pg'
+end
