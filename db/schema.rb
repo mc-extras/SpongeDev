@@ -11,23 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917035025) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20140920035239) do
 
   create_table "authors", force: true do |t|
     t.string   "role"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "downloads", force: true do |t|
-    t.string   "name"
-    t.string   "mc_version"
-    t.text     "changelog"
-    t.text     "notes"
-    t.integer  "plugin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140917035025) do
     t.integer  "order",      default: 0
   end
 
-  add_index "forem_categories", ["slug"], name: "index_forem_categories_on_slug", unique: true, using: :btree
+  add_index "forem_categories", ["slug"], name: "index_forem_categories_on_slug", unique: true
 
   create_table "forem_forums", force: true do |t|
     t.string  "name"
@@ -48,29 +35,30 @@ ActiveRecord::Schema.define(version: 20140917035025) do
     t.integer "category_id"
     t.integer "views_count", default: 0
     t.string  "slug"
+    t.integer "order",       default: 0
   end
 
-  add_index "forem_forums", ["slug"], name: "index_forem_forums_on_slug", unique: true, using: :btree
+  add_index "forem_forums", ["slug"], name: "index_forem_forums_on_slug", unique: true
 
   create_table "forem_groups", force: true do |t|
     t.string "name"
   end
 
-  add_index "forem_groups", ["name"], name: "index_forem_groups_on_name", using: :btree
+  add_index "forem_groups", ["name"], name: "index_forem_groups_on_name"
 
   create_table "forem_memberships", force: true do |t|
     t.integer "group_id"
     t.integer "member_id"
   end
 
-  add_index "forem_memberships", ["group_id"], name: "index_forem_memberships_on_group_id", using: :btree
+  add_index "forem_memberships", ["group_id"], name: "index_forem_memberships_on_group_id"
 
   create_table "forem_moderator_groups", force: true do |t|
     t.integer "forum_id"
     t.integer "group_id"
   end
 
-  add_index "forem_moderator_groups", ["forum_id"], name: "index_forem_moderator_groups_on_forum_id", using: :btree
+  add_index "forem_moderator_groups", ["forum_id"], name: "index_forem_moderator_groups_on_forum_id"
 
   create_table "forem_posts", force: true do |t|
     t.integer  "topic_id"
@@ -83,10 +71,10 @@ ActiveRecord::Schema.define(version: 20140917035025) do
     t.boolean  "notified",    default: false
   end
 
-  add_index "forem_posts", ["reply_to_id"], name: "index_forem_posts_on_reply_to_id", using: :btree
-  add_index "forem_posts", ["state"], name: "index_forem_posts_on_state", using: :btree
-  add_index "forem_posts", ["topic_id"], name: "index_forem_posts_on_topic_id", using: :btree
-  add_index "forem_posts", ["user_id"], name: "index_forem_posts_on_user_id", using: :btree
+  add_index "forem_posts", ["reply_to_id"], name: "index_forem_posts_on_reply_to_id"
+  add_index "forem_posts", ["state"], name: "index_forem_posts_on_state"
+  add_index "forem_posts", ["topic_id"], name: "index_forem_posts_on_topic_id"
+  add_index "forem_posts", ["user_id"], name: "index_forem_posts_on_user_id"
 
   create_table "forem_subscriptions", force: true do |t|
     t.integer "subscriber_id"
@@ -108,10 +96,10 @@ ActiveRecord::Schema.define(version: 20140917035025) do
     t.string   "slug"
   end
 
-  add_index "forem_topics", ["forum_id"], name: "index_forem_topics_on_forum_id", using: :btree
-  add_index "forem_topics", ["slug"], name: "index_forem_topics_on_slug", unique: true, using: :btree
-  add_index "forem_topics", ["state"], name: "index_forem_topics_on_state", using: :btree
-  add_index "forem_topics", ["user_id"], name: "index_forem_topics_on_user_id", using: :btree
+  add_index "forem_topics", ["forum_id"], name: "index_forem_topics_on_forum_id"
+  add_index "forem_topics", ["slug"], name: "index_forem_topics_on_slug", unique: true
+  add_index "forem_topics", ["state"], name: "index_forem_topics_on_state"
+  add_index "forem_topics", ["user_id"], name: "index_forem_topics_on_user_id"
 
   create_table "forem_views", force: true do |t|
     t.integer  "user_id"
@@ -124,9 +112,9 @@ ActiveRecord::Schema.define(version: 20140917035025) do
     t.datetime "past_viewed_at"
   end
 
-  add_index "forem_views", ["updated_at"], name: "index_forem_views_on_updated_at", using: :btree
-  add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
-  add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
+  add_index "forem_views", ["updated_at"], name: "index_forem_views_on_updated_at"
+  add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id"
+  add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id"
 
   create_table "infractions", force: true do |t|
     t.string   "reason"
@@ -197,15 +185,15 @@ ActiveRecord::Schema.define(version: 20140917035025) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
   create_table "tags", force: true do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",         null: false
@@ -230,9 +218,23 @@ ActiveRecord::Schema.define(version: 20140917035025) do
     t.string   "username"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
+
+  create_table "wiki_pages", force: true do |t|
+    t.text     "content"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "plugin_id"
+  end
+
+  create_table "wiki_wikis", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "plugin_id"
+  end
 
 end

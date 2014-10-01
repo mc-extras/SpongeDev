@@ -8,6 +8,6 @@ class PluginFileUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(jar zip rar)
+    %w(jar zip)
   end
 end

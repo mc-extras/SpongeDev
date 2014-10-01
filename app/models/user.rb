@@ -10,9 +10,7 @@ class User < ActiveRecord::Base
   def forem_email
     email
   end
-
-  has_many :infractions
-  belongs_to :edited_pages, class_name: 'Wiki::Page', inverse_of: 'editors'
+  
   has_many :authors
   has_many :plugins
 end

@@ -8,7 +8,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data'
 gem 'devise'
-gem 'forem', :github => 'Jake0oo0/forem', :branch => 'rails4'
 gem 'kaminari'
 gem 'haml'
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -21,7 +20,8 @@ gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
 
 group :development do 
-  gem 'sqlite'
+  gem 'sqlite3'
+  gem 'better_errors'
 end
 
 group :production do 
