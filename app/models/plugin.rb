@@ -8,6 +8,7 @@ class Plugin < ActiveRecord::Base
   validates :body, presence: true
   validates :name, presence: true, uniqueness: true
   validates :license, presence: true
+  validates :primary_category, presence: true
   validate :category_count
   validate :require_custom
   validate :verify_primary
