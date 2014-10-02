@@ -41,7 +41,3 @@ rails server
 * Profiles
 * Better sign in
 * Moderation
-* Likes/favorites/etc
-* Blog using announcements section
-* Remove Simple Form
-* Shorten Authorization Routes

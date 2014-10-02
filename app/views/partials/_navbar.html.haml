@@ -72,7 +72,7 @@
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             - if current_user
-              = forem_avatar(current_user, :size => 16)
+              = avatar(current_user, :size => 16)
               = current_user.username
             - else
               %i.fa.fa-user
