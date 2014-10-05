@@ -37,5 +37,6 @@ class Plugin < ActiveRecord::Base
 
   def verify_primary
     errors.add :primary_category, "is invalid. It should not be included in your sub categories." if tag_list.include?(primary_category)
+    errors.add :primary_category, 'is invalid. Please do not try to add a custom category.' if not CATEGORIES.include?(primary_category)
   end
 end
