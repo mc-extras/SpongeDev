@@ -1,4 +1,7 @@
 - content_for :title do @user.username end
+- content_for :head do
+  %meta{:content => "Sponge User #{@user.username}", :name => "description"}
+  %meta{:content => "Sponge, User, Profile", :name => "keywords"}
 .container
   .row
     .col-md-2

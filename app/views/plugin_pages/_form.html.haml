@@ -1,3 +1,6 @@
+- content_for :head do
+  %meta{:content => "Sponge Plugin Wiki Page", :name => "description"}
+  %meta{:content => "Sponge, Plugins, Wiki, Help", :name => "keywords"}
 = form_for([@plugin, @page]) do |f|
   = render 'partials/errors', object: @page
   %p

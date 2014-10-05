@@ -1,3 +1,6 @@
+- content_for :head do
+  %meta{:content => "Sponge Plugin Downloads for #{@plugin.name}", :name => "description"}
+  %meta{:content => "Sponge, Downloads, #{@plugin.name}, Files", :name => "keywords"}
 - content_for :title do "#{@plugin.name} Downloads" end
 %ol.breadcrumb
   %li
