@@ -4,7 +4,7 @@
   %li
     = link_to 'Login', new_user_session_path
 .row
-  .col-md-9
+  .col-md-8
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       %p
         = f.label :email
@@ -17,9 +17,5 @@
         = f.label :remember_me
       %p
         = f.submit "Login", class: 'btn btn-primary'
-  .col-md-3
-    %ul.nav.nav-list
-      %li
-        %a{href: root_path} Home
-      %li
-        %a{href: new_user_registration_path} Register
+  .col-md-4
+    = render "devise/shared/links"
