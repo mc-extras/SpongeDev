@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :plugins do
     resources :plugin_files, :path => "files"
   end
+  post '/contact', :to => "application#contact"
 end

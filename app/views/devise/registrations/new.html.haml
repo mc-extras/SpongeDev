@@ -1,5 +1,8 @@
-.page-header
-  %h1 Register
+%ol.breadcrumb
+  %li
+    = link_to 'Home', root_path
+  %li
+    = link_to 'Register', new_user_registration_path
 .row
   .col-md-9
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
