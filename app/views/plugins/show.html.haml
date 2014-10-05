@@ -15,8 +15,13 @@
               = GitHub::Markdown.render(@plugin.body).html_safe
           .col-md-4
             .download.text-center{style: "font-size: 150%; margin-bottom: 5px;"}
-              %i.fa.fa-download
-              = link_to 'Download', plugin_plugin_files_path(@plugin), class: 'no-deco'
+              .row
+                .col-md-6
+                  %i.fa.fa-download
+                  = link_to 'Download', plugin_plugin_files_path(@plugin), class: 'no-deco'
+                .col-md-6
+                  %i.fa.fa-file-o
+                  = link_to 'Wiki', plugin_plugin_pages_path(@plugin), class: 'no-deco'
             - if current_user and (current_user == @plugin.user or current_user.admin?)
               %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
                 %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
@@ -28,6 +33,8 @@
                   %b= link_to 'Upload File', new_plugin_plugin_file_path(@plugin), class: 'no-deco'
                   %br
                   %b= link_to 'Delete', plugin_path(@plugin), class: 'no-deco', method: :delete, data: {confirm: 'Are you sure you want to delete this plugin? This can not be undone.'}
+                  %br
+                  %b= link_to 'New Wiki Page', new_plugin_plugin_page_path(@plugin), class: 'no-deco'
             %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
               %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
                 %i.fa.fa-info
@@ -39,12 +46,7 @@
                   ago
                 %b Categories
                 %p.plugin-indent
-                  - sb = ''
-                  - @plugin.tags.each_with_index do |tag, index|
-                    - sb += link_to tag, plugins_path(:category => tag.name), class: 'no-deco'
-                    - if index != @plugin.tags.size - 1
-                      - sb += ', '
-                  = sb.html_safe
+                  = categories_builder(@plugin)
                 %b License
                 %p.plugin-indent
                   - if @plugin.license == "Custom"

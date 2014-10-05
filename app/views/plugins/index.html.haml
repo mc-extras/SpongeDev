@@ -30,12 +30,7 @@
 								= plugin.summary
 							%td= link_to plugin.user.username, profile_path(plugin.user.username), class: 'no-deco'
 							%td
-								- sb = ''
-								- plugin.tags.each_with_index do |tag, index|
-									- sb += link_to tag, plugins_path(:category => tag), class: 'no-deco'
-									- if index != plugin.tags.size - 1
-										- sb += ', '
-								= sb.html_safe
+								= categories_builder(plugin)
 							%td
 								= time_ago_in_words(plugin.updated_at)
 								ago

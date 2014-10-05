@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915213854) do
+ActiveRecord::Schema.define(version: 20141005155625) do
 
   create_table "authors", force: true do |t|
     t.string   "role"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20140915213854) do
     t.datetime "updated_at"
     t.integer  "downloads",    default: 0
     t.string   "release_type"
+  end
+
+  create_table "plugin_pages", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "plugin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "plugins", force: true do |t|

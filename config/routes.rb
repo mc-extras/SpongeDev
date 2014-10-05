@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :downloads
   resources :plugins do
     resources :plugin_files, :path => "files"
+    resources :plugin_pages, :path => "pages"
   end
   post '/contact', :to => "application#contact"
 end

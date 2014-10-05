@@ -31,11 +31,6 @@ body {
 	margin: 0px;
 }
 
-a:link.forum { color: black; text-decoration: none !important; } 
-a:visited.forum { color: black; text-decoration: none !important; } 
-a:hover.forum { color: black; text-decoration: none !important; } 
-a:active.forum { color: black; text-decoration: none !important; }
-
 a:link.no-deco { text-decoration: none !important; } 
 a:visited.no-deco { text-decoration: none !important; } 
 a:hover.no-deco { text-decoration: none !important; } 

@@ -3,6 +3,7 @@ class Plugin < ActiveRecord::Base
   has_many :authors
   belongs_to :user
   has_many :plugin_files
+  has_many :plugin_pages
 
   validates :summary, presence: true
   validates :body, presence: true
@@ -15,6 +16,13 @@ class Plugin < ActiveRecord::Base
 
   def to_param
     "#{id}-#{name}"
+  end
+
+  def all_categories
+    cats = Array.new
+    cats << primary_category
+    self.tags.each { |t| cats << t.name }
+    return cats
   end
 
   private
