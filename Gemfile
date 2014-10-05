@@ -13,11 +13,11 @@ gem 'haml'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'coffee-rails'
 gem 'github_api'
-gem 'bootstrap-wysihtml5-rails'
 gem 'httparty'
 gem 'acts-as-taggable-on'
 gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
+gem "bower-rails", "~> 0.8.3"
 
 group :development do 
   gem 'sqlite3'
