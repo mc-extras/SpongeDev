@@ -29,9 +29,10 @@
                 %i.fa.fa-download
       = paginate @builds
     .col-md-3
-      %div{style: "margin-top: 30px; background: #E8D51C linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: white; border-radius: 6px 6px 0px 0px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-bottom: 0px;"}
-        %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+      .panel.panel-primary{style: "margin-top: 30px;"}
+        .panel-heading
           %i.fa.fa-download
           Downloads
-        %div{style: "background-color: white; color: black; text-align: center; padding: 10px;"}
-          This page is for Sponge and SpongeAPI downloads, which are available to the public, and this page provides a nice interface for downloading things so that you dont have to deal with the Jenkins CI, and so new users don't get confused by the complexity of it!
+        .panel-body
+          .text-center
+            This page is for Sponge and SpongeAPI downloads, which are available to the public, and this page provides a nice interface for downloading things so that you dont have to deal with the Jenkins CI, and so new users don't get confused by the complexity of it!
