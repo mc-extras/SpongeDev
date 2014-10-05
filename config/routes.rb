@@ -10,9 +10,4 @@ Rails.application.routes.draw do
     resources :plugin_files, :path => "files"
   end
   post '/contact', :to => "application#contact"
-  if Rails.env.production?
-   get '404', :to => 'errors#page_not_found'
-   get '422', :to => 'errors#server_error'
-   get '500', :to => 'errors#server_error'
-  end
 end
