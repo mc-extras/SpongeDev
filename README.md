@@ -37,7 +37,6 @@ rails server
 
 * Notifications, emails, desktop alerts
 * Social Media
-* Wiki
 * Profiles
 * Better sign in
 * Moderation
