@@ -25,6 +25,10 @@ class Plugin < ActiveRecord::Base
     return cats
   end
 
+  def latest_download
+    plugin_files.first
+  end
+
   private
   def category_count
     errors.add :tag_list, "is invalid. Select up to four categories for your plugin." unless tag_list.size <= 4

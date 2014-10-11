@@ -8,19 +8,13 @@ class PluginsController < ApplicationController
     else
       Plugin.all
     end
-    @plugins = @plugins.page(params[:page])
-    respond_to do |format|
-      format.html
-      format.json { render json: @plugins }
+    unless params[:api]
+      @plugins = @plugins.page(params[:page])
     end
   end
 
   def show
     @plugin = Plugin.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.json { render json: @plugin }
-    end
   end
 
   def new
