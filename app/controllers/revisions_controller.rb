@@ -13,13 +13,13 @@ class RevisionsController < ApplicationController
     end
     @repo = @repos.find {|repo| repo[:name] == params[:id]}
     if not @repo
-      return redirect_to revision_path("Sponge-Site"), :alert => 'Revisions for that repository do not exist.'
+      return redirect_to revision_path("Spongy"), :alert => 'Revisions for that repository do not exist.'
     end
     @revisions = get_commits(@repo)
   end
 
   def index
-  	redirect_to revision_path("Sponge-Site")
+  	redirect_to revision_path("Spongy")
   end
 
   def get_commits(repo)
