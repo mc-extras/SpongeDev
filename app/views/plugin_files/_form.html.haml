@@ -9,6 +9,7 @@
       = f.select(:mc_version, ['1.7.x', '1.8.x'].map { |value| [ value, value ] }, {}, {class: 'form-control'})
     %p
       = f.label :file
+      %br/
       = f.file_field :file
     %p
       = f.label :release_type
