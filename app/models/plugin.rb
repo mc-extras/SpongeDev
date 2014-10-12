@@ -4,6 +4,7 @@ class Plugin < ActiveRecord::Base
   belongs_to :user
   has_many :plugin_files
   has_many :plugin_pages
+  has_many :comments
 
   validates :summary, presence: true
   validates :body, presence: true

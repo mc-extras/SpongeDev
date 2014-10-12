@@ -52,3 +52,7 @@ a:active.no-deco { text-decoration: none !important; }
 .plugin-indent {
 	padding-left: 30px;
 }
+
+.form-collapse:hover {
+	color: #B7B7B7;
+}

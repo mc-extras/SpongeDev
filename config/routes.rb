@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/user/:user' => 'application#profile', as: 'profile'
   resources :downloads
   resources :plugins do
+    resources :comments
     resources :plugin_files, :path => "files"
     resources :plugin_pages, :path => "pages"
   end
