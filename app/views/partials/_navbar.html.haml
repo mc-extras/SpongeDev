@@ -10,17 +10,17 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav{style: "margin-left: 20px;"}
         %li{class: "#{active("home")}"}
-          %a{href: root_path} 
+          %a{href: root_path}
             %i.fa.fa-home
             &nbsp;
             Home
         %li
-          %a{href: "http://forums.spongepowered.org/", target: '_blank'} 
+          %a{href: "http://forums.spongepowered.org/", target: '_blank'}
             %i.fa.fa-list
             &nbsp;
             Forums
         %li{class: "#{active("downloads")}"}
-          %a{href: downloads_path} 
+          %a{href: downloads_path}
             %i.fa.fa-download
             &nbsp;
             Downloads
@@ -32,22 +32,22 @@
             %i.fa.fa-caret-down
           %ul.dropdown-menu{role: "menu"}
             %li
-              %a{href: root_path} 
+              %a{href: root_path}
                 %i.fa.fa-file
                 &nbsp;
                 Wiki
             %li
-              %a{href: rules_path} 
+              %a{href: rules_path}
                 %i.fa.fa-book
                 &nbsp;
                 Rules
             %li
-              %a{href: terms_path} 
+              %a{href: terms_path}
                 %i.fa.fa-eye
                 &nbsp;
                 Terms
             %li
-              %a{href: "https://github.com/SpongePowered"} 
+              %a{href: "https://github.com/SpongePowered"}
                 %i.fa.fa-github
                 &nbsp;
                 Github
@@ -79,7 +79,7 @@
           %ul.dropdown-menu{role: "menu"}
             - if current_user
               %li= link_to 'Logout', destroy_user_session_path, method: :delete
-              %li= link_to 'Profile', profile_path(current_user.username)
+              %li= link_to 'Profile', user_path(current_user)
             - else
               %li= link_to 'Sign up', new_user_registration_path
               %li= link_to 'Login', new_user_session_path
