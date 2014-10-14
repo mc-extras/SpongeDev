@@ -23,7 +23,7 @@ json.downloads do
 			json.file @plugin.latest_download.file.file.filename
 	  		json.downloads @plugin.latest_download.downloads
 	  		json.version @plugin.latest_download.name
-	  		json.path request.protocol + request.host_with_port + @plugin.latest_download.file.url
+	  		json.url request.protocol + request.host_with_port + @plugin.latest_download.file.url
 		end
 	end
 	json.all do
@@ -31,7 +31,7 @@ json.downloads do
 			json.extract! download, :id, :downloads, :mc_version
 			json.file download.file.file.filename
 	  		json.version download.name
-	  		json.path request.protocol + request.host_with_port + download.file.url 
+	  		json.url request.protocol + request.host_with_port + download.file.url 
 		end
 	end
 end
