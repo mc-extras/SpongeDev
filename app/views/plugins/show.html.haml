@@ -40,7 +40,7 @@
                       .col-md-11
                         .content{style: "margin-left: 20px;"}
                           .user
-                            = profile_link(comment.user)
+                            = user_path(comment.user)
                           .text
                             = comment.content
           .col-xs-4
@@ -54,7 +54,7 @@
                   = link_to 'Wiki', plugin_plugin_pages_path(@plugin), class: 'no-deco'
             - if current_user and (current_user == @plugin.user or current_user.admin?)
               %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
-                %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+                %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"}
                   %i.fa.fa-database
                   Manage
                 %div{style: "background-color: white; color: black; padding: 10px;"}
@@ -66,7 +66,7 @@
                   %br
                   %b= link_to 'New Wiki Page', new_plugin_plugin_page_path(@plugin), class: 'no-deco'
             %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
-              %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+              %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"}
                 %i.fa.fa-info
                 Information
               %div{style: "background-color: white; color: black; padding: 10px;"}
@@ -87,7 +87,7 @@
                     %a{href: "https://tldrlegal.com/"}= @plugin.license
                 %b Statistics
                 %ul
-                  %li 
+                  %li
                     Downloads:
                     = @plugin.downloads
                   %li
@@ -107,7 +107,7 @@
                   - else
                     %li No downloads.
             %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
-              %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+              %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"}
                 %i.fa.fa-pencil
                 Authors
               %div{style: "background-color: white; color: black; padding: 10px;"}
@@ -115,6 +115,6 @@
                   .col-md-2
                     = avatar(@plugin.user, :size => 60)
                   .col-md-10{style: "vertical-align: middle; min-height: 60px;"}
-                    = link_to @plugin.user.username, profile_path(@plugin.user.username)
+                    = link_to @plugin.user.username, user_path(@plugin.user)
                     %br/
                     Author
