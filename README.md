@@ -40,3 +40,11 @@ rails server
 * Profiles
 * Better sign in
 * Moderation
+
+### Features (Implemented)
+* Plugin Page
+* Sign in (Temp)
+* Profile page (Temp)
+* Wiki
+* Comments
+* Downloads page
