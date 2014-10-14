@@ -17,6 +17,8 @@
 %body
   = render 'partials/navbar'
   .header-alert
+    .alert.alert-danger{role: "alert"}
+      Unfortunately, I have run out of funds to host this on a VPS, and am now hosting on Heroku. This means that file uploads will not stay between updates, but most of the site is still functional.
     = render 'partials/alerts'
   = yield
   = render 'partials/footer'
