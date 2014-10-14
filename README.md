@@ -1,50 +1,40 @@
-To install:
+# Spongy
+
+Spongy is a Proof of Concept website for [Sponge](http://forums.spongepowered.org/).
 
 
-Copy:
+## Installing
 
-```
-config/initalizers/secrets.rb.default to config/initalizers/secrets.rb and fill in a Github OAuth token.
-```
-
-
-Copy:
-
-```
-config/database.yml.default to config/database.yml, and enter the settings for your database.
-```
-
-Run:
-
-```
-bundle install
-```
-
-Run:
-
-```
-rake db:migrate
-```
-
-Start the Rails Server:
-
-```
-rails server
-```
+* Clone the repository
+* cd Spongy/
+* cp config/database.yml.default config.database.yml
+* Edit database settings
+* cp config/initalizers/secrets.rb.default config/initializers/secrets.rb
+* bundle install
+* rake db:migrate
+* rails server
 
 
-### TODO
+### TODO List
 
-* Notifications, emails, desktop alerts
-* Social Media
-* Profiles
-* Better sign in
-* Moderation
+* Notifications - Built in notifications, along with custom emails, and external notifications.
+* Social Media - Display Social Media icons for Sponge
+* Better authentication - OAuth (Github, Twitter, etc), SSO with Sponge Powered
+* Moderation (Plugin approval)
 
 ### Features (Implemented)
-* Plugin Page
-* Sign in (Temp)
-* Profile page (Temp)
-* Wiki
-* Comments
-* Downloads page
+* Plugins
+  * Downloads
+  * Wiki Pages
+  * Stat Tracking
+  * Comments
+  * Categorization and Searching
+* Users
+  * Local Authentication
+  * Profile Pages
+* Downloads
+  * List of Sponge builds from the CI
+* Revisions
+  * A list of Github revisions from various Sponge related repositories.
+* Terms & Rules
+* Contact Form
