@@ -8,14 +8,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
 
-  def profile
-    @user = User.find_by(username: params[:user])
-    respond_to do |format|
-      format.html
-      format.json { render json: @user }
-    end
-  end
-
   def contact
     form = params[:contact]
     username = form[:username]
