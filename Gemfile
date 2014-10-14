@@ -19,12 +19,11 @@ gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
 gem "bower-rails", "~> 0.8.3"
 
-group :development do
+group :development do 
   gem 'sqlite3'
   gem 'better_errors'
-  gem 'binding_of_caller'
 end
 
-group :production do
+group :production do 
   gem 'pg'
 end

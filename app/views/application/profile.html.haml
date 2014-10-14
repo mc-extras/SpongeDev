@@ -1,0 +1,32 @@
+- content_for :title do @user.username end
+- content_for :head do
+  %meta{:content => "Sponge User #{@user.username}", :name => "description"}
+  %meta{:content => "Sponge, User, Profile", :name => "keywords"}
+.container
+  .row
+    .col-md-2
+      .avatar{align: "center", style: "border: 1px black;"}
+        = avatar(@user, size: 150)
+    .col-md-10
+      %h1= link_to @user.username, profile_path(@user.username)
+      %p
+        Joined
+        = time_ago_in_words(@user.created_at)
+        ago
+      .tabbable
+        %ul.nav.nav-tabs
+          %li{class: "#{tab_active('plugins', true)}"}
+            %a{"data-toggle" => "tab", href: "#plugins"} Plugins
+          %li{class: "#{tab_active('infractions')}"}
+            %a{"data-toggle" => "tab", href: "#infractions"} Infractions
+        .tab-content{style: "overflow: visible; box-shadow: 3px;"}
+          %div{id: 'plugins', class: "#{tab_active('plugins', true)}"}
+            - @user.plugins.each do |plugin|
+              %div{id: "plugin-#{plugin.name}"}
+                = link_to plugin.name, plugin
+                %br/
+                = plugin.summary
+                %hr
+          %div{id: 'topics', class: "#{tab_active('topics')}"}
+          %div{id: 'posts', class: "#{tab_active('posts')}"}
+          %div{id: 'infractions', class: "#{tab_active('infractions')}"}

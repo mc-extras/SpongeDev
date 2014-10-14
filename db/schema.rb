@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20141012135536) do
     t.string   "custom_license"
     t.string   "custom_text"
     t.string   "primary_category"
+    t.string   "gender"
+    t.string   "location"
   end
 
   create_table "taggings", force: true do |t|
