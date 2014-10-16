@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   end
   resources :users
   post '/contact', :to => "application#contact"
-  post '/users/link_account', :to => "application#link_mc", :as => 'mc_account'
+  get '/mc/link_account', :to => "application#link_mc", :as => 'mc_account'
+  post '/post_mc', :to => "application#post_mc", :as => "mc_post"
 end

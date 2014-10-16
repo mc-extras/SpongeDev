@@ -1,9 +1,10 @@
 module AvatarHelper
-
   def avatar(user, options = {})
-    image = gravatar_url user.email, options
-    # uncomment this when users have an IGN column
-    # image = minotar_url user.ign, options
+    if user.mc_username
+      image = minotar_url user.mc_username, options
+    else
+      image = gravatar_url user.email, options
+    end
     image_tag image, :alt => "Avatar" if image.present?
   end
 
@@ -21,5 +22,4 @@ module AvatarHelper
     options[:size] ||= 60
     "https://minotar.net/#{options[:type]}/#{CGI.escape(ign)}/#{options[:size]}.png"
   end
-
 end

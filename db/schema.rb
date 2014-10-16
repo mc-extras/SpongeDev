@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012135536) do
+ActiveRecord::Schema.define(version: 20141016034949) do
 
   create_table "authors", force: true do |t|
     t.string   "role"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20141012135536) do
     t.string   "custom_license"
     t.string   "custom_text"
     t.string   "primary_category"
+    t.string   "gender"
+    t.string   "location"
   end
 
   create_table "taggings", force: true do |t|
@@ -103,6 +105,8 @@ ActiveRecord::Schema.define(version: 20141012135536) do
     t.datetime "updated_at"
     t.string   "username"
     t.boolean  "admin",                  default: false
+    t.string   "mc_uuid"
+    t.string   "mc_username"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
