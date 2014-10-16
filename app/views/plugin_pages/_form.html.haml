@@ -12,4 +12,4 @@
     %br/
     = f.text_area :body, class: 'form-control', rows: 8
   %p
-    = f.submit 'Save', class: 'btn btn-primary'
+    = f.submit 'Save', class: 'btn btn-primary', data: { disable_with: "Saving..." }

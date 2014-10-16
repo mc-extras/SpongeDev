@@ -18,6 +18,7 @@ gem 'acts-as-taggable-on'
 gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
 gem "bower-rails", "~> 0.8.3"
+gem "minecraft_auth"
 
 group :development do
   gem 'sqlite3'

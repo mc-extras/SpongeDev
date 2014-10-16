@@ -21,4 +21,4 @@
       = f.label :notes
       = f.text_area :notes, class: 'form-control', rows: 5
     %p
-      = f.submit 'Submit', class: 'btn btn-primary'
+      = f.submit 'Submit', class: 'btn btn-primary', data: { disable_with: "Saving..." }

@@ -24,6 +24,6 @@
         = f.label :password_confirmation
         = f.password_field :password_confirmation, :class => "form-control", style: "width: 15em"
       %p
-        = f.submit "Register", class: 'btn btn-primary'
+        = f.submit "Register", class: 'btn btn-primary', data: { disable_with: "Registering..." }
   .col-md-4
     = render "devise/shared/links"

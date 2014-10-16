@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  before_filter :set_user, only: :show
+  before_filter :set_user, only: [:show]
+  before_filter require_admin
 
   def index
     @users = User.all

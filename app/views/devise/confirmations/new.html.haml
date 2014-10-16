@@ -7,7 +7,7 @@
       %p
         = f.email_field :email, autofocus: true, :class => "form-control", style: "width: 25em"
       %p
-        = f.submit "Send", class: 'btn btn-primary'
+        = f.submit "Send", class: 'btn btn-primary', data: { disable_with: "Sending..." }
   .col-md-3
     %ul.nav.nav-list
       %li
