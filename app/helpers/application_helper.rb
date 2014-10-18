@@ -16,6 +16,6 @@ module ApplicationHelper
   end
 
   def profile_link(user)
-    link_to user.username, user
+    link_to user.username, user_path(user)
   end
 end

@@ -116,6 +116,6 @@
                   .col-md-2
                     = avatar(@plugin.user, :size => 60)
                   .col-md-10{style: "vertical-align: middle; min-height: 60px;"}
-                    = link_to @plugin.user.username, profile_link(@plugin.user)
+                    = link_to @plugin.user.username, user_path(@plugin.user)
                     %br/
                     Author
