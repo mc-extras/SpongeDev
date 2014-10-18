@@ -21,11 +21,22 @@ gem "bower-rails", "~> 0.8.3"
 gem "minecraft_auth"
 
 group :development do
-  gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
 
 group :production do
   gem 'pg'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'sqlite3'
+  gem "shoulda-matchers", "~> 2.7.0"
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end

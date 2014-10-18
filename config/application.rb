@@ -7,5 +7,9 @@ Bundler.require(*Rails.groups)
 module SpongeTest
   class Application < Rails::Application
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
+    config.generators do |g|
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
   end
 end
