@@ -19,7 +19,6 @@ gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
 gem 'bower-rails', '~> 0.8.3'
 gem 'minecraft_auth'
-gem 'passenger'
 
 group :development do
   gem 'better_errors'
@@ -27,6 +26,7 @@ group :development do
 end
 
 group :production do
+  gem 'passenger'
   gem 'pg'
 end
 
