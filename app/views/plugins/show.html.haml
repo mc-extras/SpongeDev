@@ -41,6 +41,7 @@
                         .content{style: "margin-left: 20px;"}
                           .user
                             = profile_link(comment.user)
+                            %small= time_ago_in_words(comment.created_at) + ' ago'
                           .text
                             = comment.content
           .col-xs-4
