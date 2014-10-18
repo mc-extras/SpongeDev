@@ -40,7 +40,7 @@
                       .col-md-11
                         .content{style: "margin-left: 20px;"}
                           .user
-                            = user_path(comment.user)
+                            = profile_link(comment.user)
                           .text
                             = comment.content
           .col-xs-4
@@ -115,6 +115,6 @@
                   .col-md-2
                     = avatar(@plugin.user, :size => 60)
                   .col-md-10{style: "vertical-align: middle; min-height: 60px;"}
-                    = link_to @plugin.user.username, user_path(@plugin.user)
+                    = link_to @plugin.user.username, profile_link(@plugin.user)
                     %br/
                     Author

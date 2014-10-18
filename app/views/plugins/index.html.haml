@@ -31,7 +31,7 @@
 								= link_to plugin.name, plugin, class: 'no-deco'
 								%br/
 								= plugin.summary
-							%td= link_to plugin.user.username, user_path(plugin.user), class: 'no-deco'
+							%td= link_to plugin.user.username, profile_link(plugin.user), class: 'no-deco'
 							%td
 								= categories_builder(plugin)
 							%td

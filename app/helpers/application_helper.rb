@@ -14,4 +14,8 @@ module ApplicationHelper
   def require_admin
     redirect_to root_path, :alert => "No permission." unless is_admin?
   end
+
+  def profile_link(user)
+    link_to user.username, user
+  end
 end
