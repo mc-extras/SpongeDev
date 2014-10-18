@@ -19,8 +19,9 @@ gem 'httparty'
 gem 'acts-as-taggable-on'
 gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
-gem "bower-rails", "~> 0.8.3"
-gem "minecraft_auth"
+gem 'bower-rails', '~> 0.8.3'
+gem 'minecraft_auth'
+gem 'passenger'
 
 group :development do
   gem 'better_errors'
@@ -28,14 +29,13 @@ group :development do
 end
 
 group :production do
-  gem 'passenger'
   gem 'pg'
 end
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'sqlite3'
-  gem "shoulda-matchers", "~> 2.7.0"
+  gem 'shoulda-matchers', '~> 2.7.0'
 end
 
 group :test do
