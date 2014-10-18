@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Jake0oo0/Spongy.svg?branch=master)](https://travis-ci.org/Jake0oo0/Spongy)
+
 # Spongy
 
 Spongy is a Proof of Concept website for [Sponge](http://forums.spongepowered.org/).
