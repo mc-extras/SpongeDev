@@ -5,14 +5,14 @@ Spongy is a Proof of Concept website for [Sponge](http://forums.spongepowered.or
 
 ## Installing
 
-* Clone the repository
-* cd Spongy/
-* cp config/database.yml.default config.database.yml
-* Edit database settings
-* cp config/initalizers/secrets.rb.default config/initializers/secrets.rb
-* bundle install
-* rake db:migrate
-* rails server
+```bash
+git clone https://github.com/Jake0oo0/Spongy.git && cd Spongy/
+cp config/database.yml.default config/database.yml
+cp config/initalizers/secrets.rb.default config/initializers/secrets.rb
+bundle install
+rake db:migrate
+rails s
+```
 
 ## Side projects
 | Name | Description |
