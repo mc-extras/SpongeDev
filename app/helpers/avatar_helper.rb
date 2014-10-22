@@ -18,7 +18,7 @@ module AvatarHelper
   end
 
   def minotar_url(ign, options = {})
-    options[:type] ||= "helm" # or "avatar"
+    options[:type] ||= "avatar" # or "avatar"
     options[:size] ||= 60
     "https://minotar.net/#{options[:type]}/#{CGI.escape(ign)}/#{options[:size]}.png"
   end
