@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   resources :downloads
   resources :plugins do
     resources :comments
-    resources :plugin_files, :path => "files"
-    resources :plugin_pages, :path => "pages"
+    resources :plugin_files, :path => 'files'
+    resources :plugin_pages, :path => 'pages'
   end
   resources :users
-  post '/contact', :to => "application#contact"
-  get '/mc/link_account', :to => "application#link_mc", :as => 'mc_account'
-  post '/post_mc', :to => "application#post_mc", :as => "mc_post"
+  post '/contact', :to => 'application#contact'
+  resources :authentications
+  get '/auth/link/server', :to => 'authentications#server', :as => 'mc_server'
+  get '/auth/link/credentials', :to => 'authentications#credentials', :as => 'mc_credentials'
+  post '/auth/link/credentials/post', :to => 'authentications#post_mc', :as => 'mc_post_credentials'
 end

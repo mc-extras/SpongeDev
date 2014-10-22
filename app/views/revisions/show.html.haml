@@ -16,7 +16,6 @@
 			- @repos.each do |repo|
 				%li{class: "#{'active' if repo[:name] == params[:id]}"}
 					%a{href: revision_path(repo[:name])} #{repo[:friendly]}
-		.vertical-div
 	.col-md-10
 		- if not current_repo[:private]
 			.alert.alert-success

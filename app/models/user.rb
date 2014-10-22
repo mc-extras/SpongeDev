@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable
+  :recoverable, :rememberable, :trackable, :validatable,
+  :confirmable
 
   has_many :authors
   has_many :plugins
@@ -21,8 +21,9 @@ class User < ActiveRecord::Base
         return "too old"
       else
         return "success"
-      rt.destroy!
+        rt.destroy!
+      end
+      return "not found"
     end
-    return "not found"
   end
 end

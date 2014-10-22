@@ -18,23 +18,4 @@ class ApplicationController < ActionController::Base
     UserMailer.contact(email, username, question).deliver
     return redirect_to root_path, notice: 'Successfully submitted an inquiry.'
   end
-
-  def post_mc
-    form = params[:account]
-    username = form[:mc_username]
-    password = form[:mc_password]
-    return redirect_to root_path, :notice => "You must login to link your Minecraft account." unless @user = current_user
-    begin
-      @account = MinecraftAuth.account(username, password)
-    rescue MinecraftAuth::AccountError
-      return redirect_to root_path, :notice => "Invalid login credentials."
-    end
-    @user.mc_uuid = @account.profiles[0].id
-    @user.mc_username = @account.profiles[0].name
-    @user.save
-    redirect_to root_path, :notice => "Successfully linked Minecraft account."
-  end
-
-  def link_mc
-  end
 end

@@ -1,0 +1,12 @@
+%ol.breadcrumb
+  %li
+    = link_to 'Home', root_path
+  %li
+    = link_to 'Authenticate Minecraft', mc_credentials_path
+
+.container
+  .row
+    .col-md-12
+      = render 'nav', :type => type
+      .well
+        = render "#{type}"

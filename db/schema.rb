@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20141022001553) do
     t.string   "custom_license"
     t.string   "custom_text"
     t.string   "primary_category"
+    t.string   "gender"
+    t.string   "location"
   end
 
   create_table "registration_tokens", force: true do |t|

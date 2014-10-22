@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
     @username = user
     @email = email
     @question = question
-    mail(:to => 'jake0oo0andminecraft@gmail.com',
+    mail(:to => 'jake0oo0dev@gmail.com',
          :subject => "Question from #{user}",
          :reply_to => email)
   end

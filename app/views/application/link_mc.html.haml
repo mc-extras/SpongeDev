@@ -1,8 +1,0 @@
-= form_tag mc_post_path, method: 'post' do
-  %p
-    = label_tag 'Username / Email:'
-    = text_field :account, :mc_username, class: 'form-control'
-  %p
-    = label_tag 'Password:'
-    = password_field :account, :mc_password, class: 'form-control'
-  = submit_tag 'Submit', class: 'btn btn-primary', data: { disable_with: "Verifying..." }
