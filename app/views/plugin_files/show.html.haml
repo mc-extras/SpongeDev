@@ -34,17 +34,17 @@
               %i.fa.fa-download
               = link_to 'Download', @download.file.url, class: 'no-deco'
             - if current_user and (current_user == @plugin.user or current_user.admin?)
-              %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
-                %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+              .panel.panel-default{style: "margin-top: 20px;"}
+                .panel-heading
                   %i.fa.fa-database
                   Manage
-                %div{style: "background-color: white; color: black; padding: 10px;"}
+                .panel-body
                   %b= link_to 'Delete', plugin_plugin_file_path(@plugin, @download), class: 'no-deco', method: :delete, data: {confirm: 'Are you sure you want to delete this file? This can not be undone.'}
-            %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
-              %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+            .panel.panel-default{style: "margin-top: 20px;"}
+              .panel-heading
                 %i.fa.fa-info
                 Information
-              %div{style: "background-color: white; color: black; padding: 10px;"}
+              .panel-body
                 %b Date Uploaded
                 %p.plugin-indent
                   = time_ago_in_words(@download.created_at)

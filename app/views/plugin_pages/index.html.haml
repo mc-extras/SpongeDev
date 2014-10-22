@@ -34,10 +34,10 @@
 												ago
 					.col-md-4
 						- if current_user and (current_user == @plugin.user or current_user.admin?)
-							%div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30);"}
-								%p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"} 
+							.panel.panel-default
+								.panel-heading 
 									%i.fa.fa-database
 									Manage
-								%div{style: "background-color: white; color: black; padding: 10px;"}
+								.panel-body
 									= link_to 'New Page', new_plugin_plugin_page_path(@plugin)
 									

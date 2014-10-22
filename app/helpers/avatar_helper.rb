@@ -5,7 +5,7 @@ module AvatarHelper
     else
       image = gravatar_url user.email, options
     end
-    image_tag image, :alt => "Avatar" if image.present?
+    image_tag image, :alt => "Avatar", class: 'avatar' if image.present?
   end
 
   def gravatar_url(email, options = {})

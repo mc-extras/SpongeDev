@@ -56,3 +56,7 @@ a:active.no-deco { text-decoration: none !important; }
 .form-collapse:hover {
 	color: #B7B7B7;
 }
+
+.avatar {
+	border-radius: 3px;
+}
