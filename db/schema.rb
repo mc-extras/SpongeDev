@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016034949) do
+ActiveRecord::Schema.define(version: 20141022001553) do
 
   create_table "authors", force: true do |t|
     t.string   "role"
@@ -62,8 +62,13 @@ ActiveRecord::Schema.define(version: 20141016034949) do
     t.string   "custom_license"
     t.string   "custom_text"
     t.string   "primary_category"
-    t.string   "gender"
-    t.string   "location"
+  end
+
+  create_table "registration_tokens", force: true do |t|
+    t.string   "uuid"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", force: true do |t|
