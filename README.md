@@ -20,26 +20,26 @@ Spongy is a Proof of Concept website for [Sponge](http://forums.spongepowered.or
 | [Crafatar](https://github.com/Jake0oo0/crafatar) | An avatar service for Minecraft |
 | [Sponge Auth Server](sponge_auth_server) | A Minecraft server implementation that validates MC accounts for the website |
 
-### TODO List
 
-* Notifications - Built in notifications, along with custom emails, and external notifications.
-* Social Media - Display Social Media icons for Sponge
-* Better authentication - OAuth (Github, Twitter, etc), SSO with Sponge Powered
-* Moderation (Plugin approval)
+## TODO
 
-### Features (Implemented)
-* Plugins
-  * Downloads
-  * Wiki Pages
-  * Stat Tracking
-  * Comments
-  * Categorization and Searching
-* Users
-  * Local Authentication
-  * Profile Pages
-* Downloads
-  * List of Sponge builds from the CI
-* Revisions
-  * A list of Github revisions from various Sponge related repositories.
-* Terms & Rules
-* Contact Form
+* [ ] Notifications - Built in notifications, along with custom emails, and external notifications.
+* [ ] Social Media - Display Social Media icons for Sponge
+* [ ] Better authentication - OAuth (Github, Twitter, etc), SSO with Sponge Powered
+* [ ] Moderation (Plugin approval)
+
+* [x] Plugins
+  * [x] Downloads
+  * [x] Wiki Pages
+  * [x] Stat Tracking
+  * [x] Comments
+  * [x] Categorization and Searching
+* [x] Users
+  * [x] Local Authentication
+  * [x] Profile Pages
+* [x] Downloads
+  * [x] List of Sponge builds from the CI
+* [x] Revisions
+  * [x] A list of Github revisions from various Sponge related repositories.
+* [x] Terms & Rules
+* [x] Contact Form
