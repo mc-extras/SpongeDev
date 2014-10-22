@@ -27,7 +27,6 @@ Spongy is a Proof of Concept website for [Sponge](http://forums.spongepowered.or
 * [ ] Social Media - Display Social Media icons for Sponge
 * [ ] Better authentication - OAuth (Github, Twitter, etc), SSO with Sponge Powered
 * [ ] Moderation (Plugin approval)
-
 * [x] Plugins
   * [x] Downloads
   * [x] Wiki Pages
