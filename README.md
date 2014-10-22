@@ -14,6 +14,11 @@ Spongy is a Proof of Concept website for [Sponge](http://forums.spongepowered.or
 * rake db:migrate
 * rails server
 
+## Side projects
+| Name | Description |
+| ---- | ----------- |
+| [Crafatar](https://github.com/Jake0oo0/crafatar) | An avatar service for Minecraft |
+| [Sponge Auth Server](sponge_auth_server) | A Minecraft server implementation that validates MC accounts for the website |
 
 ### TODO List
 

@@ -14,4 +14,15 @@ class User < ActiveRecord::Base
   def to_s
     username
   end
+
+  def verify_mc token
+    if rt = RegistrationToken.find_by(uuid: self.uuid, token: token)
+      if rt.created_at < 5.minues.ago
+        return "too old"
+      else
+        return "success"
+      rt.destroy!
+    end
+    return "not found"
+  end
 end
