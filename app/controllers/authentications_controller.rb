@@ -24,7 +24,7 @@ class AuthenticationsController < ApplicationController
     puts "TOKEN", token, "UUID", uuid
     db_token = RegistrationToken.where(:token => token).where(:uuid => uuid).first
     return redirect_to mc_server_path, :alert => "Valid token not found." if not db_token # Token is invalid, not found.
-    user.uuid = uuid
+    user.mc_uuid = uuid
     user.save
     redirect_to root_path, :notice => "Successfully linked Minecraft account."
   end
