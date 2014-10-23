@@ -12,5 +12,5 @@
     = text_field :verification, :username, class: 'form-control'
   %p
     = label_tag 'Token:'
-    = password_field :verification, :token, class: 'form-control'
+    = text_field :verification, :token, class: 'form-control'
   = submit_tag 'Submit', class: 'btn btn-primary', data: { disable_with: "Verifying..." }

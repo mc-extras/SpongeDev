@@ -15,15 +15,17 @@ class AuthenticationsController < ApplicationController
 
   # POST authentication token and username to verify valid token.
   def post_server
+    return redirect_to root_path, :alert => "You must login to authenticate with our server." unless user = current_user
     form = params[:verification]
     username = form[:verification]
     token = form[:token]
     return redirect_to mc_server_path, :alert => "Invalid token or username." if !token or !username
-    # uuid = add ability to get UUID, minecraft_auth gem preferably
+    uuid = MinecraftAuth.username_to_uuid(username) # Convert UUID to username from Mojang servers.
     db_token = RegistrationToken.where(:token => token).where(:uuid => uuid).first
     return redirect_to mc_server_path, :alert => "Valid token not found." if not db_token # Token is invalid, not found.
-    # Account is valid.
-    # Save UUID to the user's model, redirect to root.
+    user.uuid = uuid
+    user.save
+    redirect_to root_path, :notice => "Successfully linked Minecraft account."
   end
 
   # POST Minecraft credentials to here where they can be verified.
