@@ -17,7 +17,7 @@ class AuthenticationsController < ApplicationController
   def post_server
     return redirect_to root_path, :alert => "You must login to authenticate with our server." unless user = current_user
     form = params[:verification]
-    username = form[:verification]
+    username = form[:username]
     token = form[:token]
     return redirect_to mc_server_path, :alert => "Invalid token or username." if !token or !username
     uuid = MinecraftAuth.username_to_uuid(username) # Convert UUID to username from Mojang servers.
