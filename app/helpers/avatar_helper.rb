@@ -1,7 +1,7 @@
 module AvatarHelper
   def avatar(user, options = {})
-    if user.mc_username
-      image = minotar_url user.mc_username, options
+    if user.mc_uuid
+      image = crafatar_url user.mc_uuid, options
     else
       image = gravatar_url user.email, options
     end
@@ -17,9 +17,9 @@ module AvatarHelper
     "#{request.ssl? ? 'https://secure' : 'http://www'}.gravatar.com/avatar/#{md5}?#{options.to_param}"
   end
 
-  def minotar_url(ign, options = {})
+  def crafatar_url(uuid, options = {})
     options[:type] ||= "avatar" # or "avatar"
     options[:size] ||= 60
-    "https://minotar.net/#{options[:type]}/#{CGI.escape(ign)}/#{options[:size]}.png"
+    "https://minotar.net/avatar/#{CGI.escape(uuid)}/#{options[:size]}.png"
   end
 end
