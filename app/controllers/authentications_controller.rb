@@ -21,6 +21,7 @@ class AuthenticationsController < ApplicationController
     token = form[:token]
     return redirect_to mc_server_path, :alert => "Invalid token or username." if !token or !username
     uuid = MinecraftAuth.username_to_uuid(username) # Convert UUID to username from Mojang servers.
+    puts "TOKEN", token, "UUID", uuid
     db_token = RegistrationToken.where(:token => token).where(:uuid => uuid).first
     return redirect_to mc_server_path, :alert => "Valid token not found." if not db_token # Token is invalid, not found.
     user.uuid = uuid
