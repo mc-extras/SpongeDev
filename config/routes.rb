@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post '/contact', :to => 'application#contact'
   resources :authentications
   get '/auth/link/server', :to => 'authentications#server', :as => 'mc_server'
+  post '/auth/link/server', :to => 'authentications#post_server', :as => 'mc_post_server'
   get '/auth/link/credentials', :to => 'authentications#credentials', :as => 'mc_credentials'
-  post '/auth/link/credentials/post', :to => 'authentications#post_mc', :as => 'mc_post_credentials'
+  post '/auth/link/credentials', :to => 'authentications#post_credentials', :as => 'mc_post_credentials'
 end
