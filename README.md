@@ -19,6 +19,8 @@ rails s
 | ---- | ----------- |
 | [Crafatar](https://github.com/Jake0oo0/crafatar) | An avatar service for Minecraft |
 | [Sponge Auth Server](https://github.com/Jake0oo0/sponge_auth_server) | A Minecraft server implementation that validates MC accounts for the website |
+| [MC Auth](https://github.com/Jake0oo0/minecraft_auth) | Ruby gem for authenticating Minecraft accounts |
+| [Sponge me!](https://github.com/Jake0oo0/sponge-me) | Python application for managing Sponge plugins |
 
 
 ## TODO
