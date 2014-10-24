@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Jake0oo0/github_revisions.git
-  revision: 7070d635d86448f6f7b7152257a750302ee2ece4
+  revision: 09ce513b4c614f00e0b00c0c48de9a40c34919c1
   specs:
     github_revisions (0.0.2)
       github_api

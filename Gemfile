@@ -18,7 +18,7 @@ gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
 gem 'bower-rails', '~> 0.8.3'
 gem 'minecraft_auth'
-gem 'github_revisions', github: 'Jake0oo0/github_revisions'
+gem 'github_revisions'
 
 group :development do
   gem 'better_errors'
