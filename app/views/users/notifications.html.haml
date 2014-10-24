@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-md-3
+      = render 'partials/account'
+    .col-md-9
+      %h2 About Me
+      %hr/
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render 'partials/errors', object: resource
+
+          = f.submit 'Save', class: 'btn btn-primary'
