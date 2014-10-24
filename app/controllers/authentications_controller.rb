@@ -1,4 +1,6 @@
 class AuthenticationsController < ApplicationController
+  before_filter :authenticate_user!, only: [:credentials, :server, :verify]
+
   # Verify with Minecraft credentials
   def credentials
     render 'verify', :locals => { :type => "credentials" }
