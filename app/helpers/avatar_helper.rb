@@ -1,6 +1,6 @@
 module AvatarHelper
   def avatar(user, options = {})
-    if user.mc_uuid
+    if user.mc_uuid and user.avatar_serve == "Crafatar"
       image = crafatar_url user.mc_uuid, options
     else
       image = gravatar_url user.email, options
