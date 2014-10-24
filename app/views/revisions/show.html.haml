@@ -1,7 +1,6 @@
 - content_for :head do
 	%meta{:content => "Sponge Revisions", :name => "description"}
 	%meta{:content => "Sponge, Revisions, Github, API, Web", :name => "keywords"}
-- current_repo = @repos.find {|repo| repo[:name] == params[:id]}
 - content_for :title do "Revisions: #{current_repo[:friendly]}" end
 %ol.breadcrumb
 	%li
@@ -13,8 +12,8 @@
 .row
 	.col-md-2
 		%ul.nav.nav-pills.nav-stacked
-			- @repos.each do |repo|
-				%li{class: "#{'active' if repo[:name] == params[:id]}"}
+			- repositories.each do |repo|
+				%li{class: "#{'active' if repo[:name] == current_repo[:name]}"}
 					%a{href: revision_path(repo[:name])} #{repo[:friendly]}
 	.col-md-10
 		- if not current_repo[:private]
@@ -28,7 +27,7 @@
 				%th{width: "8%"} Author
 				%th{width: "20%"} Commit Message
 				%th{width: "10%"} Time
-			- @revisions.each do |revision|
+			- revisions.each do |revision|
 				%tr
 					%td
 						%a{href: revision[:url], target: "_blank"}= revision[:sha][0..6]
@@ -37,5 +36,5 @@
 					%td
 						= time_ago_in_words(revision[:date])
 						ago
-		= paginate @revisions
+		= paginate revisions
 

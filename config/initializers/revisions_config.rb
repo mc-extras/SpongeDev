@@ -1,0 +1,2 @@
+GithubRevisions.repositories = [{:user => 'Jake0oo0', :name => 'Spongy', :friendly => 'Web'}, {:user => 'SpongePowered', :name => 'Sponge', :friendly => 'Sponge'}, {:user => 'SpongePowered', :name => 'SpongeAPI', :friendly => 'Sponge API'}]
+# GithubRevisions.oauth = ''

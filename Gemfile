@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.6'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
@@ -18,6 +18,7 @@ gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
 gem 'bower-rails', '~> 0.8.3'
 gem 'minecraft_auth'
+gem 'github_revisions', github: 'Jake0oo0/github_revisions'
 
 group :development do
   gem 'better_errors'
