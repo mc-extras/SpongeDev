@@ -26,7 +26,7 @@ rails s
 ## TODO
 
 * [ ] Notifications - Built in notifications, along with custom emails, and external notifications.
-* [ ] Social Media - Display Social Media icons for Sponge
+* [x] Social Media
 * [ ] Better authentication - OAuth (Github, Twitter, etc), SSO with Sponge Powered
 * [ ] Moderation (Plugin approval)
 * [x] Plugins
