@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :plugins, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
-  validates :gender, :inclusion => { :in => ['Male', 'Female'] }
+  validates :gender, :inclusion => { :in => ['Male', 'Female', nil] }
   validates :avatar_serve, :inclusion => { :in => ['Gravatar', 'Crafatar'] }
 
   def to_param

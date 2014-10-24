@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
       yield resource if block_given?
       if is_flashing_format?
         flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
-          :update_needs_confirmation : :updated
+        :update_needs_confirmation : :updated
         set_flash_message :notice, flash_key
       end
       sign_in resource_name, resource, bypass: true
@@ -31,5 +31,10 @@ class RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_attributes(params)
+  end
+
+
+  def after_update_path_for(resource)
+    user_path(resource)
   end
 end
