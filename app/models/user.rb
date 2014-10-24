@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
 
   validates :gender, :inclusion => { :in => ['Male', 'Female'] }
+  validates :avatar_serve, :inclusion => { :in => ['Gravatar', 'Crafatar'] }
 
   def to_param
     username
