@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/resources/terms' => 'resources#terms', as: 'terms'
   get '/resources/rules' => 'resources#rules', as: 'rules'
-  resources :revisions
   resources :downloads
   resources :plugins do
     resources :comments
