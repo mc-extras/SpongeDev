@@ -1,0 +1,17 @@
+%ul.nav.nav-list
+  %h3 Profile
+  %hr.account-nav
+  %li
+    %a{href: user_about_path(current_user)} About Me
+  %h3 Settings
+  %hr.account-nav
+  %li
+    %a{href: user_notifications_path(current_user)} Notification Settings
+  %li
+    %a{href: user_avatar_path(current_user)} Avatar Settings
+  %h3 Account
+  %hr.account-nav
+  %li
+    %a{href: edit_user_registration_path} Manage Account
+  %li
+    %a{href: mc_server_path} Minecraft Account

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   root 'home#index'
   get '/resources/terms' => 'resources#terms', as: 'terms'
   get '/resources/rules' => 'resources#rules', as: 'rules'
@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     resources :plugin_files, :path => 'files'
     resources :plugin_pages, :path => 'pages'
   end
-  resources :users
+  resources :users do
+    get :avatar
+    get :about
+    get :notifications
+  end
   post '/contact', :to => 'application#contact'
   resources :authentications
   get '/auth/link/server', :to => 'authentications#server', :as => 'mc_server'

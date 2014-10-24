@@ -3,9 +3,11 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable,
   :confirmable
 
-  has_many :authors
-  has_many :plugins
-  has_many :comments
+  has_many :authors, :dependent => :destroy
+  has_many :plugins, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+
+  validates :gender, :inclusion => { :in => ['Male', 'Female'] }
 
   def to_param
     username

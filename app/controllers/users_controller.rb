@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :set_user, only: [:show]
-  before_filter :require_admin, only: [:index]
+  before_filter :require_admin, only: [:index] # Require admin to view user list
 
   def index
     @users = User.all
@@ -17,6 +17,17 @@ class UsersController < ApplicationController
       format.html
       format.json { render json: @user }
     end
+  end
+
+  def about
+
+  end
+
+  def avatar
+  end
+
+  def notifications
+
   end
 
   private

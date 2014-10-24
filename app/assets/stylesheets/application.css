@@ -60,3 +60,7 @@ a:active.no-deco { text-decoration: none !important; }
 .avatar {
 	border-radius: 3px;
 }
+
+.account-nav {
+	margin: 1px 0px 0px 0px !important;
+}

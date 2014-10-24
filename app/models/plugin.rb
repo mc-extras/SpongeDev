@@ -1,10 +1,10 @@
 class Plugin < ActiveRecord::Base
   acts_as_taggable
-  has_many :authors
+  has_many :authors, :dependent => :destroy
   belongs_to :user
-  has_many :plugin_files
-  has_many :plugin_pages
-  has_many :comments
+  has_many :plugin_files, :dependent => :destroy
+  has_many :plugin_pages, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   validates :summary, presence: true
   validates :body, presence: true

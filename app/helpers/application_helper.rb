@@ -18,4 +18,16 @@ module ApplicationHelper
   def profile_link(user)
     link_to user.username, user_path(user)
   end
+
+  def resource_name
+    :user
+  end
+ 
+  def resource
+    @resource ||= User.new
+  end
+ 
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 end

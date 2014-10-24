@@ -9,8 +9,8 @@
 = form_tag mc_post_server_path, method: 'post' do
   %p
     = label_tag 'Username:'
-    = text_field :verification, :username, class: 'form-control'
+    = text_field :verification, :username, class: 'form-control', autocomplete: "off"
   %p
     = label_tag 'Token:'
-    = text_field :verification, :token, class: 'form-control'
+    = text_field :verification, :token, class: 'form-control', autocomplete: "off"
   = submit_tag 'Submit', class: 'btn btn-primary', data: { disable_with: "Verifying..." }

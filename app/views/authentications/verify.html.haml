@@ -1,12 +1,10 @@
-%ol.breadcrumb
-  %li
-    = link_to 'Home', root_path
-  %li
-    = link_to 'Authenticate Minecraft', mc_credentials_path
-
 .container
   .row
-    .col-md-12
-      = render 'nav', :type => type
+    .col-md-3
+      = render 'partials/account'
+    .col-md-9
+      %h2 Minecraft Account Authentication
+      %hr/
+      = render 'authentications/nav', :type => type
       .well
-        = render "#{type}"
+        = render "authentications/#{type}"

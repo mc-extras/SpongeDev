@@ -1,18 +1,39 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render 'partials/errors', object: resource
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+.container
+  .row
+    .col-md-3
+      = render 'partials/account'
+    .col-md-9
+      %h2 Account Information
+      %hr
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render 'partials/errors', object: resource
+        %p
+          = f.label :email
+          %br/
+          = f.email_field :email, class: 'form-control'
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %p
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        %p
+          = f.label :password
+          %br/
+          = f.password_field :password, autocomplete: "off", class: 'form-control'
+          .help-block Provide your new password.
+        %p
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, class: 'form-control'
+          .help-block Confirm your new password.
+        %p
+          = f.label :current_password
+          %br/
+          = f.password_field :current_password, class: 'form-control'
+          .help-block Provide your current password to confirm these changes.
+        %p
+          = f.submit 'Update', class: 'btn btn-primary', data: { disable_with: "Verifying..." }
+      %h2 Delete Account
+      %hr
       %p
-        Currently waiting confirmation for: #{resource.unconfirmed_email}
-    = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
-    = f.input :password_confirmation, required: false
-    = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
-  .form-actions
-    = f.button :submit, "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+        Unhappy with Sponge? Delete your account, no questions asked. Click below.
+        %br/
+        = link_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
