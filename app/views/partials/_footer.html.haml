@@ -1,23 +1,29 @@
 %footer
   %hr/
   %ul.nav.nav-pills.footer
-    %li.pull-left
+    %li.pull-left.hidden-xs
       %a © #{Time.now.year} Sponge
-    %li.pull-right
+    %li.pull-right.hidden-xs
       %a{href: "#Top"}
         %i.fa.fa-chevron-up
         Back to top
     %li.pull-right
       %a{href: main_app.revisions_path}
         %i.fa.fa-code
-        Revisions
+        %span.hidden-xs Revisions
     %li.pull-right
       %a{href: "#contact", "data-toggle" => 'modal'}
         %i.fa.fa-envelope
-        Contact
+        %span.hidden-xs Contact
     %li.pull-right
-      %a{href: "https://twitter.com/SpongePowered"}
+      %a{href: "https://twitter.com/SpongePowered", target: '_blank', title: "Twitter", data: { toggle: "tooltip", placement: "top"}}
         %i.fa.fa-twitter.footer-media
     %li.pull-right
-      %a{href: "https://github.com/SpongePowered"}
-        %i.fa.fa-github.footer-media
+      %a{href: "https://github.com/SpongePowered", target: '_blank', title: "Github", data: { toggle: "tooltip", placement: "top"}}
+        %i.fa.fa-github.footer-media  
+    %li.pull-right
+      %a{href: "https://reddit.com/r/SpongeProject", target: '_blank', title: "Reddit", data: { toggle: "tooltip", placement: "top"}}
+        %i.fa.fa-reddit.footer-media
+    %li.pull-right
+      %a{href: "https://webchat.esper.net/?channels=sponge", target: '_blank', title: "IRC", data: { toggle: "tooltip", placement: "top"}}
+        %i.fa.fa-comments.footer-media

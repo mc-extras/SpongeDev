@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get :about
     get :notifications
   end
+  post '/proxy', :to => redirect('/proxy.php')
   post '/contact', :to => 'application#contact'
   resources :authentications
   get '/auth/link/server', :to => 'authentications#server', :as => 'mc_server'

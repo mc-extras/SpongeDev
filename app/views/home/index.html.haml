@@ -2,36 +2,49 @@
   %meta{:content => "Sponge Home", :name => "description"}
   %meta{:content => "Sponge, Minecraft, Plugins, Community, Development", :name => "keywords"}
 - content_for :title do 'Home' end
-.jumbotron
-  %h1 Sponge
-  %p A New Minecraft Server Implementation
 
 .container
   .row
+    .col-md-8
+      // This can be automatic with Ajax in the future, but Cross Domain is currently disabled on the Sponge forums.
+      %h2 News & Updates
+      %a{href: "http://forums.spongepowered.org/t/small-status-update-10-october-2014/3541/10"}
+        %b 
+          Small Status Update - 10 October, 2014
+          %b.pull-right by me4502 on 10/11/2014 at 07:54
+      %p
+        Hello everyone,
+
+        Second Update - We aim to have the API itself ready for developers to work on plugins in November. The official Forge-based implementation has no ETA at this time.
+
+        This is just a quick update on the current progress of Sponge.
+
+        As you may have noticed, the work on Sponge has slowed considerably over the past few weeks. Whilst we did aim to get the project out as soon as possible, we have hit a few partially expected delays.
+
+      %a{href: "http://forums.spongepowered.org/t/small-status-update-10-october-2014/3541"} Read more...
+      %hr/
+      %a{href: "http://forums.spongepowered.org/t/status-update-18-october-2014/3804"}
+        %b 
+          Status Update - 18 October, 2014
+          %b.pull-right by Owexz on 10/18/2014 at 5:17
+      %h2{style: "margin-top: 50px;"} What is Sponge?
+      %blockquote{style: "margin-bottom: 0px;"}
+        %p Sponge is a server and client modding API built on top of the current Forge API.
+
+        %p Based on various community created APIs, including Glowstone, Canary, Spout, and others, Sponge will aim to be the future of Minecraft server modding.
+
+        %p Anyone is invited to help out in any way that they can!
+      %a{href: "https://docs.google.com/document/d/1VJ1WzHI-VUuoHEJz4SRHUbl-5XnsURbqP5fIi8B4Kyg/edit"} 
+        %b - Sponge FAQ
+
     .col-md-4
-      .text-center
-        %i.fa.fa-rocket{style: "font-size: 128px"}
-        %br/
-        %h2 Speed
-        %p.front-icon
-          Sponge is speedy fast! Make the best of Minecraft with the amazing optimizations that sponge provides!
-        %br/
-        %a.btn.btn-primary{href: main_app.downloads_path} Download &#187;
-    .col-md-4
-      .text-center
-        %i.fa.fa-code{style: "font-size: 128px"}
-        %br/
-        %h2 OSS
-        %p.front-icon
-          Sponge is Open Source Software, meaning that anyone can contribute! Come contribute to the code today!
-        %br/
-        %a.btn.btn-primary{href: "http://github.com/SpongePowered"} Github &#187;
-    .col-md-4
-      .text-center
-        %i.fa.fa-heart{style: "font-size: 128px"}
-        %br/
-        %h2 Community
-        %p.front-icon
-          Sponge is a community driven project, and you can join the discussion on how Sponge should be run, right now!
-        %br/
-        %a.btn.btn-primary{href: 'http://forums.spongepowered.org/', target: '_blank'} Forums &#187;
+      %h2 Sponsors
+      %a{href: "https://www.creeperhost.net/"}
+        = image_tag 'creeper-host.png'
+      %a{href: "https://nitrous-networks.com/"}
+        = image_tag 'nitrous-networks.png'
+      %hr/
+
+      %a.twitter-timeline{href: "https://twitter.com/SpongePowered", "data-widget-id" => "525893953791356929"} Tweets by @SpongePowered
+      :javascript
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");

@@ -8,6 +8,7 @@
   %li
     %a{href: downloads_path} Downloads
 
+.alert.alert-danger These downloads are FILLER CONTENT ONLY, and are NOT associated with Sponge!
 %ul.nav.nav-tabs{role: "tablist"}
   - JOBS.each do |job|
     %li{class: "#{'active' if job == params[:id]}"}
@@ -16,7 +17,7 @@
   .row
     .col-md-9
       = paginate @builds
-      %table.table.table-striped{align: "center"}
+      %table.table.table-striped.table-responsive{align: "center"}
         %tr
           %th.text-center ID
           %th.text-center Version

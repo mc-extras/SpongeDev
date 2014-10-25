@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/Jake0oo0/github_revisions.git
-  revision: 09ce513b4c614f00e0b00c0c48de9a40c34919c1
-  specs:
-    github_revisions (0.0.2)
-      github_api
-      rails (~> 4.1.6)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,7 +40,6 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bower-rails (0.8.3)
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -93,6 +84,9 @@ GEM
       multi_json (>= 1.7.5, < 2.0)
       nokogiri (~> 1.6.3)
       oauth2
+    github_revisions (0.0.2)
+      github_api
+      rails (~> 4.1.6)
     haml (4.0.5)
       tilt
     hashie (3.3.1)
@@ -213,7 +207,6 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   better_errors
   binding_of_caller
-  bower-rails (~> 0.8.3)
   capybara
   carrierwave
   database_cleaner
@@ -221,7 +214,7 @@ DEPENDENCIES
   factory_girl_rails
   github-markdown
   github_api
-  github_revisions!
+  github_revisions
   haml
   httparty
   jbuilder (~> 2.0)

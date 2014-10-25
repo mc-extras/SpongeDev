@@ -14,34 +14,34 @@
  *= require_self
  */
 
-body {
-	padding: 40px 30px;
-}
+ body {
+   padding: 40px 30px;
+ }
 
-.header-alert {
-	margin-top: 30px;
-}
+ .header-alert {
+   margin-top: 30px;
+ }
 
-.front-icon {
-	font-size: 16px;
-	font-family: sans-serif;
-}
+ .front-icon {
+   font-size: 16px;
+   font-family: sans-serif;
+ }
 
-.pagination {
-	margin: 0px;
-}
+ .pagination {
+   margin: 0px;
+ }
 
-a:link.no-deco { text-decoration: none !important; } 
-a:visited.no-deco { text-decoration: none !important; } 
-a:hover.no-deco { text-decoration: none !important; } 
-a:active.no-deco { text-decoration: none !important; } 
+ a:link.no-deco { text-decoration: none !important; } 
+ a:visited.no-deco { text-decoration: none !important; } 
+ a:hover.no-deco { text-decoration: none !important; } 
+ a:active.no-deco { text-decoration: none !important; } 
 
-#left-dropdown {
-	right: 0; 
-	left: auto;
-}
+ #left-dropdown {
+   right: 0; 
+   left: auto;
+ }
 
-#reply {
+ #reply {
   color: darkgray;
 }
 
@@ -67,4 +67,17 @@ a:active.no-deco { text-decoration: none !important; }
 
 .footer-media {
 	font-size: 20px;
+}
+
+.footer.nav-pills > li > a {
+  padding: 6px 11px !important;
+  margin: 0 !important;
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  .plugins {
+   margin-top: 20px;
+  }
 }

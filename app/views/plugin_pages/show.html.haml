@@ -15,11 +15,11 @@
     = link_to @page.title, [@plugin, @page]
 .row
   .col-md-12
-    %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 5px; background-color: white;"}
+    .well
       .container{style: "padding: 10px 0px;"}
         .row 
           .col-md-8
-            %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 10px; background-color: white;"}
+            %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 20px; padding: 10px; background-color: white;"}
               %h2{style: "margin: 0px !important;"}= @page.title
               = GitHub::Markdown.render(@page.body).html_safe
           .col-md-4

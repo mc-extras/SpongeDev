@@ -10,41 +10,15 @@
   %li
     = link_to @plugin.name, @plugin
 .row
-  .col-md-12
-    %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 5px; background-color: white;"}
-      .container{style: "padding: 10px 0px;"}
+  .col-lg-12
+    .well
+      .container-fluid{style: "padding: 10px 0px;"}
         .row
-          .col-xs-8
+          .col-lg-8
             %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 10px; background-color: white;"}
               = GitHub::Markdown.render(@plugin.body).html_safe
-            - if @plugin.allow_comments
-              - if current_user
-                .panel.panel-default{style: "margin-top: 30px;"}
-                  .panel-heading
-                    Submit a Comment
-                    .pull-right
-                      %i.fa.fa-times.form-collapse{"data-toggle" => "collapse", "data-target" => "#form-body"}
-                  .panel-body.collapse#form-body
-                    = render 'comments/form'
-              - else
-                %p
-                  %a{href: new_user_session_path} Login
-                  to post a comment.
-              %h3 Comments
-              - @plugin.comments.reject(&:new_record?).each do |comment|
-                .panel.panel-default{style: "margin-top: 20px;"}
-                  .panel-body
-                    .row
-                      .col-md-1
-                        = avatar(comment.user, :size => 60)
-                      .col-md-11
-                        .content{style: "margin-left: 20px;"}
-                          .user
-                            = profile_link(comment.user)
-                            %small= time_ago_in_words(comment.created_at) + ' ago'
-                          .text
-                            = comment.content
-          .col-xs-4
+            = render 'comments'
+          .col-lg-4
             .download.text-center{style: "font-size: 150%; margin-bottom: 5px;"}
               .row
                 .col-md-6
@@ -54,11 +28,11 @@
                   %i.fa.fa-file-o
                   = link_to 'Wiki', plugin_plugin_pages_path(@plugin), class: 'no-deco'
             - if current_user and (current_user == @plugin.user or current_user.admin?)
-              %div{style: "background: #f1f1ec; linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); color: black; border-radius: 6px; box-shadow: 0 0 3px rgba(0,0,0,.30); margin-top: 20px;"}
-                %p{style: "padding-left: 15px; font-size: 16px; padding-top: 10px;"}
+              .panel.panel-default
+                .panel-heading
                   %i.fa.fa-database
                   Manage
-                %div{style: "background-color: white; color: black; padding: 10px;"}
+                .panel-body
                   %b= link_to 'Edit Plugin', edit_plugin_path(@plugin), class: 'no-deco'
                   %br
                   %b= link_to 'Upload File', new_plugin_plugin_file_path(@plugin), class: 'no-deco'
@@ -113,9 +87,9 @@
                 Authors
               .panel-body
                 .row
-                  .col-md-2
+                  .col-md-2.col-xs-4.col-sm-1
                     = avatar(@plugin.user, :size => 60)
-                  .col-md-10{style: "vertical-align: middle; min-height: 60px;"}
+                  .col-md-10.col-xs-8.col-sm-11{style: "vertical-align: middle; min-height: 60px;"}
                     = link_to @plugin.user.username, user_path(@plugin.user)
                     %br/
                     Author
