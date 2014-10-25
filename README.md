@@ -11,7 +11,7 @@ cp config/database.yml.default config/database.yml
 cp config/initalizers/secrets.rb.default config/initializers/secrets.rb
 bundle install
 rake db:migrate
-rails s
+rails server
 ```
 
 ## Side projects
