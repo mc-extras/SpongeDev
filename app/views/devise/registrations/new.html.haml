@@ -2,28 +2,29 @@
   %meta{:content => "Sponge Register", :name => "description"}
   %meta{:content => "Sponge, Register, Join", :name => "keywords"}
 - content_for :title do 'Register' end
-%ol.breadcrumb
-  %li
-    = link_to 'Home', root_path
-  %li
-    = link_to 'Register', new_user_registration_path
-.row
-  .col-md-8
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render 'partials/errors', object: resource
-      %p
-        = f.label :email
-        = f.email_field :email, autofocus: true, :class => "form-control", style: "width: 25em"
-      %p
-        = f.label :username
-        = f.text_field :username, :class => "form-control", style: "width: 15em"
-      %p
-        = f.label :password
-        = f.password_field :password, :class => "form-control", style: "width: 15em"
-      %p
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation, :class => "form-control", style: "width: 15em"
-      %p
-        = f.submit "Register", class: 'btn btn-primary', data: { disable_with: "Registering..." }
-  .col-md-4
-    = render "devise/shared/links"
+.container
+  %ol.breadcrumb
+    %li
+      = link_to 'Home', root_path
+    %li
+      = link_to 'Register', new_user_registration_path
+  .row
+    .col-md-8
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render 'partials/errors', object: resource
+        %p
+          = f.label :email
+          = f.email_field :email, autofocus: true, :class => "form-control"
+        %p
+          = f.label :username
+          = f.text_field :username, :class => "form-control"
+        %p
+          = f.label :password
+          = f.password_field :password, :class => "form-control"
+        %p
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, :class => "form-control"
+        %p
+          = f.submit "Register", class: 'btn btn-primary', data: { disable_with: "Registering..." }
+    .col-md-4
+      = render "devise/shared/links"

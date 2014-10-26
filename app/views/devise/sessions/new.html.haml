@@ -2,24 +2,25 @@
   %meta{:content => "Sponge Login", :name => "description"}
   %meta{:content => "Sponge, Login", :name => "keywords"}
 - content_for :title do 'Login' end
-%ol.breadcrumb
-  %li
-    = link_to 'Home', root_path
-  %li
-    = link_to 'Login', new_user_session_path
-.row
-  .col-md-8
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      %p
-        = f.label :email
-        = f.email_field :email, autofocus: true, :class => "form-control", style: "width: 25em" 
-      %p
-        = f.label :password
-        = f.password_field :password, :class => "form-control" , style: "width: 15em"
-      %div
-        = f.check_box :remember_me 
-        = f.label :remember_me
-      %p
-        = f.submit "Login", class: 'btn btn-primary', data: { disable_with: "Logging in..." }
-  .col-md-4
-    = render "devise/shared/links"
+.container
+  %ol.breadcrumb
+    %li
+      = link_to 'Home', root_path
+    %li
+      = link_to 'Login', new_user_session_path
+  .row
+    .col-md-8
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        %p
+          = f.label :email
+          = f.email_field :email, autofocus: true, :class => "form-control"
+        %p
+          = f.label :password
+          = f.password_field :password, :class => "form-control"
+        %div
+          = f.check_box :remember_me 
+          = f.label :remember_me
+        %p
+          = f.submit "Login", class: 'btn btn-primary', data: { disable_with: "Logging in..." }
+    .col-md-4
+      = render "devise/shared/links"

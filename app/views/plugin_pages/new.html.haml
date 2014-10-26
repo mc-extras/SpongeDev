@@ -2,15 +2,16 @@
   %meta{:content => "Sponge Plugin Wiki", :name => "description"}
   %meta{:content => "Sponge, Plugin, Wiki, Page, Help", :name => "keywords"}
 - content_for :title do 'New Wiki Page' end
-%ol.breadcrumb
-  %li
-    = link_to 'Home', root_path
-  %li
-    = link_to 'Plugins', plugins_path
-  %li
-    = link_to @plugin.name, @plugin
-  %li
-    = link_to 'Wiki', plugin_plugin_pages_path(@plugin)
-  %li
-    = link_to 'New', new_plugin_plugin_page_path(@plugin)
-= render 'form'
+.container
+  %ol.breadcrumb
+    %li
+      = link_to 'Home', root_path
+    %li
+      = link_to 'Plugins', plugins_path
+    %li
+      = link_to @plugin.name, @plugin
+    %li
+      = link_to 'Wiki', plugin_plugin_pages_path(@plugin)
+    %li
+      = link_to 'New', new_plugin_plugin_page_path(@plugin)
+  = render 'form'

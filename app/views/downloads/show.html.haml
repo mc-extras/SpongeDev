@@ -2,37 +2,41 @@
   %meta{:content => "Sponge Downloads", :name => "description"}
   %meta{:content => "Sponge, Downloads, Versions, Releases", :name => "keywords"}
 - content_for :title do 'Downloads' end
-%ol.breadcrumb
-  %li
-    %a{href: root_path} Home
-  %li
-    %a{href: downloads_path} Downloads
-
-.alert.alert-danger These downloads are FILLER CONTENT ONLY, and are NOT associated with Sponge!
-%ul.nav.nav-tabs{role: "tablist"}
-  - JOBS.each do |job|
-    %li{class: "#{'active' if job == params[:id]}"}
-      %a{href: download_path(job)} #{job}
 .container
+  %ol.breadcrumb
+    %li
+      %a{href: root_path} Home
+    %li
+      %a{href: downloads_path} Downloads
+
+  .alert.alert-danger These downloads are FILLER CONTENT ONLY, and are NOT associated with Sponge!
+  %ul.nav.nav-tabs{role: "tablist"}
+    - JOBS.each do |job|
+      %li{class: "#{'active' if job == params[:id]}"}
+        %a{href: download_path(job)} #{job}
   .row
     .col-md-9
-      = paginate @builds
-      %table.table.table-striped.table-responsive{align: "center"}
-        %tr
-          %th.text-center ID
-          %th.text-center Version
-          %th.text-center Type
-          %th.text-center Download
-        - @builds.each do |build|
+      .paginator{align: "center"}
+        = paginate @builds, :window => 2
+      %table.table.table-striped.footable{align: "center"}
+        %thead
           %tr
-            %td.text-center
-              %a{href: build[:url], target: "_blank"}= '#' + build[:id].to_s
-            %td.text-center 1.8
-            %td.text-center Release
-            %td.text-center
-              %a{href: build[:url], target: "_blank"}
-                %i.fa.fa-download
-      = paginate @builds
+            %th.text-center ID
+            %th.text-center Version
+            %th.text-center Type
+            %th.text-center{data: { hide: "phone, tablet", ignore: "true" }} Download
+        %tbody
+          - @builds.each do |build|
+            %tr
+              %td.text-center
+                %a{href: build[:url], target: "_blank"}= '#' + build[:id].to_s
+              %td.text-center 1.8
+              %td.text-center Release
+              %td.text-center
+                %a{href: build[:url], target: "_blank"}
+                  %i.fa.fa-download
+      .paginator{align: "center"}
+        = paginate @builds, :window => 2
     .col-md-3
       .panel.panel-primary{style: "margin-top: 30px;"}
         .panel-heading
@@ -41,3 +45,9 @@
         .panel-body
           .text-center
             This page is for Sponge and SpongeAPI downloads, which are available to the public, and this page provides a nice interface for downloading things so that you dont have to deal with the Jenkins CI, and so new users don't get confused by the complexity of it!
+:javascript
+  $(function () {
+    $('.footable').footable({
+      addRowToggle: false
+    });
+  });

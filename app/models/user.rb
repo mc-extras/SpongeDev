@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validates :gender, :inclusion => { :in => ['Male', 'Female', nil] }
   validates :avatar_serve, :inclusion => { :in => ['Gravatar', 'Crafatar'] }
+  validates :username, :length => { maximum: 16 }
 
   def to_param
     username

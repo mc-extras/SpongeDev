@@ -1,24 +1,23 @@
-.container
-  = form_for([@plugin, @download]) do |f|
-    = render 'partials/errors', object: @download
-    %p
-      = f.label :name
-      = f.text_field :name, class: 'form-control'
-    %p
-      = f.label :mc_version, "Minecraft Version"
-      = f.select(:mc_version, ['1.7.x', '1.8.x'].map { |value| [ value, value ] }, {}, {class: 'form-control'})
-    %p
-      = f.label :file
-      %br/
-      = f.file_field :file
-    %p
-      = f.label :release_type
-      = f.select(:release_type, ['Release', 'Beta', 'Alpha'].map { |value| [ value, value ] }, {}, {class: 'form-control'})
-    %p
-      = f.label :changelog
-      = f.text_area :changelog, class: 'form-control', rows: 5
-    %p
-      = f.label :notes
-      = f.text_area :notes, class: 'form-control', rows: 5
-    %p
-      = f.submit 'Submit', class: 'btn btn-primary', data: { disable_with: "Saving..." }
+= form_for([@plugin, @download]) do |f|
+  = render 'partials/errors', object: @download
+  %p
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  %p
+    = f.label :mc_version, "Minecraft Version"
+    = f.select(:mc_version, ['1.7.x', '1.8.x'].map { |value| [ value, value ] }, {}, {class: 'form-control'})
+  %p
+    = f.label :file
+    %br/
+    = f.file_field :file
+  %p
+    = f.label :release_type
+    = f.select(:release_type, ['Release', 'Beta', 'Alpha'].map { |value| [ value, value ] }, {}, {class: 'form-control'})
+  %p
+    = f.label :changelog
+    = f.text_area :changelog, class: 'form-control', rows: 5
+  %p
+    = f.label :notes
+    = f.text_area :notes, class: 'form-control', rows: 5
+  %p
+    = f.submit 'Submit', class: 'btn btn-primary', data: { disable_with: "Saving..." }

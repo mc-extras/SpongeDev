@@ -1,17 +1,22 @@
 - if @plugin.allow_comments
+  %h3{style: "margin-bottom: 0px;"} Comments
   - if current_user
-    .panel.panel-default{style: "margin-top: 30px;"}
+    .panel.panel-default{style: "margin-top: 15px;"}
       .panel-heading
         Submit a Comment
         .pull-right
-          %i.fa.fa-times.form-collapse{"data-toggle" => "collapse", "data-target" => "#form-body"}
+          %i.fa.fa-plus.form-collapse{"data-toggle" => "collapse", "data-target" => "#form-body"}
+          :javascript
+            elem = $('.form-collapse');
+            elem.click(function() {    
+              elem.toggleClass('fa-times fa-plus')
+            });
       .panel-body.collapse#form-body
         = render 'comments/form'
   - else
     %p
       %a{href: new_user_session_path} Login
       to post a comment.
-  %h3 Comments
   - @plugin.comments.reject(&:new_record?).each do |comment|
     .panel.panel-default{style: "margin-top: 20px;"}
       .panel-body

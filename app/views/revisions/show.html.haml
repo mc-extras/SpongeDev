@@ -1,40 +1,44 @@
 - content_for :head do
-	%meta{:content => "Sponge Revisions", :name => "description"}
-	%meta{:content => "Sponge, Revisions, Github, API, Web", :name => "keywords"}
+  %meta{:content => "Sponge Revisions", :name => "description"}
+  %meta{:content => "Sponge, Revisions, Github, API, Web", :name => "keywords"}
 - content_for :title do "Revisions: #{current_repo[:friendly]}" end
-%ol.breadcrumb
-	%li
-		= link_to 'Home', root_path
-	%li
-		= link_to 'Revisions', revisions_path
-	%li
-		= link_to current_repo[:friendly], revision_path(current_repo[:friendly])
-.row
-	.col-md-2
-		%ul.nav.nav-pills.nav-stacked
-			- repositories.each do |repo|
-				%li{class: "#{'active' if repo[:name] == current_repo[:name]}"}
-					%a{href: revision_path(repo[:name])} #{repo[:friendly]}
-	.col-md-10
-		- if not current_repo[:private]
-			.alert.alert-success
-				%i.fa.fa-github
-				This repository is open source. You can contribute on
-				%a.alert-link{href: current_repo[:url]} Github.
-		%table.table.table-bordered.table-striped
-			%tr
-				%th{width: "5%"} SHA
-				%th{width: "8%"} Author
-				%th{width: "20%"} Commit Message
-				%th{width: "10%"} Time
-			- revisions.each do |revision|
-				%tr
-					%td
-						%a{href: revision[:url], target: "_blank"}= revision[:sha][0..6]
-					%td= revision[:author]
-					%td= revision[:message]
-					%td
-						= time_ago_in_words(revision[:date])
-						ago
-		= paginate revisions
-
+.container
+  %ol.breadcrumb
+    %li
+      = link_to 'Home', root_path
+    %li
+      = link_to 'Revisions', revisions_path
+    %li
+      = link_to current_repo[:friendly], revision_path(current_repo[:friendly])
+  .row
+    .col-md-2
+      %ul.nav.nav-pills.nav-stacked
+        - repositories.each do |repo|
+          %li{class: "#{'active' if repo[:name] == current_repo[:name]}"}
+            %a{href: revision_path(repo[:name])} #{repo[:friendly]}
+    .col-md-10
+      - if not current_repo[:private]
+        .alert.alert-success
+          %i.fa.fa-github
+          This repository is open source. You can contribute on
+          %a.alert-link{href: current_repo[:url]} Github.
+      %table.table.table-bordered.table-striped.footable
+        %thead
+          %tr
+            %th{width: "5%", data: { hide: "phone, tablet" }} SHA
+            %th{width: "8%", data: { hide: "phone, tablet" }} Author
+            %th{width: "20%", data: { toggle: "true" }} Commit Message
+            %th{width: "10%", data: { hide: "phone, tablet" }} Time
+        %tbody
+          - revisions.each do |revision|
+            %tr
+              %td
+                %a{href: revision[:url], target: "_blank"}= revision[:sha][0..6]
+              %td= revision[:author]
+              %td= revision[:message]
+              %td
+                = time_ago_in_words(revision[:date])
+                ago
+      = paginate revisions
+  :javascript
+    $('.footable').footable();

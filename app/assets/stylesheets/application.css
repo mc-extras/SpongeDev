@@ -14,8 +14,16 @@
  *= require_self
  */
 
- body {
-   padding: 40px 30px;
+ body > div.container:not(.alert-container) {
+  margin-top: 0px;
+ }
+
+ body > .container.alert-container {
+  margin-bottom: 0px;
+ }
+
+ .footer {
+  padding-bottom: 20px;
  }
 
  .header-alert {

@@ -2,14 +2,15 @@
   %meta{:content => "Sponge Plugin Downloads", :name => "description"}
   %meta{:content => "Sponge, Plugins, New, Download", :name => "keywords"}
 - content_for :title do 'New Download' end
-%ol.breadcrumb
-  %li
-    = link_to 'Home', root_path
-  %li
-    = link_to 'Plugins', plugins_path
-  %li
-    = link_to 'Downloads', plugin_plugin_files_path(@plugin)
-  %li
-    = link_to 'New', new_plugin_plugin_file_path(@plugin)
+.container
+  %ol.breadcrumb
+    %li
+      = link_to 'Home', root_path
+    %li
+      = link_to 'Plugins', plugins_path
+    %li
+      = link_to 'Downloads', plugin_plugin_files_path(@plugin)
+    %li
+      = link_to 'New', new_plugin_plugin_file_path(@plugin)
 
-= render 'form'
+  = render 'form'

@@ -1,43 +1,46 @@
 - content_for :head do
-	%meta{:content => "Sponge Plugins", :name => "description"}
-	%meta{:content => "Sponge, Plugins, Minecraft, Categories", :name => "keywords"}
+  %meta{:content => "Sponge Plugins", :name => "description"}
+  %meta{:content => "Sponge, Plugins, Minecraft, Categories", :name => "keywords"}
 - content_for :title do 'Plugins' end
-%ol.breadcrumb
-	%li
-		%a{href: root_path} Home
-	%li
-		%a{href: plugins_path} Plugins
-.row
-	.col-md-2
-		%ul.nav.nav-pills.nav-stacked
-			%li{class: "#{'active' if not params[:category]}", style: 'border: 1px solid #dddddd; border-radius: 4px;'}
-				%a{href: plugins_path} All
-			- @tags.each_with_index do |tag, i|
-				%li{class: "#{'active' if params[:category] == tag}", style: 'border: 1px solid #dddddd; border-radius: 4px;'}
-					= link_to tag, plugins_path(:category => tag)
-	.col-md-10
-		= paginate @plugins
-		%table.table.table-striped.table-bordered.footable.plugins
-			%thead
-				%th{style: "width: 25%"} Plugin
-				%th{style: "width: 15%", data: { hide: "phone, tablet" }} Authors
-				%th{style: "width: 25%", data: { hide: "phone, tablet" }} Categories
-				%th{style: "width: 15%", data: { hide: "phone, tablet" }} Last Update
-			%tbody
-				- if @plugins.any?
-					- @plugins.each do |plugin|
-						%tr
-							%td
-								= link_to plugin.name, plugin, class: 'no-deco'
-								%br/
-								= plugin.summary
-							%td= link_to plugin.user.username, user_path(plugin.user), class: 'no-deco'
-							%td
-								= categories_builder(plugin)
-							%td
-								= time_ago_in_words(plugin.updated_at)
-								ago
-				- else
-					%tr
-						%td{:align => "center", :colspan => "5", style: "background-color: white; color: darkgray;"} No plugins were found for these parameters.
-		= paginate @plugins
+.container
+  %ol.breadcrumb
+    %li
+      %a{href: root_path} Home
+    %li
+      %a{href: plugins_path} Plugins
+  .row
+    .col-md-2
+      %ul.nav.nav-pills.nav-stacked
+        %li{class: "#{'active' if not params[:category]}", style: 'border: 1px solid #dddddd; border-radius: 4px;'}
+          %a{href: plugins_path} All
+        - @tags.each_with_index do |tag, i|
+          %li{class: "#{'active' if params[:category] == tag}", style: 'border: 1px solid #dddddd; border-radius: 4px;'}
+            = link_to tag, plugins_path(:category => tag)
+    .col-md-10
+      = paginate @plugins
+      %table.table.table-striped.table-bordered.footable.plugins
+        %thead
+          %th{style: "width: 25%"} Plugin
+          %th{style: "width: 15%", data: { hide: "phone, tablet" }} Authors
+          %th{style: "width: 25%", data: { hide: "phone, tablet" }} Categories
+          %th{style: "width: 15%", data: { hide: "phone, tablet" }} Last Update
+        %tbody
+          - if @plugins.any?
+            - @plugins.each do |plugin|
+              %tr
+                %td
+                  = link_to plugin.name, plugin, class: 'no-deco'
+                  %br/
+                  = plugin.summary
+                %td= link_to plugin.user.username, user_path(plugin.user), class: 'no-deco'
+                %td
+                  = categories_builder(plugin)
+                %td
+                  = time_ago_in_words(plugin.updated_at)
+                  ago
+          - else
+            %tr
+              %td{:align => "center", :colspan => "5", style: "background-color: white; color: darkgray;"} No plugins were found for these parameters.
+      = paginate @plugins
+  :javascript
+    $('.footable').footable();

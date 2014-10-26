@@ -2,34 +2,35 @@
   %meta{:content => "Sponge Plugin Wiki", :name => "description"}
   %meta{:content => "Sponge, Wiki, Plugin, Help", :name => "keywords"}
 - content_for :title do @page.title end
-%ol.breadcrumb
-  %li
-    = link_to 'Home', root_path
-  %li
-    = link_to 'Plugins', plugins_path
-  %li
-    = link_to @plugin.name, @plugin
-  %li
-    = link_to 'Wiki', plugin_plugin_pages_path
-  %li
-    = link_to @page.title, [@plugin, @page]
-.row
-  .col-md-12
-    .well
-      .container{style: "padding: 10px 0px;"}
-        .row 
-          .col-md-8
-            %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 20px; padding: 10px; background-color: white;"}
-              %h2{style: "margin: 0px !important;"}= @page.title
-              = GitHub::Markdown.render(@page.body).html_safe
-          .col-md-4
-            - if current_user and (current_user == @plugin.user or current_user.admin?)
-              .panel.panel-default
-                .panel-heading
-                  %i.fa.fa-database
-                  Manage
-                .panel-body
-                  %b= link_to 'Edit', edit_plugin_plugin_page_path(@page.plugin, @page), class: 'no-deco'
-                  %br
-                  %b= link_to 'Delete', plugin_plugin_page_path(@plugin, @page), class: 'no-deco', method: :delete, data: {confirm: 'Are you sure you want to delete this page? This can not be undone.'}
-                  
+.container
+  %ol.breadcrumb
+    %li
+      = link_to 'Home', root_path
+    %li
+      = link_to 'Plugins', plugins_path
+    %li
+      = link_to @plugin.name, @plugin
+    %li
+      = link_to 'Wiki', plugin_plugin_pages_path
+    %li
+      = link_to @page.title, [@plugin, @page]
+  .row
+    .col-md-12
+      .well
+        .container{style: "padding: 10px 0px;"}
+          .row 
+            .col-md-8
+              %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 20px; padding: 10px; background-color: white;"}
+                %h2{style: "margin: 0px !important;"}= @page.title
+                = GitHub::Markdown.render(@page.body).html_safe
+            .col-md-4
+              - if current_user and (current_user == @plugin.user or current_user.admin?)
+                .panel.panel-default
+                  .panel-heading
+                    %i.fa.fa-database
+                    Manage
+                  .panel-body
+                    %b= link_to 'Edit', edit_plugin_plugin_page_path(@page.plugin, @page), class: 'no-deco'
+                    %br
+                    %b= link_to 'Delete', plugin_plugin_page_path(@plugin, @page), class: 'no-deco', method: :delete, data: {confirm: 'Are you sure you want to delete this page? This can not be undone.'}
+                    

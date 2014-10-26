@@ -2,94 +2,95 @@
   %meta{:content => "Sponge Plugin #{@plugin.name}", :name => "description"}
   %meta{:content => "Sponge, Plugins, #{@plugin.name}, Download, Wiki, Help, Info", :name => "keywords"}
 - content_for :title do @plugin.name end
-%ol.breadcrumb
-  %li
-    = link_to 'Home', root_path
-  %li
-    = link_to 'Plugins', plugins_path
-  %li
-    = link_to @plugin.name, @plugin
-.row
-  .col-lg-12
-    .well
-      .container-fluid{style: "padding: 10px 0px;"}
-        .row
-          .col-lg-8
-            %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 10px; background-color: white;"}
-              = GitHub::Markdown.render(@plugin.body).html_safe
-            = render 'comments'
-          .col-lg-4
-            .download.text-center{style: "font-size: 150%; margin-bottom: 5px;"}
-              .row
-                .col-md-6
-                  %i.fa.fa-download
-                  = link_to 'Download', plugin_plugin_files_path(@plugin), class: 'no-deco'
-                .col-md-6
-                  %i.fa.fa-file-o
-                  = link_to 'Wiki', plugin_plugin_pages_path(@plugin), class: 'no-deco'
-            - if current_user and (current_user == @plugin.user or current_user.admin?)
-              .panel.panel-default
-                .panel-heading
-                  %i.fa.fa-database
-                  Manage
-                .panel-body
-                  %b= link_to 'Edit Plugin', edit_plugin_path(@plugin), class: 'no-deco'
-                  %br
-                  %b= link_to 'Upload File', new_plugin_plugin_file_path(@plugin), class: 'no-deco'
-                  %br
-                  %b= link_to 'Delete', plugin_path(@plugin), class: 'no-deco', method: :delete, data: {confirm: 'Are you sure you want to delete this plugin? This can not be undone.'}
-                  %br
-                  %b= link_to 'New Wiki Page', new_plugin_plugin_page_path(@plugin), class: 'no-deco'
-            .panel.panel-default{style: "margin-top: 30px;"}
-              .panel-heading
-                %i.fa.fa-download
-                Downloads
-              .panel-body
-                %b Date Created
-                %p.plugin-indent
-                  = time_ago_in_words(@plugin.created_at)
-                  ago
-                %b Categories
-                %p.plugin-indent
-                  = categories_builder(@plugin)
-                %b License
-                %p.plugin-indent
-                  - if @plugin.license == "Custom"
-                    %a.no-deco#license{title: "#{@plugin.custom_license}", "data-content" => "#{@plugin.custom_text}", "data-toggle" => "popover"}= @plugin.custom_license
-                    :javascript
-                      $('#license').popover();
-                  - else
-                    %a{href: "https://tldrlegal.com/"}= @plugin.license
-                %b Statistics
-                %ul
-                  %li
-                    Downloads:
-                    = @plugin.downloads
-                  %li
-                    Views:
-                    = @plugin.views
-                %b Last Update
-                %p.plugin-indent
-                  = time_ago_in_words(@plugin.updated_at)
-                  ago
-                %b Downloads
-                %ul
-                  - if @plugin.plugin_files.any?
-                    - @plugin.plugin_files.each do |download|
-                      %li= link_to download.file.file.filename, download.file.url
-                    %li
-                      %a{href: plugin_plugin_files_path(@plugin)} More Downloads
-                  - else
-                    %li No downloads.
-            .panel.panel-default{style: "margin-top: 30px;"}
-              .panel-heading
-                %i.fa.fa-pencil
-                Authors
-              .panel-body
+.container
+  %ol.breadcrumb
+    %li
+      = link_to 'Home', root_path
+    %li
+      = link_to 'Plugins', plugins_path
+    %li
+      = link_to @plugin.name, @plugin
+  .row
+    .col-lg-12
+      .well
+        .container-fluid{style: "padding: 10px 0px;"}
+          .row
+            .col-lg-8
+              %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 10px; background-color: white;"}
+                = GitHub::Markdown.render(@plugin.body).html_safe
+              = render 'comments'
+            .col-lg-4
+              .download.text-center{style: "font-size: 150%; margin-bottom: 5px;"}
                 .row
-                  .col-md-2.col-xs-4.col-sm-1
-                    = avatar(@plugin.user, :size => 60)
-                  .col-md-10.col-xs-8.col-sm-11{style: "vertical-align: middle; min-height: 60px;"}
-                    = link_to @plugin.user.username, user_path(@plugin.user)
-                    %br/
-                    Author
+                  .col-md-6
+                    %i.fa.fa-download
+                    = link_to 'Download', plugin_plugin_files_path(@plugin), class: 'no-deco'
+                  .col-md-6
+                    %i.fa.fa-file-o
+                    = link_to 'Wiki', plugin_plugin_pages_path(@plugin), class: 'no-deco'
+              - if current_user and (current_user == @plugin.user or current_user.admin?)
+                .panel.panel-default
+                  .panel-heading
+                    %i.fa.fa-database
+                    Manage
+                  .panel-body
+                    %b= link_to 'Edit Plugin', edit_plugin_path(@plugin), class: 'no-deco'
+                    %br
+                    %b= link_to 'Upload File', new_plugin_plugin_file_path(@plugin), class: 'no-deco'
+                    %br
+                    %b= link_to 'Delete', plugin_path(@plugin), class: 'no-deco', method: :delete, data: {confirm: 'Are you sure you want to delete this plugin? This can not be undone.'}
+                    %br
+                    %b= link_to 'New Wiki Page', new_plugin_plugin_page_path(@plugin), class: 'no-deco'
+              .panel.panel-default{style: "margin-top: 30px;"}
+                .panel-heading
+                  %i.fa.fa-download
+                  Downloads
+                .panel-body
+                  %b Date Created
+                  %p.plugin-indent
+                    = time_ago_in_words(@plugin.created_at)
+                    ago
+                  %b Categories
+                  %p.plugin-indent
+                    = categories_builder(@plugin)
+                  %b License
+                  %p.plugin-indent
+                    - if @plugin.license == "Custom"
+                      %a.no-deco#license{title: "#{@plugin.custom_license}", "data-content" => "#{@plugin.custom_text}", "data-toggle" => "popover"}= @plugin.custom_license
+                      :javascript
+                        $('#license').popover();
+                    - else
+                      %a{href: "https://tldrlegal.com/"}= @plugin.license
+                  %b Statistics
+                  %ul
+                    %li
+                      Downloads:
+                      = @plugin.downloads
+                    %li
+                      Views:
+                      = @plugin.views
+                  %b Last Update
+                  %p.plugin-indent
+                    = time_ago_in_words(@plugin.updated_at)
+                    ago
+                  %b Downloads
+                  %ul
+                    - if @plugin.plugin_files.any?
+                      - @plugin.plugin_files.each do |download|
+                        %li= link_to download.file.file.filename, download.file.url
+                      %li
+                        %a{href: plugin_plugin_files_path(@plugin)} More Downloads
+                    - else
+                      %li No downloads.
+              .panel.panel-default{style: "margin-top: 30px;"}
+                .panel-heading
+                  %i.fa.fa-pencil
+                  Authors
+                .panel-body
+                  .row
+                    .col-md-2.col-xs-4.col-sm-1
+                      = avatar(@plugin.user, :size => 60)
+                    .col-md-10.col-xs-8.col-sm-11{style: "vertical-align: middle; min-height: 60px;"}
+                      = link_to @plugin.user.username, user_path(@plugin.user)
+                      %br/
+                      Author
