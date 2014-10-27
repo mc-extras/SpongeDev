@@ -1,4 +1,4 @@
-json.extract! @plugin, :id, :name, :body, :summary, :updated_at, :created_at
+json.extract! @plugin, :id, :name, :body, :summary, :updated_at, :created_at, :approved, :denied
 json.license do
 	if @plugin.license == "Custom"
 		json.custom true

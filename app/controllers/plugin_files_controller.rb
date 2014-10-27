@@ -1,9 +1,16 @@
 class PluginFilesController < ApplicationController
+  include PluginFilesHelper
   before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :require_admin, :only => [:approve, :deny]
   def index
     @plugin = Plugin.find(params[:plugin_id])
-    @downloads = @plugin.plugin_files
+    @downloads = if @plugin.can_manage(current_user)
+      @plugin.plugin_files
+    else
+      @plugin.plugin_files.where(:approved => true)
+    end
 
+    @downloads = @downloads.order('created_at DESC')
     respond_to do |format|
       format.html
       format.json { render json: @downloads }
@@ -13,6 +20,7 @@ class PluginFilesController < ApplicationController
   def show
     @plugin = Plugin.find(params[:plugin_id])
     @download = PluginFile.find(params[:id])
+    return redirect_to @plugin, :alert => "That download has yet to be approved by the moderation team." unless @download.can_view(current_user)
     respond_to do |format|
       format.html
       format.json { render json: @download }
@@ -40,6 +48,22 @@ class PluginFilesController < ApplicationController
     @download.destroy
     redirect_to plugin_plugin_files_path(@plugin) 
   end
+
+  def approve
+    @file = PluginFile.find(params[:plugin_file_id])
+    @file.approved = true
+    @file.save
+    UserMailer.plugin_file_denied(@file).deliver
+    redirect_to moderation_files_path, :notice => "Successfully approved a file."
+  end
+
+  def deny
+    @file = PluginFile.find(params[:plugin_file_id])
+    @file.destroy
+    UserMailer.plugin_file_approved(@file).deliver
+    redirect_to moderation_files_path, :notice => "Successfully denied a file."
+  end
+
 
   private
   def download_params

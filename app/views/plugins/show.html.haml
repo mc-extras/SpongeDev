@@ -3,6 +3,8 @@
   %meta{:content => "Sponge, Plugins, #{@plugin.name}, Download, Wiki, Help, Info", :name => "keywords"}
 - content_for :title do @plugin.name end
 .container
+  - if !@plugin.approved?
+    .alert.alert-danger This plugin is currently awaiting moderation. It can not be viewed by the public.
   %ol.breadcrumb
     %li
       = link_to 'Home', root_path
@@ -28,7 +30,7 @@
                   .col-md-6
                     %i.fa.fa-file-o
                     = link_to 'Wiki', plugin_plugin_pages_path(@plugin), class: 'no-deco'
-              - if current_user and (current_user == @plugin.user or current_user.admin?)
+              - if @plugin.can_manage(current_user)
                 .panel.panel-default
                   .panel-heading
                     %i.fa.fa-database
@@ -75,8 +77,8 @@
                     ago
                   %b Downloads
                   %ul
-                    - if @plugin.plugin_files.any?
-                      - @plugin.plugin_files.each do |download|
+                    - if @downloads.any?
+                      - @downloads.each do |download|
                         %li= link_to download.file.file.filename, download.file.url
                       %li
                         %a{href: plugin_plugin_files_path(@plugin)} More Downloads

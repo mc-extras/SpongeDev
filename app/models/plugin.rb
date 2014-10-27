@@ -30,6 +30,14 @@ class Plugin < ActiveRecord::Base
     plugin_files.first
   end
 
+  def can_manage(permission_user)
+    permission_user and (self.user == permission_user or permission_user.admin?)
+  end
+
+  def can_view(permission_user)
+    approved ? true : can_manage(permission_user)
+  end
+
   private
   def category_count
     errors.add :tag_list, "is invalid. Select up to four categories for your plugin." unless tag_list.size <= 4

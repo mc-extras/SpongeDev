@@ -23,14 +23,18 @@
         %th Downloads
         %th Filename
     %tbody
-      - @downloads.each do |download|
+      - if @downloads.any?
+        - @downloads.each do |download|
+          %tr{class: "#{'warning' unless download.approved?}"}
+            %td
+              = link_to download.name, [@plugin, download], class: 'no-deco'
+            %td= download.mc_version
+            %td= download.release_type
+            %td
+              = time_ago_in_words(download.created_at)
+              ago
+            %td= download.downloads
+            %td= link_to download.file.file.filename, download.file.url, class: 'no-deco'
+      - else
         %tr
-          %td
-            = link_to download.name, [@plugin, download], class: 'no-deco'
-          %td= download.mc_version
-          %td= download.release_type
-          %td
-            = time_ago_in_words(download.created_at)
-            ago
-          %td= download.downloads
-          %td= link_to download.file.file.filename, download.file.url, class: 'no-deco'
+          %td{:align => "center", :colspan => "6", style: "background-color: white; color: darkgray;"} No downloads found.

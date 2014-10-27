@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024002613) do
+ActiveRecord::Schema.define(version: 20141027005553) do
 
   create_table "authors", force: true do |t|
     t.string   "role"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141024002613) do
     t.datetime "updated_at"
     t.integer  "downloads",    default: 0
     t.string   "release_type"
+    t.boolean  "approved",     default: false
   end
 
   create_table "plugin_pages", force: true do |t|
@@ -64,6 +65,8 @@ ActiveRecord::Schema.define(version: 20141024002613) do
     t.string   "primary_category"
     t.string   "gender"
     t.string   "location"
+    t.boolean  "approved",         default: false
+    t.boolean  "denied",           default: false
   end
 
   create_table "registration_tokens", force: true do |t|
@@ -119,6 +122,8 @@ ActiveRecord::Schema.define(version: 20141024002613) do
     t.string   "location"
     t.string   "gender"
     t.string   "avatar_serve",           default: "Gravatar"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

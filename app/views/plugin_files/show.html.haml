@@ -2,20 +2,22 @@
   %meta{:content => "Sponge Plugin Downloads", :name => "description"}
   %meta{:content => "Sponge, Plugins, Download", :name => "keywords"}
 - content_for :title do @download.name end
-%ol.breadcrumb
-  %li
-    = link_to 'Home', root_path
-  %li
-    = link_to 'Plugins', plugins_path
-  %li
-    = link_to 'Downloads', plugin_plugin_files_path(@plugin)
-  %li
-    = link_to @download.name, [@plugin, @download]
-
-.row
-  .col-md-12
-    %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 5px; background-color: white;"}
-      .container{style: "padding: 10px 0px;"}
+.container
+  %ol.breadcrumb
+    %li
+      = link_to 'Home', root_path
+    %li
+      = link_to 'Plugins', plugins_path
+    %li
+      = link_to 'Downloads', plugin_plugin_files_path(@plugin)
+    %li
+      = link_to @download.name, [@plugin, @download]
+.container
+  - if !@download.approved?
+    .alert.alert-danger This download has not been approved by staff and is not publicly visible.
+  .row
+    .col-md-12
+      .well
         .row
           .col-md-8
             %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 0px 10px; background-color: white;"}

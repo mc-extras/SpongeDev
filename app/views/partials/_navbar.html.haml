@@ -81,6 +81,8 @@
               %li= link_to 'Logout', destroy_user_session_path, method: :delete
               %li= link_to 'Profile', user_path(current_user)
               %li= link_to 'Edit Account', user_about_path(current_user)
+              - if current_user.admin?
+                %li= link_to 'Moderation', moderation_path
             - else
               %li= link_to 'Sign up', new_user_registration_path
               %li= link_to 'Login', new_user_session_path

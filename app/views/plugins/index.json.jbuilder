@@ -1,6 +1,6 @@
 json.plugins do 
 	json.array!(@plugins) do |plugin|
-	  json.extract! plugin, :id, :name, :views
+	  json.extract! plugin, :id, :name, :views, :approved
 	  json.author do
 	  	json.username plugin.user.username
 	  end

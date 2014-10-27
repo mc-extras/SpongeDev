@@ -1,0 +1,20 @@
+.container
+  = render 'context'
+  %table.table.table-bordered.table-striped
+    %thead
+      %th Plugin Name
+      %th Summary
+      %th Categories
+      %th{colspan: 2}
+    %tbody
+      - if @projects.any?
+        - @projects.each do |project|
+          %tr
+            %td= link_to project.name, project
+            %td= project.summary
+            %td= categories_builder(project)
+            %td{align: "center"}= link_to 'Approve', plugin_approve_path(project)
+            %td{align: "center"}= link_to 'Deny', plugin_deny_path(project)
+      - else
+        %tr
+          %td{:align => "center", :colspan => "5", style: "background-color: white; color: darkgray;"} No projects need to be moderated.

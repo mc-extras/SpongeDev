@@ -1,0 +1,13 @@
+%h1 
+  Project Queue
+  .pull-right
+    .btn-group
+      %button.btn.btn-primary.dropdown-toggle{data: { toggle: "dropdown" }} 
+        Queue
+        %span{class: "caret"}
+      %ul{class: "dropdown-menu", role: "menu"}
+        %li
+          %a{href: moderation_projects_path} Projects
+        %li
+          %a{href: moderation_files_path} Files
+%hr
