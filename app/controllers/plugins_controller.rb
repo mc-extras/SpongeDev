@@ -1,5 +1,7 @@
 class PluginsController < ApplicationController
   include PluginsHelper
+  include NotificationsHelper
+
   before_filter :authenticate_user!, :except => [:show, :index]
   before_filter :require_admin, :only => [:approve, :deny]
   def index
@@ -54,7 +56,12 @@ class PluginsController < ApplicationController
     @plugin = Plugin.find(params[:plugin_id])
     @plugin.approved = true
     @plugin.save
+
+    # Dispatch notifications
     UserMailer.plugin_approved(@plugin).deliver
+    sub = subscribe_user(@plugin.subscriptions, @plugin.user)
+    sub.dispatch('approved')
+
     redirect_to moderation_projects_path, :notice => "Successfully approved #{@plugin.name}."
   end
 
@@ -62,7 +69,12 @@ class PluginsController < ApplicationController
     @plugin = Plugin.find(params[:plugin_id])
     @plugin.denied = true
     @plugin.save
+
+    # Dispatch notifications
     UserMailer.plugin_denied(@plugin).deliver
+    sub = subscribe_user(@plugin.subscriptions, @plugin.user)
+    sub.dispatch('denied')
+
     redirect_to moderation_projects_path, :notice => "Successfully denied #{@plugin.name}."
   end
 

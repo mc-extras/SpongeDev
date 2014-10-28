@@ -1,5 +1,7 @@
 class PluginFilesController < ApplicationController
   include PluginFilesHelper
+  include NotificationsHelper
+
   before_filter :authenticate_user!, :except => [:show, :index]
   before_filter :require_admin, :only => [:approve, :deny]
   def index
@@ -53,14 +55,25 @@ class PluginFilesController < ApplicationController
     @file = PluginFile.find(params[:plugin_file_id])
     @file.approved = true
     @file.save
+
+    # Dispatch notifications
     UserMailer.plugin_file_denied(@file).deliver
+    sub = subscribe_user(@file.subscriptions, @file.plugin.user)
+    sub.dispatch('approved')
+    notify_all(@file.subscriptions, 'uploaded')
+
     redirect_to moderation_files_path, :notice => "Successfully approved a file."
   end
 
   def deny
     @file = PluginFile.find(params[:plugin_file_id])
     @file.destroy
+
+    # Dispatch notifications
     UserMailer.plugin_file_approved(@file).deliver
+    sub = subscribe_user(@file.subscriptions, @file.plugin.user)
+    sub.dispatch('denied')
+
     redirect_to moderation_files_path, :notice => "Successfully denied a file."
   end
 

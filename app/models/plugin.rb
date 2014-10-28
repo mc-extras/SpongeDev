@@ -1,4 +1,6 @@
 class Plugin < ActiveRecord::Base
+  has_many :subscriptions, :as => :subscribable
+
   acts_as_taggable
   has_many :authors, :dependent => :destroy
   belongs_to :user

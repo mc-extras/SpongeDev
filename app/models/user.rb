@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :authors, :dependent => :destroy
   has_many :plugins, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  has_many :subscriptions, :dependent => :destroy
+  has_many :notifications, :dependent => :destroy
 
   validates :gender, :inclusion => { :in => ['Male', 'Female', nil] }
   validates :avatar_serve, :inclusion => { :in => ['Gravatar', 'Crafatar'] }

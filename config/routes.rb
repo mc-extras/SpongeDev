@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'notifications/show'
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   root 'home#index'
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
     get :about
     get :notifications
   end
+
+  resources :notifications
 
   scope '/resources' do
     get '/terms' => 'resources#terms', as: 'terms'

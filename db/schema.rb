@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027005553) do
+ActiveRecord::Schema.define(version: 20141028000843) do
 
   create_table "authors", force: true do |t|
     t.string   "role"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20141027005553) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "plugin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.string   "notification_type"
+    t.string   "plugin_name"
+    t.string   "file_name"
+    t.string   "action"
+    t.boolean  "read",              default: false
+    t.time     "read_at"
+    t.integer  "user_id"
+    t.integer  "subscription_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,6 +85,15 @@ ActiveRecord::Schema.define(version: 20141027005553) do
   create_table "registration_tokens", force: true do |t|
     t.string   "uuid"
     t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "subscriber_id"
+    t.integer  "subscribable_id"
+    t.string   "subscribable_type"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
