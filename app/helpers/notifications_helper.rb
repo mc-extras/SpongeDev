@@ -7,9 +7,9 @@ module NotificationsHelper
     sub
   end
 
-  def notify_all(subscriptions, *args)
+  def message_all(sender, subscriptions, body, subject)
     subscriptions.each do |subscription|
-      subscription.dispatch(args)
+      sender.send_message(subscription.subscriber, body, subject)
     end
   end
 end

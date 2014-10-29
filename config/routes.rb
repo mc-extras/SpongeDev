@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'notifications/show'
-
   devise_for :users, :controllers => { :registrations => "registrations" }
+
+  resources :messages
 
   root 'home#index'
 
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   scope '/admin' do
+    get '/' => 'moderation#projects'
     get '/moderation' => 'moderation#projects', as: 'moderation'
     get '/moderation/projects' => 'moderation#projects', as: 'moderation_projects'
     get '/moderation/files' => 'moderation#files', as: 'moderation_files'

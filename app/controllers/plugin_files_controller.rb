@@ -57,10 +57,8 @@ class PluginFilesController < ApplicationController
     @file.save
 
     # Dispatch notifications
-    UserMailer.plugin_file_denied(@file).deliver
-    sub = subscribe_user(@file.subscriptions, @file.plugin.user)
-    sub.dispatch('approved')
-    notify_all(@file.subscriptions, 'uploaded')
+    current_user.send_message(@file.plugin.user, "A download for your plugin #{@file.plugin.name} has been approved.", "Your plugin download has been approved.")
+    message_all(@file.plugin.user, @file.plugin.subscriptions, "I've uploaded a new download for my plugin #{@file.plugin.name}!", "New download for #{@file.plugin.name.}")
 
     redirect_to moderation_files_path, :notice => "Successfully approved a file."
   end
@@ -70,9 +68,7 @@ class PluginFilesController < ApplicationController
     @file.destroy
 
     # Dispatch notifications
-    UserMailer.plugin_file_approved(@file).deliver
-    sub = subscribe_user(@file.subscriptions, @file.plugin.user)
-    sub.dispatch('denied')
+    current_user.send_message(@file.plugin.user, "A download for your plugin #{@file.plugin.name} has been denied.", "Your plugin download has been denied.")
 
     redirect_to moderation_files_path, :notice => "Successfully denied a file."
   end

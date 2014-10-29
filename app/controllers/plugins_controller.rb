@@ -58,9 +58,7 @@ class PluginsController < ApplicationController
     @plugin.save
 
     # Dispatch notifications
-    UserMailer.plugin_approved(@plugin).deliver
-    sub = subscribe_user(@plugin.subscriptions, @plugin.user)
-    sub.dispatch('approved')
+    current_user.send_message(@plugin.user, "Your plugin #{@plugin.name} has been approved.", "Your plugin has been approved.")
 
     redirect_to moderation_projects_path, :notice => "Successfully approved #{@plugin.name}."
   end
@@ -71,9 +69,7 @@ class PluginsController < ApplicationController
     @plugin.save
 
     # Dispatch notifications
-    UserMailer.plugin_denied(@plugin).deliver
-    sub = subscribe_user(@plugin.subscriptions, @plugin.user)
-    sub.dispatch('denied')
+    current_user.send_message(@plugin.user, "Your plugin #{@plugin.name} has been denied.", "Your plugin has been denied.")
 
     redirect_to moderation_projects_path, :notice => "Successfully denied #{@plugin.name}."
   end

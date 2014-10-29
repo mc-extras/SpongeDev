@@ -69,14 +69,6 @@
                 &nbsp;
                 Submit Plugin
       %ul.nav.navbar-nav.navbar-right
-        - if current_user
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-              %i.fa.fa-exclamation
-              %span{class: 'badge'}= @notification_count
-            %ul.dropdown-menu{role: "menu"}
-              - @notifications.each do |n|
-                %li= link_to n.link_text, n
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             - if current_user

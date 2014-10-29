@@ -18,6 +18,7 @@ gem 'github-markdown', :require => 'github/markdown'
 gem 'carrierwave'
 gem 'minecraft_auth'
 gem 'github_revisions'
+gem 'mailboxer'
 
 group :development do
   gem 'better_errors'

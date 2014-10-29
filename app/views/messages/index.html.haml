@@ -1,0 +1,12 @@
+.container
+  %table.table.table-bordered
+    %thead
+      %th Subject
+      %th Users
+      %th Last Message
+    %tbody
+      - @messages.each do |message|
+        %tr
+          %td= message.subject
+          %td
+          %td

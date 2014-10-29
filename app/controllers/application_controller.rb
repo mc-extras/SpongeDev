@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
-  before_filter :set_notifications
   include ApplicationHelper
 
   def configure_permitted_parameters
@@ -18,13 +17,5 @@ class ApplicationController < ActionController::Base
     return redirect_to root_path, notice: 'Please make sure to fill all fields.' if username == nil or email == nil or question == nil
     UserMailer.contact(email, username, question).deliver
     return redirect_to root_path, notice: 'Successfully submitted an inquiry.'
-  end
-  
-
-  def set_notifications
-    if current_user
-      @notifications = Notification.for(current_user)
-      @notification_count = @notifications.count
-    end
   end
 end

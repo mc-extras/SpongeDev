@@ -1,6 +1,4 @@
 class Plugin < ActiveRecord::Base
-  has_many :subscriptions, :as => :subscribable
-
   acts_as_taggable
   has_many :authors, :dependent => :destroy
   belongs_to :user
@@ -16,6 +14,8 @@ class Plugin < ActiveRecord::Base
   validate :category_count
   validate :require_custom
   validate :verify_primary
+
+  has_many :subscriptions, :as => :subscribable
 
   def to_param
     "#{id}-#{name}"

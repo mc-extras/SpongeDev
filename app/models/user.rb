@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_messageable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable,
   :confirmable
@@ -7,7 +8,6 @@ class User < ActiveRecord::Base
   has_many :plugins, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :subscriptions, :dependent => :destroy
-  has_many :notifications, :dependent => :destroy
 
   validates :gender, :inclusion => { :in => ['Male', 'Female', nil] }
   validates :avatar_serve, :inclusion => { :in => ['Gravatar', 'Crafatar'] }
@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
   end
 
   def to_s
+    username
+  end
+
+  def mailboxer_email(object)
+    email
+  end
+
+  def name
     username
   end
 
