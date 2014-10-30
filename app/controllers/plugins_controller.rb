@@ -74,6 +74,18 @@ class PluginsController < ApplicationController
     redirect_to moderation_projects_path, :notice => "Successfully denied #{@plugin.name}."
   end
 
+  def subscribe
+    @plugin = Plugin.find(params[:plugin_id])
+    subscribe_user(@plugin.subscriptions, current_user)
+    return redirect_to @plugin, :notice => "Successfully subscribed to download updates for #{@plugin.name}."
+  end
+
+  def unsubscribe
+    @plugin = Plugin.find(params[:plugin_id])
+    unsubscribe_user(@plugin.subscriptions, current_user)
+    return redirect_to @plugin, :notice => "Successfully unsubscribed from download updates for #{@plugin.name}."
+  end
+
   private
   def plugins_params
     params.require(:plugin).permit(:name, { tag_list: [] }, :body, :summary, :license, :custom_license, :custom_text, :primary_category)

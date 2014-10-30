@@ -84,6 +84,15 @@
                         %a{href: plugin_plugin_files_path(@plugin)} More Downloads
                     - else
                       %li No downloads.
+                  %b Notifications
+                  %ul
+                    - if current_user
+                      - if is_subscribed(@plugin.subscriptions, current_user)
+                        %li= link_to 'Unsubscribe', plugin_unsubscribe_path(@plugin)
+                      - else
+                        %li= link_to 'Subscribe', plugin_subscribe_path(@plugin)
+                    - else
+                      %li Disabled.
               .panel.panel-default{style: "margin-top: 30px;"}
                 .panel-heading
                   %i.fa.fa-pencil

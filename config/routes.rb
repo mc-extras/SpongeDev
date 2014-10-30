@@ -11,8 +11,6 @@ Rails.application.routes.draw do
     get :notifications
   end
 
-  resources :notifications
-
   scope '/resources' do
     get '/terms' => 'resources#terms', as: 'terms'
     get '/rules' => 'resources#rules', as: 'rules'
@@ -45,6 +43,8 @@ Rails.application.routes.draw do
     resources :plugin_pages, :path => 'pages'
     get :deny
     get :approve
+    get :subscribe
+    get :unsubscribe
   end
 
   post '/contact', :to => 'application#contact'
