@@ -7,6 +7,10 @@
     %tbody
       - @messages.each do |message|
         %tr
-          %td= message.subject
+          %td= link_to message.subject, message_path(message)
           %td
-          %td
+            - message.recipients.uniq.each_with_index do |p, i| 
+              = link_to p.username, user_path(p)
+              - unless message.recipients.size == i + 2
+                ,
+          %td= time_ago_in_words(message.last_message.created_at)

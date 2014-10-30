@@ -58,7 +58,7 @@ class PluginFilesController < ApplicationController
 
     # Dispatch notifications
     current_user.send_message(@file.plugin.user, "A download for your plugin #{@file.plugin.name} has been approved.", "Your plugin download has been approved.")
-    message_all(@file.plugin.user, @file.plugin.subscriptions, "I've uploaded a new download for my plugin #{@file.plugin.name}!", "New download for #{@file.plugin.name.}")
+    message_all(@file.plugin.user, @file.plugin.subscriptions, "I've uploaded a new download for my plugin #{@file.plugin.name}!", "New download for #{@file.plugin.name}.")
 
     redirect_to moderation_files_path, :notice => "Successfully approved a file."
   end
