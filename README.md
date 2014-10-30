@@ -28,7 +28,7 @@ rails server
 * [ ] Notifications - Built in notifications, along with custom emails, and external notifications.
 * [x] Social Media
 * [ ] Better authentication - OAuth (Github, Twitter, etc), SSO with Sponge Powered
-* [ ] Moderation (Plugin approval)
+* [x] Moderation (Plugin approval)
 * [x] Plugins
   * [x] Downloads
   * [x] Wiki Pages
