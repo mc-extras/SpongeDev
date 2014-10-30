@@ -1,0 +1,22 @@
+.container
+  %h1 Web API
+  %hr
+
+  The Sponge website provides an API for developers to use with external applications and programs to enhance the Sponge user experience.
+
+  %h2 Plugin API
+  %hr/
+  %p
+    %h3 Plugin index endpoint:
+    .well
+      http://sponge.jake0oo0.me/plugins.json?api=true
+    This endpoint provides general information about a plugin to prevent having to query every plugin to find the necessary data. URLs for the plugin's API endpoint are also provided.
+    The
+    %code
+      ?api=true
+    parameter prevents plugins from being paginated and interferring with results.
+  %p
+    %h3 Plugin endpoint:
+    .well
+      http://sponge.jake0oo0.me/plugins/1-Gesteste.json
+    This can be used to retrieve more specific data about a plugin, including: downloads, licensing, and various other statistics.

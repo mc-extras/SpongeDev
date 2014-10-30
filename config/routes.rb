@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   scope '/resources' do
     get '/terms' => 'resources#terms', as: 'terms'
     get '/rules' => 'resources#rules', as: 'rules'
+    get '/api' => 'resources#api', as: 'api'
   end
 
   scope '/admin' do
