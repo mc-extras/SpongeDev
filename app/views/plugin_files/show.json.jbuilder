@@ -1,0 +1,1 @@
+json.extract! @download, :id, :name, :mc_version, :changelog, :downloads, :created_at
