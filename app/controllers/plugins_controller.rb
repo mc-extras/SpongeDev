@@ -50,7 +50,7 @@ class PluginsController < ApplicationController
   def destroy
     @plugin = Plugin.find(params[:id])
     @plugin.destroy
-    redirect_to plugins_path
+    redirect_to plugins_path, :notice => "Successfully deleted the plugin."
   end
 
   def approve

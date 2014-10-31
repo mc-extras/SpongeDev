@@ -48,7 +48,7 @@ class PluginFilesController < ApplicationController
     @plugin = Plugin.find(params[:plugin_id])
     @download = PluginFile.find(params[:id])
     @download.destroy
-    redirect_to plugin_plugin_files_path(@plugin) 
+    redirect_to plugin_plugin_files_path(@plugin)
   end
 
   def approve
