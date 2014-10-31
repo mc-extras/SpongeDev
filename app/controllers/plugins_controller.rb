@@ -20,6 +20,7 @@ class PluginsController < ApplicationController
 
   def show
     @plugin = Plugin.find(params[:id])
+    @comments = Kaminari.paginate_array(@plugin.comments.reject(&:new_record?)).page(params[:comments]).per(5)
     @downloads = if @plugin.can_manage(current_user)
       @plugin.plugin_files.all
     else

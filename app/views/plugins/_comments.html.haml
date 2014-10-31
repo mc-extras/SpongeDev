@@ -17,7 +17,7 @@
     %p
       %a{href: new_user_session_path} Login
       to post a comment.
-  - @plugin.comments.reject(&:new_record?).each do |comment|
+  - @comments.each do |comment|
     .panel.panel-default{style: "margin-top: 20px;"}
       .panel-body
         .row
@@ -30,3 +30,4 @@
                 %small= time_ago_in_words(comment.created_at) + ' ago'
               .text
                 = comment.content
+  = paginate(@comments, param_name: 'comments')
