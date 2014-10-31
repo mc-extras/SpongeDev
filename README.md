@@ -25,16 +25,17 @@ rails server
 
 ## TODO
 
-* [ ] Notifications - Built in notifications, along with custom emails, and external notifications.
+* [x] Notifications - Built in notifications with emails.
 * [x] Social Media
 * [ ] Better authentication - OAuth (Github, Twitter, etc), SSO with Sponge Powered
-* [x] Moderation (Plugin approval)
 * [x] Plugins
   * [x] Downloads
   * [x] Wiki Pages
   * [x] Stat Tracking
   * [x] Comments
-  * [x] Categorization and Searching
+  * [x] Categorization
+  * [ ] Searching
+  * [x] Moderation
 * [x] Users
   * [x] Local Authentication
   * [x] Profile Pages
