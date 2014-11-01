@@ -89,3 +89,15 @@ and (max-device-width : 480px) {
    margin-top: 20px;
   }
 }
+
+.title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 20px;
+}
+
+.author {
+  white-space: nowrap;
+  overflow: hidden;
+}
