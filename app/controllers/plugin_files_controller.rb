@@ -46,9 +46,17 @@ class PluginFilesController < ApplicationController
   
   def destroy
     @plugin = Plugin.find(params[:plugin_id])
-    @download = PluginFile.find(params[:id])
+    @download = @plugin.plugin_files.find(params[:id])
     @download.destroy
     redirect_to plugin_plugin_files_path(@plugin)
+  end
+
+  def download
+    @plugin = Plugin.find(params[:plugin_id])
+    @download = @plugin.plugin_files.find(params[:plugin_file_id])
+    @download.downloads += 1
+    @download.save
+    send_file @download.file.path
   end
 
   def approve
@@ -72,7 +80,6 @@ class PluginFilesController < ApplicationController
 
     redirect_to moderation_files_path, :notice => "Successfully denied a file."
   end
-
 
   private
   def download_params

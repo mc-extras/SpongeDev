@@ -17,8 +17,18 @@ class Plugin < ActiveRecord::Base
 
   has_many :subscriptions, :as => :subscribable
 
+  def to_s
+    name
+  end
+
   def to_param
     "#{id}-#{name}"
+  end
+
+  def total_downloads
+    downloads = 0
+    self.plugin_files.each { |pf| downloads += pf.downloads }
+    return downloads
   end
 
   def all_categories

@@ -67,10 +67,7 @@
                   %ul
                     %li
                       Downloads:
-                      = @plugin.downloads
-                    %li
-                      Views:
-                      = @plugin.views
+                      = @plugin.total_downloads
                   %b Last Update
                   %p.plugin-indent
                     = time_ago_in_words(@plugin.updated_at)

@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     resources :plugin_files, :path => 'downloads' do
       get :deny
       get :approve
+      get :download
     end
     resources :plugin_pages, :path => 'pages'
     get :deny

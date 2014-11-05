@@ -34,7 +34,7 @@
               = time_ago_in_words(download.created_at)
               ago
             %td= download.downloads
-            %td= link_to download.file.file.filename, download.file.url, class: 'no-deco'
+            %td= link_to download.file.file.filename, plugin_plugin_file_download_path(@plugin, download), class: 'no-deco'
       - else
         %tr
           %td{:align => "center", :colspan => "6", style: "background-color: white; color: darkgray;"} No downloads found.
