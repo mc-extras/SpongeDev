@@ -18,11 +18,11 @@
         .container-fluid{style: "padding: 10px 0px;"}
           .row
             .col-lg-8
-              %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 10px; background-color: white;"}
+              .well.body-content
                 = GitHub::Markdown.render(@plugin.body).html_safe
               = render 'comments'
             .col-lg-4
-              .download.text-center{style: "font-size: 150%; margin-bottom: 5px;"}
+              .download.text-center
                 .row
                   .col-md-6
                     %i.fa.fa-download

@@ -2,22 +2,22 @@
 	%meta{:content => "Sponge Plugin Wiki Pages", :name => "description"}
 	%meta{:content => "Sponge, Plugin, Help, Wiki, #{@plugin.name}", :name => "keywords"}
 - content_for :title do 'Wiki Pages' end
-%ol.breadcrumb
-	%li
-		= link_to 'Home', root_path
-	%li
-		= link_to 'Plugins', plugins_path
-	%li
-		= link_to @plugin.name, @plugin
-	%li
-		= link_to 'Wiki', plugin_plugin_pages_path(@plugin)
-.row
-	.col-md-12
-		.well
-			.container{style: "padding: 10px 0px;"}
+.container
+	%ol.breadcrumb
+		%li
+			= link_to 'Home', root_path
+		%li
+			= link_to 'Plugins', plugins_path
+		%li
+			= link_to @plugin.name, @plugin
+		%li
+			= link_to 'Wiki', plugin_plugin_pages_path(@plugin)
+	.row
+		.col-md-12
+			.well
 				.row 
 					.col-md-8
-						%div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 20px; padding: 10px; background-color: white;"}
+						.well.body-content
 							%table.table.table-striped
 								%thead
 									%tr
@@ -27,7 +27,7 @@
 								%tbody
 									- @pages.each do |page|
 										%tr
-											%td= page.id
+											%td= "##{page.id}"
 											%td= link_to page.title, [@plugin, page]
 											%td
 												= time_ago_in_words(page.updated_at)
@@ -40,4 +40,4 @@
 									Manage
 								.panel-body
 									= link_to 'New Page', new_plugin_plugin_page_path(@plugin)
-									
+										

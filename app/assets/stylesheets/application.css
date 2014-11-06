@@ -35,7 +35,6 @@
   margin: 0 !important;
 }
 
-
  .header-alert {
    margin-top: 30px;
  }
@@ -67,24 +66,10 @@
 	margin-right: 5px;
 }
 
-.plugin-indent {
-	padding-left: 30px;
-}
-
-.form-collapse:hover {
-	color: #B7B7B7;
-}
-
 .avatar {
 	border-radius: 3px;
 }
 
 .account-nav {
 	margin: 1px 0px 0px 0px !important;
-}
-
-@media only screen and (min-width : 0px) and (max-width : 992px) {
-  .plugins {
-   margin-top: 20px;
-  }
 }
