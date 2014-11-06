@@ -9,6 +9,8 @@
     %li
       = link_to 'Plugins', plugins_path
     %li
+      = link_to @plugin.name, @plugin
+    %li
       = link_to 'Downloads', plugin_plugin_files_path(@plugin)
     %li
       = link_to @download.name, [@plugin, @download]
@@ -20,17 +22,22 @@
       .well
         .row
           .col-md-8
-            %div{style: "border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,.30); margin-bottom: 0px; padding: 0px 10px; background-color: white;"}
-              %h2 Changelog:
-              -if not @download.changelog.empty?
-                = GitHub::Markdown.render(@download.changelog).html_safe
-              - else
-                %i#none A changelog was not supplied for this download.
-              %h2 Notes:
-              - if not @download.notes.empty?
-                = GitHub::Markdown.render(@download.notes).html_safe
-              - else
-                %i#none No notes have been added to this download.
+            .panel.panel-default
+              .panel-heading
+                %b Changelog
+              .panel-body
+                -if not @download.changelog.empty?
+                  = GitHub::Markdown.render(@download.changelog).html_safe
+                - else
+                  %i.text-muted A changelog was not supplied for this download.
+            .panel.panel-default
+              .panel-heading
+                %b Notes
+              .panel-body
+                - if not @download.notes.empty?
+                  = GitHub::Markdown.render(@download.notes).html_safe
+                - else
+                  %i.text-muted No notes have been added to this download.
           .col-md-4
             .download.text-center{style: "font-size: 150%; margin-bottom: 5px;"}
               %i.fa.fa-download
@@ -51,8 +58,11 @@
                 %p.plugin-indent
                   = time_ago_in_words(@download.created_at)
                   ago
+                %b Minecraft Version
+                %p.plugin-indent
+                  = @download.mc_version
                 %b Statistics
                 %ul
                   %li 
                     Downloads:
-                    = @plugin.downloads
+                    = @download.downloads
