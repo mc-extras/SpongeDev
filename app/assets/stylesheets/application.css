@@ -26,6 +26,16 @@
   padding-bottom: 20px;
  }
 
+.footer-media {
+  font-size: 20px;
+}
+
+.footer.nav-pills > li > a {
+  padding: 6px 11px !important;
+  margin: 0 !important;
+}
+
+
  .header-alert {
    margin-top: 30px;
  }
@@ -73,29 +83,8 @@
 	margin: 1px 0px 0px 0px !important;
 }
 
-.footer-media {
-	font-size: 20px;
-}
-
-.footer.nav-pills > li > a {
-  padding: 6px 11px !important;
-  margin: 0 !important;
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-width : 0px) and (max-width : 992px) {
   .plugins {
    margin-top: 20px;
   }
-}
-
-.title {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  height: 20px;
-}
-
-.author {
-  white-space: nowrap;
-  overflow: hidden;
 }
