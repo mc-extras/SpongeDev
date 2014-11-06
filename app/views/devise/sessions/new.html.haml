@@ -12,8 +12,8 @@
     .col-md-8
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         %p
-          = f.label :email
-          = f.email_field :email, autofocus: true, :class => "form-control"
+          = f.label :login
+          = f.text_field :login, autofocus: true, class: "form-control"
         %p
           = f.label :password
           = f.password_field :password, :class => "form-control"

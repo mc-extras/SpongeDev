@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   acts_as_messageable
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable,
-  :confirmable
+  :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  attr_accessor :login
 
   has_many :authors, :dependent => :destroy
   has_many :plugins, :dependent => :destroy
@@ -11,7 +12,7 @@ class User < ActiveRecord::Base
 
   validates :gender, :inclusion => { :in => ['Male', 'Female', nil] }
   validates :avatar_serve, :inclusion => { :in => ['Gravatar', 'Crafatar'] }
-  validates :username, :length => { maximum: 16 }
+  validates :username, :length => { maximum: 16 }, :uniqueness => {:case_sensitive => false}
 
   def to_param
     username
@@ -29,15 +30,13 @@ class User < ActiveRecord::Base
     username
   end
 
-  def verify_mc token
-    if rt = RegistrationToken.find_by(uuid: self.uuid, token: token)
-      if rt.created_at < 5.minues.ago
-        return "too old"
-      else
-        return "success"
-        rt.destroy!
-      end
-      return "not found"
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      where(conditions).first
     end
   end
+
 end
