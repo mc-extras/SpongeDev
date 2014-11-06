@@ -1,11 +1,11 @@
 .container
   = render 'context'
-  %table.table.table-bordered.table-striped
+  %table.table.table-bordered.table-striped.footable
     %thead
       %th Plugin Name
-      %th Summary
-      %th Categories
-      %th{colspan: 2}
+      %th{data: { hide: "phone, tablet" }} Summary
+      %th{data: { hide: "phone, tablet" }} Categories
+      %th{colspan: 2, data: { hide: "phone, tablet" }}
     %tbody
       - if @projects.any?
         - @projects.each do |project|
@@ -18,3 +18,5 @@
       - else
         %tr
           %td{:align => "center", :colspan => "5", style: "background-color: white; color: darkgray;"} No projects need to be moderated.
+:javascript
+    $('.footable').footable();

@@ -1,5 +1,10 @@
 %h1 
-  Project Queue
+  %span.hidden-xs
+    - if @projects
+      Project
+    - elsif @files
+      File
+  Queue
   .pull-right
     .btn-group
       %button.btn.btn-primary.dropdown-toggle{data: { toggle: "dropdown" }} 

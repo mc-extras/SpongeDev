@@ -1,12 +1,12 @@
 .container 
   = render 'context'
-  %table.table.table-bordered.table-striped
+  %table.table.table-bordered.table-striped.footable
     %thead
       %th Plugin
-      %th Download Name
-      %th MC Version
-      %td File
-      %td{colspan: 2}  
+      %th{data: { hide: "phone, tablet" }} Download Name
+      %th{data: { hide: "phone, tablet" }} MC Version
+      %td{data: { hide: "phone, tablet" }} File
+      %td{colspan: 2, data: { hide: "phone, tablet" }}  
     %tbody
       - if @files.any?
         - @files.each do |file|
@@ -20,3 +20,5 @@
       - else
         %tr
           %td{:align => "center", :colspan => "5", style: "background-color: white; color: darkgray;"} No downloads need to be moderated.
+:javascript
+    $('.footable').footable();
