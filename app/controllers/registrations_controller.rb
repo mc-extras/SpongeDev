@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-
   def update
     # required for settings form to submit when password is left blank
     if account_update_params[:password].blank?
@@ -32,7 +31,6 @@ class RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     resource.update_attributes(params)
   end
-
 
   def after_update_path_for(resource)
     user_path(resource)
