@@ -4,7 +4,7 @@ require 'rails/all'
 
 Bundler.require(:default, Rails.env)
 
-module SpongeWebsite
+module SpongeDev
   class Application < Rails::Application
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.generators do |g|
