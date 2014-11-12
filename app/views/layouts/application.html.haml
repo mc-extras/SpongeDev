@@ -9,6 +9,7 @@
   - if content_for? :head
     = yield(:head)
   = favicon_link_tag
+  = auto_discovery_link_tag(:rss, "http://iblog.com")
   = stylesheet_link_tag 'application', media: 'all'
   = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css'
   = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.2.0+2/united/bootstrap.min.css'

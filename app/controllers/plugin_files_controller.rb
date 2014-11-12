@@ -16,6 +16,7 @@ class PluginFilesController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @downloads }
+      format.rss { render :layout => false }
     end
   end
 
