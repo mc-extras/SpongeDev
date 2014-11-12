@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
       return redirect_to messages_path, :notice => "You do not have permission to view that conversation."
     end
     @message = @conversation.messages.new
+    @conversation.mark_as_read(current_user)
   end
 
   def create

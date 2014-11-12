@@ -75,6 +75,15 @@
                 Submit Plugin
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
+          - if current_user
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+              %i.fa.fa-bell
+              %span.badge.badge-warning= @notifications.size
+            - if @notifications.any?
+              %ul.dropdown-menu{role: "menu"}
+                - @notifications.each do |n|
+                  %li= link_to n.message.subject, message_path(n.conversation)
+        %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             - if current_user
               = avatar(current_user, :size => 16)
