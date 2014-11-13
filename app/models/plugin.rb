@@ -17,6 +17,11 @@ class Plugin < ActiveRecord::Base
 
   has_many :subscriptions, :as => :subscribable
 
+
+  def self.search(query)
+    where("name like ?", "%#{query}%")
+  end
+
   def to_s
     name
   end

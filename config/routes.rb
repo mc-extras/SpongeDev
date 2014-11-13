@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     get :approve
     get :subscribe
     get :unsubscribe
+
   end
 
   post '/contact', :to => 'application#contact'

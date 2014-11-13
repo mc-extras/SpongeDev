@@ -18,6 +18,11 @@
             = link_to tag, plugins_path(:category => tag)
     .col-md-10
       = paginate @plugins
+      = form_tag plugins_path, method: 'get' do
+        .input-group
+          = text_field :search, params[:search], class: 'form-control', placeholder: 'Search...', type: "search"
+          %span.input-group-btn
+            = submit_tag "Search".html_safe, name: nil, type: "button", class: 'btn btn-primary', data: { disable_with: "Searching..." }
       %table.table.table-striped.table-bordered.footable.plugins
         %thead
           %th{style: "width: 25%"} Plugin

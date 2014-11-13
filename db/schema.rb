@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031031414) do
+ActiveRecord::Schema.define(version: 20141112230506) do
 
   create_table "authors", force: true do |t|
     t.string   "role"
@@ -80,6 +80,14 @@ ActiveRecord::Schema.define(version: 20141031031414) do
 
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
+
+  create_table "pg_search_documents", force: true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "plugin_files", force: true do |t|
     t.string   "name"

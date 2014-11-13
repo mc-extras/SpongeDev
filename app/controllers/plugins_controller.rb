@@ -8,11 +8,14 @@ class PluginsController < ApplicationController
   
   def index
     @tags = CATEGORIES
-
-    @plugins = if params[:category]
-      Plugin.tagged_with(params[:category])
+    if params[:search]
+      @plugins = Plugin.search(params[:search])
     else
-      Plugin.all
+      @plugins = if params[:category]
+        Plugin.tagged_with(params[:category])
+      else
+        Plugin.all
+      end
     end
     @plugins = @plugins.where(:approved => true)
     unless params[:api]
@@ -58,7 +61,6 @@ class PluginsController < ApplicationController
 
     # Dispatch notifications
     current_user.send_message(@plugin.user, "Your plugin #{@plugin.name} has been approved.", "Your plugin has been approved.")
-
     redirect_to moderation_projects_path, :notice => "Successfully approved #{@plugin.name}."
   end
 
@@ -68,7 +70,6 @@ class PluginsController < ApplicationController
 
     # Dispatch notifications
     current_user.send_message(@plugin.user, "Your plugin #{@plugin.name} has been denied.", "Your plugin has been denied.")
-
     redirect_to moderation_projects_path, :notice => "Successfully denied #{@plugin.name}."
   end
 
