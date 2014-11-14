@@ -1,4 +1,4 @@
-# Spongy [![Build Status](https://travis-ci.org/Jake0oo0/Spongy.svg?branch=master)](https://travis-ci.org/Jake0oo0/Spongy)
+# SpongeDev [![Build Status](https://travis-ci.org/Jake0oo0/SpongeDev.svg?branch=master)](https://travis-ci.org/Jake0oo0/SpongeDev)
 
 Spongy is a Proof of Concept website for [Sponge](http://forums.spongepowered.org/).
 
@@ -6,7 +6,7 @@ Spongy is a Proof of Concept website for [Sponge](http://forums.spongepowered.or
 ## Installing
 
 ```bash
-git clone https://github.com/Jake0oo0/Spongy.git && cd Spongy/
+git clone https://github.com/Jake0oo0/SpongeDev.git && cd SpongeDev/
 cp config/database.yml.default config/database.yml
 cp config/initalizers/secrets.rb.default config/initializers/secrets.rb
 bundle install
@@ -25,17 +25,19 @@ rails server
 
 ## TODO
 
-* [x] Notifications - Built in notifications with emails.
+* [x] Notifications
 * [x] Social Media
-* [ ] Better authentication - OAuth (Github, Twitter, etc), SSO with Sponge Powered
+* [x] Responsive
 * [x] Plugins
   * [x] Downloads
   * [x] Wiki Pages
   * [x] Stat Tracking
   * [x] Comments
   * [x] Categorization
-  * [ ] Searching
+  * [x] Searching
   * [x] Moderation
+  * [x] JSON API
+  * [x] RSS Feeds
 * [x] Users
   * [x] Local Authentication
   * [x] Profile Pages
