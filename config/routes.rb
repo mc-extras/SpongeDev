@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     post '/server', :to => 'authentications#post_server', :as => 'mc_post_server'
     get '/credentials', :to => 'authentications#credentials', :as => 'mc_credentials'
     post '/credentials', :to => 'authentications#post_credentials', :as => 'mc_post_credentials'
+    post '/set_token', :to => 'authentications#set_token'
   end
 
   resources :plugins do
