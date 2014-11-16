@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    unless @user = User.find_by_username(params[:id])
+    unless @user = User.find_by(username: params[:id])
       raise ActiveRecord::RecordNotFound # 404 Not Found
     end
   end

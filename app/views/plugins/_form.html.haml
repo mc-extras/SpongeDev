@@ -7,14 +7,15 @@
   %p
     = f.label :license
     = f.select(:license, LICENSES.map { |value| [ value, value ] }, {}, {class: 'form-control'})
-  %p
-    = f.label :custom_license
-    = f.text_field :custom_license, class: 'form-control'
-    .help-block Select the custom option above, and enter a name for your custom license.
-  %p
-    = f.label :custom_text
-    = f.text_area :custom_text, class: 'form-control', rows: 6
-    .help-block The text display when a user views your plugin's license.
+  .custom_license_fields
+    %p
+      = f.label :custom_license
+      = f.text_field :custom_license, class: 'form-control'
+      .help-block Select the custom option above, and enter a name for your custom license.
+    %p
+      = f.label :custom_text, "Custom license text"
+      = f.text_area :custom_text, class: 'form-control', rows: 6
+      .help-block The text display when a user views your plugin's license.
   %p
     = f.label :summary
     = f.text_field :summary, class: 'form-control'

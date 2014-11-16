@@ -13,3 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function(){
+  Ago();
+
+  $("#plugin_license").change(function(event) {
+    console.log(event, this);
+    if ($(this).val() == "Custom") {
+      $(".custom_license_fields").slideDown();
+    } else {
+      $(".custom_license_fields").slideUp();
+    }
+  });
+});

@@ -9,8 +9,8 @@
         %tr
           %td= link_to message.subject, message_path(message)
           %td
-            - message.recipients.uniq.each_with_index do |p, i| 
+            - message.recipients.uniq.each_with_index do |p, i|
               = link_to p.username, user_path(p)
               - unless message.recipients.size == i + 2
                 ,
-          %td= time_ago_in_words(message.last_message.created_at)
+          %td= ago(message.last_message.created_at)

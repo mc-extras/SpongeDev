@@ -20,6 +20,6 @@ module AvatarHelper
   def crafatar_url(uuid, options = {})
     options[:type] ||= "avatar" # or "avatar"
     options[:size] ||= 60
-    "https://skins.jake0oo0.me/avatars/#{CGI.escape(uuid)}?size=#{options[:size]}"
+    "https://crafatar.com/avatars/#{CGI.escape(uuid)}?size=#{options[:size]}"
   end
 end

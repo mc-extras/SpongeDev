@@ -37,8 +37,7 @@
               %td= revision[:author]
               %td= revision[:message]
               %td
-                = time_ago_in_words(revision[:date])
-                ago
+                = ago(revision[:date])
       = paginate revisions
   :javascript
     $('.footable').footable();
