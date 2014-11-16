@@ -76,6 +76,7 @@ class AuthenticationsController < ApplicationController
 
   def authenticate_auth_server!
     unless ENV["AUTH_SERVER_KEY"] and ENV["AUTH_SERVER_KEY"] == request.headers["X-AUTH-SERVER-KEY"]
+      puts "Unauthorized access: #{ENV["AUTH_SERVER_KEY"]} - #{request.headers["X-AUTH-SERVER-KEY"]}"
       render text: "unauthorized", status: 403
     end
   end
