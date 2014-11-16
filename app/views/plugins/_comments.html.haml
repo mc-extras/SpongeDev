@@ -8,7 +8,7 @@
           %i.fa.fa-plus.form-collapse{"data-toggle" => "collapse", "data-target" => "#form-body"}
           :javascript
             elem = $('.form-collapse');
-            elem.click(function() {    
+            elem.click(function() {
               elem.toggleClass('fa-times fa-plus')
             });
       .panel-body.collapse#form-body
@@ -27,7 +27,7 @@
             .content
               .user
                 = profile_link(comment.user)
-                %small= time_ago_in_words(comment.created_at) + ' ago'
+                %small= ago(comment.created_at)
               .text
                 = comment.content
   = paginate(@comments, param_name: 'comments')

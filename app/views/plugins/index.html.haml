@@ -41,8 +41,7 @@
                 %td
                   = categories_builder(plugin)
                 %td
-                  = time_ago_in_words(plugin.updated_at)
-                  ago
+                  = ago(plugin.updated_at)
           - else
             %tr
               %td{:align => "center", :colspan => "5", style: "background-color: white; color: darkgray;"} No plugins were found for these parameters.

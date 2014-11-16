@@ -56,13 +56,12 @@
               .panel-body
                 %b Date Uploaded
                 %p.plugin-indent
-                  = time_ago_in_words(@download.created_at)
-                  ago
+                  = ago(@download.created_at)
                 %b Minecraft Version
                 %p.plugin-indent
                   = @download.mc_version
                 %b Statistics
                 %ul
-                  %li 
+                  %li
                     Downloads:
                     = @download.downloads

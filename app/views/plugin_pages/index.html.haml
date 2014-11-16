@@ -15,7 +15,7 @@
 	.row
 		.col-md-12
 			.well
-				.row 
+				.row
 					.col-md-8
 						.well.body-content
 							%table.table.table-striped
@@ -30,14 +30,12 @@
 											%td= "##{page.id}"
 											%td= link_to page.title, [@plugin, page]
 											%td
-												= time_ago_in_words(page.updated_at)
-												ago
+												= ago(page.updated_at)
 					.col-md-4
 						- if current_user and (current_user == @plugin.user or current_user.admin?)
 							.panel.panel-default
-								.panel-heading 
+								.panel-heading
 									%i.fa.fa-database
 									Manage
 								.panel-body
 									= link_to 'New Page', new_plugin_plugin_page_path(@plugin)
-										

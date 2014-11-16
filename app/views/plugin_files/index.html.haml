@@ -31,8 +31,7 @@
             %td= download.mc_version
             %td= download.release_type
             %td
-              = time_ago_in_words(download.created_at)
-              ago
+              = ago(download.created_at)
             %td= download.downloads
             %td= link_to download.file.file.filename, plugin_plugin_file_download_path(@plugin, download), class: 'no-deco'
       - else

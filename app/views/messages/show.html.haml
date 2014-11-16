@@ -6,7 +6,7 @@
         .col-md-1.col-xs-4
           = avatar(message.sender)
           .from= message.sender
-          .date.text-muted= time_ago_in_words(message.created_at) + ' ago'
+          .date.text-muted= ago(message.created_at)
         .col-md-11.col-xs-8
           .body= GitHub::Markdown.render(message.body).html_safe
   = form_for(@message, url: messages_path) do |f|

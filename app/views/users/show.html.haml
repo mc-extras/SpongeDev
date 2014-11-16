@@ -11,8 +11,7 @@
       %h1= link_to @user.username, user_path(@user)
       %p
         Joined
-        = time_ago_in_words(@user.created_at)
-        ago
+        = ago(@user.created_at)
       .tabbable
         %ul.nav.nav-tabs
           %li{class: "#{tab_active('plugins', true)}"}

@@ -50,8 +50,7 @@
                 .panel-body
                   %b Date Created
                   %p.plugin-indent
-                    = time_ago_in_words(@plugin.created_at)
-                    ago
+                    = ago(@plugin.created_at)
                   %b Categories
                   %p.plugin-indent
                     = categories_builder(@plugin)
@@ -70,8 +69,7 @@
                       = @plugin.total_downloads
                   %b Last Update
                   %p.plugin-indent
-                    = time_ago_in_words(@plugin.updated_at)
-                    ago
+                    = ago(@plugin.updated_at)
                   %b Downloads
                   %ul
                     - if @downloads.any?
