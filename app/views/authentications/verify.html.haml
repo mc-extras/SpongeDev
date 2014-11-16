@@ -4,6 +4,8 @@
       = render 'partials/account'
     .col-md-9
       %h2 Minecraft Account Authentication
+      - if current_user.mc_uuid
+        .alert.alert-danger You have already linked your account to #{current_user.mc_username}! Only use this page if you want to change that!
       %hr/
       = render 'authentications/nav', :type => type
       .well
