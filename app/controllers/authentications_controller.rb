@@ -19,7 +19,7 @@ class AuthenticationsController < ApplicationController
 
   # used by authentication server to set uuid/token
   def set_token
-    rt = RegistrationToken.find_by_uuid(params[:uuid]) || RegistrationToken.new(uuid: params[:uuid])
+    rt = RegistrationToken.find_by(uuid: params[:uuid]) || RegistrationToken.new(uuid: params[:uuid])
     rt.token = params[:token]
     render json: {success: rt.save, errors: rt.errors}
   end
