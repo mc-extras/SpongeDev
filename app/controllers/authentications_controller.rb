@@ -27,6 +27,8 @@ class AuthenticationsController < ApplicationController
     db_token = RegistrationToken.where(:token => token).where(:uuid => uuid).first
     return redirect_to mc_server_path, :alert => "Valid token not found." if not db_token # Token is invalid, not found.
     user.mc_uuid = uuid
+    user.mc_username = username
+    user.avatar_serve = "Crafatar"
     user.save
     redirect_to root_path, :notice => "Successfully linked Minecraft account."
   end
@@ -43,6 +45,8 @@ class AuthenticationsController < ApplicationController
       return redirect_to mc_credentials_path, :alert => "Invalid login credentials."
     end
     @user.mc_uuid = @account.profiles[0].id
+    @user.mc_username = username
+    @user.avatar_serve = "Crafatar"
     @user.save
     redirect_to root_path, :notice => "Successfully linked Minecraft account."
   end
