@@ -44,7 +44,7 @@ class AuthenticationsController < ApplicationController
           user.mc_uuid = uuid
           user.mc_username = username
           user.avatar_serve = "Crafatar"
-          user.save
+          user.save and db_token.destroy
           redirect_to root_path, notice: "Successfully linked Minecraft account."
         end
       end
