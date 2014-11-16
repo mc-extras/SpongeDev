@@ -14,6 +14,13 @@ rake db:migrate
 rails server
 ```
 
+## Environment variables
+
+* `AUTH_SERVER_KEY`: The key used by the Sponge Auth Server to authenticate
+* `SECRET_KEY_BASE`: See config/secrets.yml
+* `GMAIL_USERNAME`: used to send emails
+* `GMAIL_PASSWORD`: used to send emails
+
 ## Side projects
 | Name | Description |
 | ---- | ----------- |
