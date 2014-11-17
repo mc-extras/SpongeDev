@@ -37,7 +37,7 @@
               %td= revision[:author]
               %td= revision[:message]
               %td
-                = ago(revision[:date])
+                = ago Time.parse(revision[:date])
       = paginate revisions
   :javascript
     $('.footable').footable();
