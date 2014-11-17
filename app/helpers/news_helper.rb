@@ -1,22 +1,19 @@
 module NewsHelper
+  # returns an array of announcement hashes
+  # can throw all sorts of errors due to Network problems or unexpected format
   def get_announcements
-    response = HTTParty.get("http://forums.spongepowered.org/c/announcements.json")
-    puts response
+    response = HTTParty.get("https://forums.spongepowered.org/c/announcements.json")
     json = JSON.parse(response.body)
-    puts json
-    topics = json['topic_list']['topics']
-    announcements = Array.new
-    topics.each do |topic|
-      title = topic['title']
-      posted_at = topic['created_at']
-      id = topic['id']
-      next if not id
-      url = "http://forums.spongepowered.org/t/#{id}"
-      puts url + '.json'
-      thread_json = JSON.parse(HTTParty.get(url + '.json').body)
-      thread = thread_json['post_stream']['posts'][0]
-      author = thread['username']
-      text = ActionView::Base.full_sanitizer.sanitize(thread['cooked'])
+    announcements = []
+    json["topic_list"]["topics"].each do |topic|
+      title = topic["title"]
+      posted_at = Time.parse(topic["created_at"])
+      id = topic["id"]
+      next unless id
+      url = "https://forums.spongepowered.org/t/#{id}"
+      user_id = topic["posters"].select!{ |p| p["description"].include? "Original Poster" }.first["user_id"]
+      author = json["users"].select{ |u| u["id"] == user_id }.first["username"]
+      text = HTTParty.get("https://forums.spongepowered.org/raw/#{id}") # Markdown
       announcements << {title: title, posted_at: posted_at, url: url, author: author, text: text}
     end
     announcements
