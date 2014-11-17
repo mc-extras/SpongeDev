@@ -48,13 +48,13 @@
    margin: 0px;
  }
 
- a:link.no-deco { text-decoration: none !important; } 
- a:visited.no-deco { text-decoration: none !important; } 
- a:hover.no-deco { text-decoration: none !important; } 
- a:active.no-deco { text-decoration: none !important; } 
+ a:link.no-deco { text-decoration: none !important; }
+ a:visited.no-deco { text-decoration: none !important; }
+ a:hover.no-deco { text-decoration: none !important; }
+ a:active.no-deco { text-decoration: none !important; }
 
  #left-dropdown {
-   right: 0; 
+   right: 0;
    left: auto;
  }
 
@@ -63,13 +63,13 @@
 }
 
 .action {
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 .avatar {
-	border-radius: 3px;
+  border-radius: 3px;
 }
 
 .account-nav {
-	margin: 1px 0px 0px 0px !important;
+  margin: 1px 0px 0px 0px !important;
 }

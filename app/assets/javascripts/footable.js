@@ -98,7 +98,7 @@
             triggers: {
                 initialize: 'footable_initialize',                      //trigger this event to force FooTable to reinitialize
                 resize: 'footable_resize',                              //trigger this event to force FooTable to resize
-                redraw: 'footable_redraw',								//trigger this event to force FooTable to redraw
+                redraw: 'footable_redraw',                //trigger this event to force FooTable to redraw
                 toggleRow: 'footable_toggle_row',                       //trigger this event to force FooTable to toggle a row
                 expandFirstRow: 'footable_expand_first_row',            //trigger this event to force FooTable to expand the first row
                 expandAll: 'footable_expand_all',                       //trigger this event to force FooTable to expand all rows
@@ -212,7 +212,7 @@
         return this.each(function () {
             instanceCount++;
             var footable = new Footable(this, o, instanceCount);
-			$(this).data('footable', footable);
+      $(this).data('footable', footable);
         });
     };
 
@@ -385,7 +385,7 @@
                 if (col.toggle) {
                     hasToggleColumn = true;
                     var selector = '> tbody > tr:not(.' + cls.detail + ',.' + cls.disabled + ') > td:nth-child(' + (parseInt(col.index, 10) + 1) + '),' +
-											'> tbody > tr:not(.' + cls.detail + ',.' + cls.disabled + ') > th:nth-child(' + (parseInt(col.index, 10) + 1) + ')';
+                      '> tbody > tr:not(.' + cls.detail + ',.' + cls.disabled + ') > th:nth-child(' + (parseInt(col.index, 10) + 1) + ')';
                     $table.find(selector).not('.' + cls.detailCell).prepend($(opt.toggleHTMLElement).addClass(cls.toggle));
                     return;
                 }
@@ -394,7 +394,7 @@
             if (!hasToggleColumn) {
                 $table
                     .find('> tbody > tr:not(.' + cls.detail + ',.' + cls.disabled + ') > td:first-child')
-										.add('> tbody > tr:not(.' + cls.detail + ',.' + cls.disabled + ') > th:first-child')
+                    .add('> tbody > tr:not(.' + cls.detail + ',.' + cls.disabled + ') > th:first-child')
                     .not('.' + cls.detailCell)
                     .prepend($(opt.toggleHTMLElement).addClass(cls.toggle));
             }
@@ -534,8 +534,8 @@
             } //we only care about FooTables that are visible
 
             if (!ft.hasAnyBreakpointColumn()) {
-				$table.trigger(trg.redraw);
-				return;
+        $table.trigger(trg.redraw);
+        return;
             } //we only care about FooTables that have breakpoints
 
             var info = {
@@ -676,7 +676,7 @@
             } else {
                 ft.createOrUpdateDetailRow($row[0]);
                 $row.addClass(cls.detailShow)
-					.next().show();
+          .next().show();
 
                 ft.raise(evt.rowExpanded, { 'row': $row[0] });
             }

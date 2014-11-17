@@ -1,41 +1,41 @@
 - content_for :head do
-	%meta{:content => "Sponge Plugin Wiki Pages", :name => "description"}
-	%meta{:content => "Sponge, Plugin, Help, Wiki, #{@plugin.name}", :name => "keywords"}
+  %meta{:content => "Sponge Plugin Wiki Pages", :name => "description"}
+  %meta{:content => "Sponge, Plugin, Help, Wiki, #{@plugin.name}", :name => "keywords"}
 - content_for :title do 'Wiki Pages' end
 .container
-	%ol.breadcrumb
-		%li
-			= link_to 'Home', root_path
-		%li
-			= link_to 'Plugins', plugins_path
-		%li
-			= link_to @plugin.name, @plugin
-		%li
-			= link_to 'Wiki', plugin_plugin_pages_path(@plugin)
-	.row
-		.col-md-12
-			.well
-				.row
-					.col-md-8
-						.well.body-content
-							%table.table.table-striped
-								%thead
-									%tr
-										%th ID
-										%th Article
-										%th Last Updated
-								%tbody
-									- @pages.each do |page|
-										%tr
-											%td= "##{page.id}"
-											%td= link_to page.title, [@plugin, page]
-											%td
-												= ago(page.updated_at)
-					.col-md-4
-						- if current_user and (current_user == @plugin.user or current_user.admin?)
-							.panel.panel-default
-								.panel-heading
-									%i.fa.fa-database
-									Manage
-								.panel-body
-									= link_to 'New Page', new_plugin_plugin_page_path(@plugin)
+  %ol.breadcrumb
+    %li
+      = link_to 'Home', root_path
+    %li
+      = link_to 'Plugins', plugins_path
+    %li
+      = link_to @plugin.name, @plugin
+    %li
+      = link_to 'Wiki', plugin_plugin_pages_path(@plugin)
+  .row
+    .col-md-12
+      .well
+        .row
+          .col-md-8
+            .well.body-content
+              %table.table.table-striped
+                %thead
+                  %tr
+                    %th ID
+                    %th Article
+                    %th Last Updated
+                %tbody
+                  - @pages.each do |page|
+                    %tr
+                      %td= "##{page.id}"
+                      %td= link_to page.title, [@plugin, page]
+                      %td
+                        = ago(page.updated_at)
+          .col-md-4
+            - if current_user and (current_user == @plugin.user or current_user.admin?)
+              .panel.panel-default
+                .panel-heading
+                  %i.fa.fa-database
+                  Manage
+                .panel-body
+                  = link_to 'New Page', new_plugin_plugin_page_path(@plugin)

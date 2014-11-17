@@ -1,9 +1,9 @@
 .plugin-indent {
-	padding-left: 30px;
+  padding-left: 30px;
 }
 
 .form-collapse:hover {
-	color: #B7B7B7;
+  color: #B7B7B7;
 }
 
 @media only screen and (min-width : 0px) and (max-width : 992px) {
@@ -13,12 +13,12 @@
 }
 
 .body-content {
-	background-color: white !important;
+  background-color: white !important;
 }
 
 .download {
-	font-size: 150%;
-	margin-bottom: 5px;
+  font-size: 150%;
+  margin-bottom: 5px;
 }
 
 .custom_license_fields {
