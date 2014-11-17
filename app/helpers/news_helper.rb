@@ -17,8 +17,8 @@ module NewsHelper
       thread = thread_json['post_stream']['posts'][0]
       author = thread['username']
       text = ActionView::Base.full_sanitizer.sanitize(thread['cooked'])
-      topics << {title: title, posted_at: posted_at, url: url, author: author, text: text}
+      announcements << {title: title, posted_at: posted_at, url: url, author: author, text: text}
     end
-    topics
+    announcements
   end
 end
